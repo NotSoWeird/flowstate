@@ -2,10 +2,10 @@
 
 with lib;
 let
-  cfg = config.hyprland;
+  cfg = config.desktops.gnome;
 in
 {
-  options.hyprland = with types; {
+  options.desktops.gnome = with types; {
     enable = mkBoolOpt false "Whether or not to enable Hyprland.";
   };
 

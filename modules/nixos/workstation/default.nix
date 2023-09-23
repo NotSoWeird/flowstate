@@ -2,10 +2,10 @@
 
 with lib;
 let
-  cfg = config.archetypes.workstation;
+  cfg = config.workstation;
 in
 {
-  options.archetypes.workstation = with types; {
+  options.workstation = with types; {
     enable = mkBoolOpt false "Whether or not to enable the workstation archetype";
   };
 
