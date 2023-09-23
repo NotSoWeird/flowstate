@@ -1,0 +1,2 @@
+# flowstate
+A NixOS config
