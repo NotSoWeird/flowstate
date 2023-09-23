@@ -12,7 +12,7 @@ in
 
   config = mkIf cfg.enable {
     fonts = {
-      fonts.fontDir.enable = true;
+      fontDir.enable = true;
 
       fonts = with pkgs; [
         nerdfonts

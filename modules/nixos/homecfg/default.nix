@@ -2,14 +2,14 @@
 
 with lib;
 let
-  cfg = config.home;
+  cfg = config.homecfg;
 in
 {
   imports = with inputs; [
     home-manager.nixosModules.home-manager
   ];
 
-  options.home = with types; {
+  options.homecfg = with types; {
     file = mkOpt attrs { } "A set of files to be managed by home-manager's 'home.file'";
     configFile = mkOpt attrs { } "A set of files to be managed by home-manager's 'xdg.configFile'";
     extraOptions = mkOpt attrs { } "Options to pass directly to home-manager";
