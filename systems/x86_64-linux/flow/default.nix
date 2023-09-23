@@ -5,7 +5,8 @@ with lib;
 	imports = [ ./hardware.nix ];
 
 	desktops = {
-		hyprland = enabled;
+		#hyprland = enabled;
+		gnome = enabled;
 	};
 	
 	archetypes = {

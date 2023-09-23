@@ -12,13 +12,11 @@ in
     config = mkIf cfg.enable {
         environment.systemPackages = with pkgs; [
             fzf
-            killall
             unzip
             file
-            jq
             clac
             wget
-            #fastfetch
+            fastfetch
         ];
     };
 }

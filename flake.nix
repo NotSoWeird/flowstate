@@ -1,5 +1,5 @@
 {
-  description = "My NixOS / nix-darwin / nixos-generators systems";
+  description = "Flow in the NixOS";
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-23.05";

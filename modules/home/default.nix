@@ -24,6 +24,8 @@ in
     };
 
     home-manager = {
+      enable = true;
+   
       useUserPackages = true;
       useGlobalPkgs = true;
 

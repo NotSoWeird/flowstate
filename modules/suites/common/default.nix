@@ -12,7 +12,7 @@ in
   config = mkIf cfg.enable {
     nixcfg = enabled;
 
-    #home = enabled;
+    home = enabled;
 
     hardware = {
       audio = enabled;
