@@ -1,23 +1,13 @@
-{
-  options,
-  config,
-  lib,
-  pkgs,
-  ...
-}:
+{ options, config, lib, pkgs, ... }:
 with lib;
-with lib.internal; let
-  cfg = config.desktops.hyprland;
+with lib.internal;
+let cfg = config.desktops.hyprland;
 in {
   options.desktops.hyprland = with types; {
     enable = mkBoolOpt false "Enable or disable the hyprland window manager.";
   };
 
   config = mkIf cfg.enable {
-    imports = [ 
-      ./hyprland-environment.nix
-    ];
-
     programs.regreet.enable = true;
     services.greetd = {
       enable = true;

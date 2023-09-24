@@ -1,18 +1,17 @@
 { options, config, pkgs, lib, ... }:
 with lib;
 with lib.internal;
-let
-  cfg = config.system.env;
-in 
-{
+let cfg = config.system.env;
+in {
   options.system.env = with types;
     mkOption {
-      type = attrsOf (oneOf [str path (listOf (either str path))]);
-      apply = mapAttrs (n: v: 
-        if isList v
-        then concatMapStringSep ":" (x: toString x) v
-        else (toString v));
-      default = {};
+      type = attrsOf (oneOf [ str path (listOf (either str path)) ]);
+      apply = mapAttrs (n: v:
+        if isList v then
+          concatMapStringSep ":" (x: toString x) v
+        else
+          (toString v));
+      default = { };
       description = "A set of environment variables to set";
     };
 
@@ -23,15 +22,14 @@ in
         XDG_CONFIG_HOME = "$HOME/.config";
         XDG_DATA_HOME = "$HOME/.local/share";
         XDG_BIN_HOME = "$HOME/.local/bin";
-        XDG_DESKTOP_DIR = "$HOME"; #To prevent firefox from creating ~/Desktop.
+        XDG_DESKTOP_DIR = "$HOME"; # To prevent firefox from creating ~/Desktop.
       };
       variables = {
         # Make some programs "XDG" compliant.
         LESSHISTFILE = "$XDG_CACHE_HOME/less.history";
         WGETRC = "$XDG_CONFIG_HOME/wgetrc";
       };
-      extraInit = 
-        concatStringsSep "\n"
+      extraInit = concatStringsSep "\n"
         (mapAttrsToList (n: v: ''export ${n}="${v}"'') cfg);
     };
   };

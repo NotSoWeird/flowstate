@@ -18,7 +18,7 @@ in {
     programs.waybar = {
       enable = true;
       systemd = {
-        false;
+        enable = false;
         target = "graphical-session.target";
       };
 
