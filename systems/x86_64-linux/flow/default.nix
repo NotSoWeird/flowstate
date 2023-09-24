@@ -9,6 +9,8 @@
 
 	apps.helix.enable = true;
 
+	desktop.gnome.enable = true;
+
 	suites.common.enable = true;
 	suites.development.enable = true;
 
