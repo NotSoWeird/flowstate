@@ -1,16 +1,17 @@
-{ pkgs, lib, ... }:
-
-with lib;
-{
+{ 
+	config, 
+	pkgs, 
+	... 
+}: {
 	imports = [ ./hardware.nix ];
 
-	desktops = {
-		#hyprland = enabled;
-		gnome = enabled;
+	system = {
+		boot.enable = true;
 	};
-	
-	archetypes = {
-		workstation = enabled;
+
+	suites = {
+		desktop.enable = true;
+		development.enable = true;
 	};
 
 	system.stateVersion = "23.05";
