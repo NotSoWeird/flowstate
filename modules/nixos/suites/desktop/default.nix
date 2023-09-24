@@ -15,10 +15,9 @@ in {
 
   config = mkIf cfg.enable {
     desktop.hyprland.enable = true;
-    apps.brave.enable = true;
+    apps.firefox.enable = true;
     
     apps.tools.gnupg.enable = true;
-    apps.kdeconnect.enable = true;
 
     services = {
       flatpak.enable = true;
