@@ -11,12 +11,11 @@ in
   };
 
   config = mkIf cfg.enable {
-    nixcfg = enabled;
+    nix = enabled;
 
     hardware = {
       audio = enabled;
       networking = enabled;
-      storage = enabled;
     };
 
     system = {
@@ -27,13 +26,13 @@ in
       xkb = enabled;
     };
 
-    cli-apps = {
+    apps = {
       helix = enabled;
+      misc = enabled;
+      tools = {
+        git = enabled;
+      };
     };
 
-    tools = {
-      git = enabled;
-      misc = enabled;
-    };
   };
 }

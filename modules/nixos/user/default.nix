@@ -9,7 +9,7 @@
 with lib;
 with lib.internal; let
   cfg = config.user;
-  defaultIconFileName = "profile.png";
+  defaultIconFileName = "profile.jpg";
   defaultIcon = pkgs.stdenvNoCC.mkDerivation {
     name = "default-icon";
     src = ./. + "/${defaultIconFileName}";
