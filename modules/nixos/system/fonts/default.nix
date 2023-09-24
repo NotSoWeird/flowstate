@@ -22,10 +22,12 @@ in
 
     fonts.packages = with pkgs; [
       noto-fonts
-      noto-fonts-cjk-sans
-      noto-fonts-cjk-serif
+      noto-fonts-cjk
       noto-fonts-emoji
-      (nerdfonts.override { fonts = [ "Hack" ]; })
+      nerdfonts
+      twemoji-color-font
+      fira-code
+      fira-code-symbols
     ] ++ cfg.fonts;
   };
 }

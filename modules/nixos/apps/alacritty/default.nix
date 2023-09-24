@@ -15,8 +15,30 @@ in {
   };
 
   config = mkIf cfg.enable {
-    environment.systemPackages = [pkgs.alacritty];
+    programs.alacritty = {
+      enable = true;
 
-    home.configFile."alacritty/alacritty.yml".source = ./alacritty.yml;
+      settings = {
+        font = {
+          normal = {
+            family = "Hack";
+            style = "Medium";
+          };
+          size = 12;
+        };
+
+        window = {
+          padding = {
+            x = 12;
+            y = 12;
+          };
+        };
+        shell = {
+          program = "/usr/bin/env zsh";
+        };
+      };
+    };
+
+    #home.configFile."alacritty/alacritty.yml".source = ./alacritty.yml;
   };
 }
