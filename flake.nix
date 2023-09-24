@@ -10,25 +10,25 @@
     };
 
     snowfall-lib = {
-      url = "github:snowfallorg/lib";
+      url = "github:snowfallorg/lib/dev";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
     
-    nixos-generators = {
-      url = "github:nix-community/nixos-generators";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+#    nixos-generators = {
+#      url = "github:nix-community/nixos-generators";
+#      inputs.nixpkgs.follows = "nixpkgs";
+#    };
 
     nix-ld = {
       url = "github:Mic92/nix-ld";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    neovim = {
-      url = github:IogaMaster/neovim;
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+#    neovim = {
+#      url = github:IogaMaster/neovim;
+#      inputs.nixpkgs.follows = "nixpkgs";
+#    };
   };
 
   outputs = inputs: let
@@ -44,9 +44,9 @@
       src = ./.;
       channels-config.allowUnfree = true;
 
-      overlays = with inputs; [
-        neovim.overlays.x86_64-linux.neovim
-      ];
+ #     overlays = with inputs; [
+ #       neovim.overlays.x86_64-linux.neovim
+ #     ];
 
       systems.modules = with inputs; [
         nix-ld.nixosModules.nix-ld
