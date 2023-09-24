@@ -16,8 +16,6 @@ in {
   config = mkIf cfg.enable {
     desktop.hyprland.enable = true;
     apps.brave.enable = true;
-
-    apps.kitty.enable = true;
     
     apps.tools.gnupg.enable = true;
     apps.kdeconnect.enable = true;

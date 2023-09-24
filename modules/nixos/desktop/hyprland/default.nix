@@ -23,7 +23,7 @@ in {
       gtklock.enable = true;
     };
 
-    apps.foot.enable = true;
+    apps.kitty.enable = true;
 
     programs.hyprland.enable = true;
     programs.hyprland.xwayland.enable = true;
