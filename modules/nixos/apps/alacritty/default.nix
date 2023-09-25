@@ -16,8 +16,6 @@ in {
 
   config = mkIf cfg.enable {
 
-    
-    
     home.programs.alacritty = {
       enable = true;
 

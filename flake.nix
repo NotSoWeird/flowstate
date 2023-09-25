@@ -13,12 +13,11 @@
       url = "github:snowfallorg/lib/dev";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
     
-#    nixos-generators = {
-#      url = "github:nix-community/nixos-generators";
-#      inputs.nixpkgs.follows = "nixpkgs";
-#    };
+    nixos-generators = {
+      url = "github:nix-community/nixos-generators";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     nix-ld = {
       url = "github:Mic92/nix-ld";
@@ -39,10 +38,12 @@
   in
     lib.mkFlake {
       inherit inputs;
-      package-namespace = "custom";
+      #package-namespace = "custom";
 
       src = ./.;
       channels-config.allowUnfree = true;
+
+      snowfall.namespace = "flowstate";
 
  #     overlays = with inputs; [
  #       neovim.overlays.x86_64-linux.neovim

@@ -1,17 +1,24 @@
 { 
-	config,
+	lib,
 	pkgs,
 	... 
-}: {
+}: 
+with lib;
+with lib.flowstate;
+{
 	imports = [ ./hardware.nix ];
 
-	system.boot.enable = true;
+	flowstate = {
+		system.boot = enabled;
 
-	apps.helix.enable = true;
+		apps.helix = enabled;
 
-	suites.desktop.enable = true;
-	suites.common.enable = true;
-	suites.development.enable = true;
+		suites = {
+			desktop = enabled;
+			common = enabled;
+			development = enabled;
+		};
+	};
 
 	system.stateVersion = "23.05";
 }
