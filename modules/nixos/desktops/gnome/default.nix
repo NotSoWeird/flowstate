@@ -3,10 +3,10 @@
 with lib;
 with lib.internal;
 let
-  cfg = config.desktop.gnome;
+  cfg = config.desktops.gnome;
 in
 {
-  options.desktop.gnome = with types; {
+  options.desktops.gnome = with types; {
     enable = mkBoolOpt false "Whether or not to enable Gnome.";
   };
 

@@ -15,7 +15,7 @@ in {
   };
 
   config = mkIf cfg.enable {
-    programs.waybar = {
+    home.programs.waybar = {
       enable = true;
       systemd = {
         enable = false;

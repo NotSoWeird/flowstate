@@ -15,7 +15,7 @@ in
   };
 
   config = mkIf cfg.enable {
-    programs = {
+    home.programs = {
       zsh = {
         oh-my-zsh = {
           enable = true;

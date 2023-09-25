@@ -15,9 +15,10 @@ in {
   };
 
   config = mkIf cfg.enable {
-    home.packages = lib.optionals config.programs.alacritty.enable [pkgs.nerdfonts];
+
     
-    programs.alacritty = {
+    
+    home.programs.alacritty = {
       enable = true;
 
       settings = {

@@ -14,7 +14,7 @@ in {
   };
 
   config = mkIf cfg.enable {
-    programs.rofi = {
+    home.programs.rofi = {
       enable = true;
       terminal = "${pkgs.cool-retro-term}/bin/cool-retro-term";
       theme = ./theme.rasi;
