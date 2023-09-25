@@ -1,4 +1,4 @@
-{ options, config, lib, pkgs, ... }:
+{ options, config, lib, pkgs, inputs, ... }:
 with lib;
 with lib.internal;
 let cfg = config.desktops.hyprland;
@@ -26,6 +26,7 @@ in {
       wlr.enable = true;
     };
 
+    
     wayland.windowManager.hyprland = {
       enable = true;
       systemdIntegration = true;
