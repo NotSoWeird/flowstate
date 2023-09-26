@@ -34,6 +34,8 @@
     lib = inputs.snowfall-lib.mkLib {
       inherit inputs;
       src = ./.;
+
+      snowfall.namespace = "flowstate";
     };
   in
     lib.mkFlake {
@@ -43,7 +45,6 @@
       src = ./.;
       channels-config.allowUnfree = true;
 
-      snowfall.namespace = "flowstate";
 
  #     overlays = with inputs; [
  #       neovim.overlays.x86_64-linux.neovim
