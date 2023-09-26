@@ -1,14 +1,13 @@
-{
-  options,
-  config,
-  lib,
-  pkgs,
-  ...
+{ options
+, config
+, lib
+, pkgs
+, ...
 }:
 with lib;
-with lib.internal; let
+with lib.flowstate; let
   cfg = config.apps.tools.zsh;
-in 
+in
 {
   options.apps.tools.zsh = with types; {
     enable = mkBoolOpt false "Enable zsh";

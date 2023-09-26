@@ -1,8 +1,9 @@
 { options, config, lib, pkgs, inputs, ... }:
 with lib;
-with lib.internal;
+with lib.flowstate;
 let cfg = config.desktops.hyprland;
-in {
+in
+{
   options.desktops.hyprland = with types; {
     enable = mkBoolOpt false "Enable or disable the hyprland window manager.";
   };
@@ -26,7 +27,7 @@ in {
       wlr.enable = true;
     };
 
-    
+
     wayland.windowManager.hyprland = {
       enable = true;
       systemdIntegration = true;

@@ -1,22 +1,22 @@
-{
-  options,
-  config,
-  pkgs,
-  lib,
-  inputs,
-  ...
+{ options
+, config
+, pkgs
+, lib
+, inputs
+, ...
 }:
 with lib;
-with lib.internal; let
+with lib.flowstate; let
   cfg = config.apps.alacritty;
-in {
+in
+{
   options.apps.alacritty = with types; {
     enable = mkBoolOpt false "Enable or disable the alacritty terminal.";
   };
 
   config = mkIf cfg.enable {
 
-    home.programs.alacritty = {
+    programs.alacritty = {
       enable = true;
 
       settings = {

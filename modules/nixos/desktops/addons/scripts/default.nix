@@ -1,6 +1,6 @@
 { options, config, pkgs, lib, ... }:
 with lib;
-with lib.internal;
+with lib.flowstate;
 let
   cfg = config.desktops.addons.scripts;
   inherit (pkgs) scripts;

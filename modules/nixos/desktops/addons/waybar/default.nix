@@ -1,15 +1,15 @@
-{
-  options,
-  config,
-  pkgs,
-  lib,
-  inputs,
-  ...
+{ options
+, config
+, pkgs
+, lib
+, inputs
+, ...
 }:
 with lib;
-with lib.internal; let
+with lib.flowstate; let
   cfg = config.desktops.addons.waybar;
-in {
+in
+{
   options.desktops.addons.waybar = with types; {
     enable = mkBoolOpt false "Enable or disable waybar";
   };
@@ -202,7 +202,7 @@ in {
           "interval" = 1;
           "format" = "{:%I:%M %p  %A %b %d}";
           "tooltip" = true;
-          "tooltip-format"= "{=%A; %d %B %Y}\n<tt>{calendar}</tt>";
+          "tooltip-format" = "{=%A; %d %B %Y}\n<tt>{calendar}</tt>";
         };
         "memory" = {
           "interval" = 1;

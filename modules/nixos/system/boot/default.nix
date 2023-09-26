@@ -1,8 +1,8 @@
 { options, config, lib, pkgs, ... }:
 
 with lib;
-with lib.internal;
-let 
+with lib.flowstate;
+let
   cfg = config.system.boot;
 in
 {
@@ -28,12 +28,12 @@ in
         configurationLimit = 5;
         theme =
           pkgs.fetchFromGitHub
-          {
-            owner = "semimqmo";
-            repo = "sekiro_grub_theme";
-            rev = "1affe05f7257b72b69404cfc0a60e88aa19f54a6";
-            sha256 = "02gdihkd2w33qy86vs8g0pfljp919ah9c13cj4bh9fvvzm5zjfn1";
-          }
+            {
+              owner = "semimqmo";
+              repo = "sekiro_grub_theme";
+              rev = "1affe05f7257b72b69404cfc0a60e88aa19f54a6";
+              sha256 = "02gdihkd2w33qy86vs8g0pfljp919ah9c13cj4bh9fvvzm5zjfn1";
+            }
           + "/Sekiro";
       };
     };

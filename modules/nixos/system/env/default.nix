@@ -1,8 +1,9 @@
 { options, config, pkgs, lib, ... }:
 with lib;
-with lib.internal;
+with lib.flowstate;
 let cfg = config.system.env;
-in {
+in
+{
   options.system.env = with types;
     mkOption {
       type = attrsOf (oneOf [ str path (listOf (either str path)) ]);

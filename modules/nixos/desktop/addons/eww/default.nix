@@ -1,15 +1,15 @@
-{
-  options,
-  config,
-  lib,
-  pkgs,
-  inputs,
-  ...
+{ options
+, config
+, lib
+, pkgs
+, inputs
+, ...
 }:
 with lib;
-with lib.internal; let
+with lib.flowstate; let
   cfg = config.desktop.addons.eww;
-in {
+in
+{
   options.desktop.addons.eww = with types; {
     enable = mkBoolOpt false "Enable or disable EWW.";
     wayland = mkBoolOpt false "Enable wayland support";

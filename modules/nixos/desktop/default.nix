@@ -1,16 +1,16 @@
-{
-  options,
-  config,
-  lib,
-  pkgs,
-  inputs,
-  ...
+{ options
+, config
+, lib
+, pkgs
+, inputs
+, ...
 }:
 with lib;
-with lib.internal; let
+with lib.flowstate; let
   cfg = config.desktop;
-in {
-  options.desktop = with types; {};
+in
+{
+  options.desktop = with types; { };
 
   config = {
     home.configFile."theme/" = {
@@ -27,7 +27,7 @@ in {
       theme = {
         name = "Catppuccin-Mocha-Compact-Blue-dark";
         package = pkgs.catppuccin-gtk.override {
-          accents = ["blue"];
+          accents = [ "blue" ];
           size = "compact";
           variant = "mocha";
         };

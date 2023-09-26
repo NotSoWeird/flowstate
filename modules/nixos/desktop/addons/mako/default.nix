@@ -1,14 +1,14 @@
-{
-  options,
-  config,
-  lib,
-  pkgs,
-  ...
+{ options
+, config
+, lib
+, pkgs
+, ...
 }:
 with lib;
-with lib.internal; let
+with lib.flowstate; let
   cfg = config.desktop.addons.mako;
-in {
+in
+{
   options.desktop.addons.mako = with types; {
     enable = mkBoolOpt false "Enable or disable mako";
   };

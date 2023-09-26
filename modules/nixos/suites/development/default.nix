@@ -1,6 +1,6 @@
 { options, config, lib, pkgs, ... }:
 with lib;
-with lib.internal;
+with lib.flowstate;
 let
   cfg = config.suites.development;
 in

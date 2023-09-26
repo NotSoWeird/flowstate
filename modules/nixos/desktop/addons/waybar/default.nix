@@ -1,15 +1,15 @@
-{
-  options,
-  config,
-  pkgs,
-  lib,
-  inputs,
-  ...
+{ options
+, config
+, pkgs
+, lib
+, inputs
+, ...
 }:
 with lib;
-with lib.internal; let
+with lib.flowstate; let
   cfg = config.desktop.addons.waybar;
-in {
+in
+{
   options.desktop.addons.waybar = with types; {
     enable = mkBoolOpt false "Enable or disable waybar";
   };

@@ -1,14 +1,14 @@
-{
-  options,
-  config,
-  lib,
-  pkgs,
-  ...
+{ options
+, config
+, lib
+, pkgs
+, ...
 }:
 with lib;
-with lib.internal; let
+with lib.flowstate; let
   cfg = config.apps.tools.starship;
-in {
+in
+{
   options.apps.tools.starship = with types; {
     enable = mkBoolOpt false "Enable starship";
   };

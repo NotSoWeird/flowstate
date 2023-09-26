@@ -1,14 +1,14 @@
-{
-  options,
-  config,
-  lib,
-  pkgs,
-  ...
+{ options
+, config
+, lib
+, pkgs
+, ...
 }:
 with lib;
-with lib.internal; let
+with lib.flowstate; let
   cfg = config.suites.desktop;
-in {
+in
+{
   options.suites.desktop = with types; {
     enable = mkBoolOpt false "Enable the desktop suite";
   };
@@ -16,7 +16,7 @@ in {
   config = mkIf cfg.enable {
     desktop.hyprland.enable = true;
     apps.firefox.enable = true;
-    
+
     apps.tools.gnupg.enable = true;
 
     services = {
@@ -33,6 +33,6 @@ in {
       xclip
       xarchiver
     ];
-    
+
   };
 }

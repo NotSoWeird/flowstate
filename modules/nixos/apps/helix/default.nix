@@ -1,15 +1,15 @@
-{
-  options,
-  config,
-  pkgs,
-  lib,
-  inputs,
-  ...
+{ options
+, config
+, pkgs
+, lib
+, inputs
+, ...
 }:
 with lib;
-with lib.internal; let
+with lib.flowstate; let
   cfg = config.apps.helix;
-in {
+in
+{
   options.apps.helix = with types; {
     enable = mkBoolOpt false "Enable or disable helix";
   };
@@ -22,31 +22,31 @@ in {
       helix
     ];
 
-    # home.extraOptions = {
-    #   helix = {
-    #     defaultEditor = true;
+    home.extraOptions = {
+      helix = {
+        defaultEditor = true;
 
-    #     settings = {
-    #       editor = {
-    #         line-number = "relative";
-    #         lsp.display-messages = true;
-    #         cursor-shape = {
-    #           insert = "bar";
-    #           normal = "block";
-    #           select = "underline";
-    #         };
-    #       };
+        settings = {
+          editor = {
+            line-number = "relative";
+            lsp.display-messages = true;
+            cursor-shape = {
+              insert = "bar";
+              normal = "block";
+              select = "underline";
+            };
+          };
 
-    #       keys.normal = {
-    #         space = {
-    #           space = "file_picker";
-    #           s = ":w";
-    #           q = ":q";
-    #         };
-    #         esc = [ "collapse_selection" "keep_primary_selection" ];
-    #       };
-    #     };
-      # };
-    # };
+          keys.normal = {
+            space = {
+              space = "file_picker";
+              s = ":w";
+              q = ":q";
+            };
+            esc = [ "collapse_selection" "keep_primary_selection" ];
+          };
+        };
+      };
+    };
   };
 }

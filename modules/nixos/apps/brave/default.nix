@@ -1,20 +1,20 @@
-{
-  options,
-  config,
-  pkgs,
-  lib,
-  inputs,
-  ...
+{ options
+, config
+, pkgs
+, lib
+, inputs
+, ...
 }:
 with lib;
-with lib.internal; let
+with lib.flowstate; let
   cfg = config.apps.brave;
-in {
+in
+{
   options.apps.brave = with types; {
     enable = mkBoolOpt false "Enable or disable brave browser";
   };
 
   config = mkIf cfg.enable {
-    environment.systemPackages = [pkgs.brave];
+    environment.systemPackages = [ pkgs.brave ];
   };
 }

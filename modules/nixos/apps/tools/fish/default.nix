@@ -1,14 +1,13 @@
-{
-  options,
-  config,
-  lib,
-  pkgs,
-  ...
+{ options
+, config
+, lib
+, pkgs
+, ...
 }:
 with lib;
-with lib.internal; let
+with lib.flowstate; let
   cfg = config.apps.tools.fish;
-in 
+in
 {
   options.apps.tools.fish = with types; {
     enable = mkBoolOpt false "Enable fish";
@@ -16,12 +15,12 @@ in
 
   config = mkIf cfg.enable {
     environment.systemPackages = with pkgs; [
-      fish 
-      eza 
-      bat 
-      lazygit 
-      git 
-      nitch
+      fish
+      eza
+      bat
+      lazygit
+      git
+      niche
     ];
 
     home.programs.fish = {
@@ -37,7 +36,7 @@ in
         gp = "git push -u origin";
 
         g = "lazygit";
-        neofetch = "nitch";
+        neofetch = "niche";
       };
 
       plugins = [

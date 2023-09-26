@@ -1,14 +1,14 @@
-{
-  options,
-  config,
-  lib,
-  pkgs,
-  ...
+{ options
+, config
+, lib
+, pkgs
+, ...
 }:
 with lib;
-with lib.internal; let
+with lib.flowstate; let
   cfg = config.desktops.addons.rofi;
-in {
+in
+{
   options.desktops.addons.rofi = with types; {
     enable = mkBoolOpt false "Enable or disable the rofi run launcher.";
   };

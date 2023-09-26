@@ -1,16 +1,15 @@
-{
-  options,
-  config,
-  pkgs,
-  lib,
-  inputs,
-  ...
+{ options
+, config
+, pkgs
+, lib
+, inputs
+, ...
 }:
 with lib;
-with lib.internal; 
+with lib.flowstate;
 let
   cfg = config.apps.tools.git;
-in 
+in
 {
   options.apps.tools.git = with types; {
     enable = mkBoolOpt false "Enable or disable git";

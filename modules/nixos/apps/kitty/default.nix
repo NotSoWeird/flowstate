@@ -1,13 +1,12 @@
-{
-  options,
-  config,
-  pkgs,
-  lib,
-  inputs,
-  ...
+{ options
+, config
+, pkgs
+, lib
+, inputs
+, ...
 }:
 with lib;
-with lib.internal;
+with lib.flowstate;
 let
   cfg = config.apps.kitty;
 in

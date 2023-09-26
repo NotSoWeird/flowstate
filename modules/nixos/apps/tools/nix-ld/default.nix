@@ -1,14 +1,14 @@
-{
-  options,
-  config,
-  lib,
-  pkgs,
-  ...
+{ options
+, config
+, lib
+, pkgs
+, ...
 }:
 with lib;
-with lib.internal; let
+with lib.flowstate; let
   cfg = config.apps.tools.nix-ld;
-in {
+in
+{
   options.apps.tools.nix-ld = with types; {
     enable = mkBoolOpt false "Enable nix-ld";
   };
