@@ -1,5 +1,4 @@
 { 
-	config,
 	pkgs,
 	lib,
 	... 
@@ -9,13 +8,13 @@ with lib.flowstate;
 {
 	imports = [ ./hardware.nix ];
 
-	flowstate.system.boot.enable = true;
+	system.boot.enable = true;
 
-	flowstate.apps.helix.enable = true;
+	apps.helix.enable = true;
 
-  flowstate.desktops.hyprland.enable = true;
-	flowstate.suites.common.enable = true;
-	flowstate.suites.development.enable = true;
+ 	desktops.hyprland.enable = true;
+	suites.common.enable = true;
+	suites.development.enable = true;
 
 
 	system.stateVersion = "23.05";

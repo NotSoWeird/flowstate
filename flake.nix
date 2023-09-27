@@ -2,7 +2,11 @@
   description = "You could not live with your own failure. Where did that bring you? Back to me. - Thanos";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+     # NixPkgs (nixos-22.11)
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-23.05";
+
+    # NixPkgs Unstable (nixos-unstable)
+    unstable.url = "github:nixos/nixpkgs/nixos-unstable";
 
     home-manager = {
       url = "github:nix-community/home-manager/master";
@@ -13,6 +17,14 @@
       url = "github:snowfallorg/lib/dev";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    # Snowfall Flake
+    flake.url = "github:snowfallorg/flake";
+    flake.inputs.nixpkgs.follows = "unstable";
+
+    # Comma
+    comma.url = "github:nix-community/comma";
+    comma.inputs.nixpkgs.follows = "unstable";
     
     nixos-generators = {
       url = "github:nix-community/nixos-generators";
@@ -35,12 +47,19 @@
       inherit inputs;
       src = ./.;
 
-      snowfall.namespace = "flowstate";
+      snowfall = {
+        meta = {
+          name = "flowstate";
+          title = "Flowstate";
+        };
+
+        # namespace = "flowstate";
+      };
     };
   in
     lib.mkFlake {
       inherit inputs;
-      #package-namespace = "custom";
+      package-namespace = "custom";
 
       src = ./.;
       channels-config.allowUnfree = true;
