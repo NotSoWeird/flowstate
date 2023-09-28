@@ -28,7 +28,7 @@ in
     };
 
 
-    wayland.windowManager.hyprland = {
+    home.wayland.windowManager.hyprland = {
       enable = true;
       systemdIntegration = true;
       extraConfig = ''

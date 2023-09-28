@@ -4,20 +4,18 @@
 	... 
 }: 
 with lib;
-with lib.flowstate;
 {
 	imports = [ ./hardware.nix ];
 
-	flowstate = {
-		system.boot = enabled;
+	system.boot.enable = true; 
 
-		apps.helix = enabled;
+	apps.helix.enable = true;
 
-		suites = {
-			desktop = enabled;
-			common = enabled;
-			development = enabled;
-		};
+
+	suites = {
+		desktop.enable = true;
+		common.enable = true;
+		development.enable = true;
 	};
 
 	system.stateVersion = "23.05";

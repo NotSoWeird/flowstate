@@ -4,7 +4,6 @@
 	... 
 }: 
 with lib;
-with lib.flowstate;
 {
 	imports = [ ./hardware.nix ];
 
