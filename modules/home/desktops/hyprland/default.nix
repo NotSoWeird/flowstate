@@ -5,7 +5,7 @@
   ...
 }:
 with lib;
-with lib.internal;
+with lib.flowstate;
 let
   cfg = config.desktops.hyprland;
 in

@@ -53,13 +53,13 @@
           title = "Flowstate";
         };
 
-        # namespace = "flowstate";
+        namespace = "flowstate";
       };
     };
   in
     lib.mkFlake {
       inherit inputs;
-      package-namespace = "custom";
+      namespace = "flowstate";
 
       src = ./.;
       channels-config.allowUnfree = true;
