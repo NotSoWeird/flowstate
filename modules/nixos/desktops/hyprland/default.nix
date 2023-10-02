@@ -21,6 +21,7 @@ in
       wofi
       pamixer
       slurp
+      cool-retro-term
     ];
     
 
