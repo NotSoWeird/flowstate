@@ -9,6 +9,27 @@ in
   };
 
   config = mkIf cfg.enable {
+
+    environment.systemPackages = with pkgs; [
+      bibata-cursors
+      swww
+      waybar
+      dunst
+      opera
+      librewolf
+      gnome.nautilus
+      wofi
+      pamixer
+      slurp
+    ];
+    
+
+    desktops.addons = {
+      waybar.enable = true;
+      rofi.enable = true;
+      scripts.enable = true;
+    };
+    
     programs.regreet.enable = true;
     services.greetd = {
       enable = true;
@@ -28,7 +49,7 @@ in
     };
 
 
-
+    apps.kitty.enable = true;
     programs.hyprland.enable = true;
     
     home.configFile."hypr/hyprland.conf".source = ./hyprland.conf;
