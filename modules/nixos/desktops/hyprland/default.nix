@@ -28,6 +28,11 @@ in
     };
 
 
-    flowstate.programs.hyprland.enable = true;
+
+    programs.hyprland.enable = true;
+    
+    home.configFile."hypr/hyprland.conf".source = ./hyprland.conf;
+    home.configFile."hypr/launch".source = ./launch;
+    home.configFile."hypr/colors".source = ./colors;
   };
 }
