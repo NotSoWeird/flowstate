@@ -27,6 +27,7 @@ in
       desktops.addons = {
         waybar = enabled;
         rofi = enabled;
+        swww = enabled;
         scripts = enabled;
         wallpapers = enabled;
       };
