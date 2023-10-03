@@ -22,33 +22,6 @@ in
       helix
     ];
 
-    # flowstate.home.extraOptions = {
-    #   helix = {
-    #     defaultEditor = true;
-
-    #     settings = {
-    #       theme = "base16_transparent";
-        
-    #       editor = {
-    #         line-number = "relative";
-    #         lsp.display-messages = true;
-    #         cursor-shape = {
-    #           insert = "bar";
-    #           normal = "block";
-    #           select = "underline";
-    #         };
-    #       };
-
-    #       keys.normal = {
-    #         space = {
-    #           space = "file_picker";
-    #           s = ":w";
-    #           q = ":q";
-    #         };
-    #         esc = [ "collapse_selection" "keep_primary_selection" ];
-    #       };
-    #     };
-    #   };
-    # };
+    flowstate.home.configFile."helix/config.toml".source = ./config.toml;
   };
 }
