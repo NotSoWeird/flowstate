@@ -1,4 +1,4 @@
-{ options, config, pkgs, lib, ... }:
+{ config, pkgs, lib, ... }:
 
 with lib;
 with lib.flowstate;
@@ -8,11 +8,10 @@ let
 in
 {
   options.flowstate.desktops.addons.wallpapers = with types; {
-    enable = mkBoolOpt false
-      "Whether or not to add wallpapers to ~/Pictures/wallpapers.";
+    enable = mkBoolOpt false "Whether or not to add wallpapers to ~/Pictures/wallpapers.";
   };
 
-  config = {
+  config = mkIf cfg.enable {
     flowstate.home.file = lib.foldl
       (acc: name:
         let wallpaper = wallpapers.${name};

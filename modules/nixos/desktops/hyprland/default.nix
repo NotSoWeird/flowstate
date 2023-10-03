@@ -27,9 +27,9 @@ in
       waybar = enabled;
       rofi = enabled;
       scripts = enabled;
-      waybar = enabled;
-      wallpapers = enabled;
     };
+
+    flowstate.desktops.addons.wallpapers = enabled;
     
     programs.regreet = enabled;
     programs.dconf = enabled;
