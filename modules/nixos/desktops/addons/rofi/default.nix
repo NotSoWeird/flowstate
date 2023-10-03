@@ -14,10 +14,10 @@ in
   };
 
   config = mkIf cfg.enable {
-    home.programs.rofi = {
+    flowstate.home.programs.rofi = {
       enable = true;
       terminal = "${pkgs.cool-retro-term}/bin/cool-retro-term";
-      theme = ./theme.rasi;
+      theme = .config/rofi/theme.rasi;
     };
 
     flowstate = {

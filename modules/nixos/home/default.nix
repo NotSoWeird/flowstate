@@ -21,18 +21,18 @@ in
   };
 
   config = {
-    home.extraOptions = {
+    flowstate.home.extraOptions = {
       home.stateVersion = config.system.stateVersion;
-      home.file = mkAliasDefinitions options.home.file;
+      home.file = mkAliasDefinitions options.flowstate.home.file;
       xdg.enable = true;
-      xdg.configFile = mkAliasDefinitions options.home.configFile;
-      programs = mkAliasDefinitions options.home.programs;
+      xdg.configFile = mkAliasDefinitions options.flowstate.home.configFile;
+      programs = mkAliasDefinitions options.flowstate.home.programs;
     };
 
     home-manager = {
       useUserPackages = true;
 
-      users.${config.user.name} = mkAliasDefinitions options.home.extraOptions;
+      users.${config.flowstate.user.name} = mkAliasDefinitions options.flowstate.home.extraOptions;
     };
   };
 }

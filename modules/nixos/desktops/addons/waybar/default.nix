@@ -15,7 +15,7 @@ in
   };
 
   config = mkIf cfg.enable {
-    home.programs.waybar = {
+    flowstate.home.programs.waybar = {
       enable = true;
       systemd = {
         enable = false;

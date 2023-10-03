@@ -50,9 +50,9 @@ in
       propagatedIcon
     ];
 
-    programs.fish.enable = true;
+    # programs.fish.enable = true;
 
-    home = {
+    flowstate.home = {
       file = {
         "Documents/.keep".text = "";
         "Downloads/.keep".text = "";
