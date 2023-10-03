@@ -6,10 +6,10 @@
 }:
 with lib;
 with lib.flowstate; let
-  cfg = config.desktop.addons.mako;
+  cfg = config.flowstate.desktop.addons.mako;
 in
 {
-  options.desktop.addons.mako = with types; {
+  options.flowstate.desktop.addons.mako = with types; {
     enable = mkBoolOpt false "Enable or disable mako";
   };
 
@@ -19,6 +19,6 @@ in
       libnotify
     ];
 
-    home.configFile."mako/config".source = ./config;
+    flowstate.home.configFile."mako/config".source = ./config;
   };
 }

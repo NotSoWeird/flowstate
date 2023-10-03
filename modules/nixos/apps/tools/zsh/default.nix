@@ -6,10 +6,10 @@
 }:
 with lib;
 with lib.flowstate; let
-  cfg = config.apps.tools.zsh;
+  cfg = config.flowstate.apps.tools.zsh;
 in
 {
-  options.apps.tools.zsh = with types; {
+  options.flowstate.apps.tools.zsh = with types; {
     enable = mkBoolOpt false "Enable zsh";
   };
 

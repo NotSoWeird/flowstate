@@ -3,10 +3,10 @@
 with lib;
 with lib.flowstate;
 let
-  cfg = config.system.xkb;
+  cfg = config.flowstate.system.xkb;
 in
 {
-  options.system.xkb = with types; {
+  options.flowstate.system.xkb = with types; {
     enable = mkBoolOpt false "Whether or not to configure xkb.";
   };
 

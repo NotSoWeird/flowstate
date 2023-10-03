@@ -7,16 +7,18 @@
 }:
 with lib;
 with lib.flowstate; let
-  cfg = config.apps.foot;
+  cfg = config.flowstate.apps.foot;
 in
 {
-  options.apps.foot = with types; {
+  options.flowstate.apps.foot = with types; {
     enable = mkBoolOpt false "Enable or disable the foot terminal.";
   };
 
   config = mkIf cfg.enable {
-    environment.systemPackages = [ pkgs.foot ];
+    environment.systemPackages = with pkgs; [ 
+      foot 
+    ];
 
-    home.configFile."foot/foot.ini".source = ./foot.ini;
+    flowstate.home.configFile."foot/foot.ini".source = ./foot.ini;
   };
 }

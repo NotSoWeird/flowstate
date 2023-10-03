@@ -6,7 +6,7 @@
 }:
 with lib;
 with lib.flowstate; let
-  cfg = config.user;
+  cfg = config.flowstate.user;
   defaultIconFileName = "profile.jpg";
   defaultIcon = pkgs.stdenvNoCC.mkDerivation {
     name = "default-icon";
@@ -31,7 +31,7 @@ with lib.flowstate; let
       '';
 in
 {
-  options.user = with types; {
+  options.flowstate.user = with types; {
     name = mkOpt str "notsoweird" "The name to use for the user account.";
     initialPassword =
       mkOpt str "password"

@@ -7,13 +7,13 @@
 }:
 with lib;
 with lib.flowstate; let
-  cfg = config.desktop;
+  cfg = config.flowstate.desktop;
 in
 {
-  options.desktop = with types; { };
+  options.flowstate.desktop = with types; { };
 
   config = {
-    home.configFile."theme/" = {
+    flowstate.home.configFile."theme/" = {
       source = ./themes/catppuccin-mocha;
       recursive = true;
     };

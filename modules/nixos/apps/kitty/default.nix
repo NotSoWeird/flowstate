@@ -8,10 +8,10 @@
 with lib;
 with lib.flowstate;
 let
-  cfg = config.apps.kitty;
+  cfg = config.flowstate.apps.kitty;
 in
 {
-  options.apps.kitty = with types; {
+  options.flowstate.apps.kitty = with types; {
     enable = mkBoolOpt false "Enable the kitty terminal.";
   };
 
@@ -20,9 +20,10 @@ in
       gtk3
       kitty
     ];
-
-    home.configFile."kitty/kitty.conf".source = ./kitty.conf;
-    home.configFile."kitty/catppuccin".source = ./catppuccin;
-    home.configFile."kitty/everforest".source = ./everforest;
+    flowstate = {
+      home.configFile."kitty/kitty.conf".source = ./kitty.conf;
+      home.configFile."kitty/catppuccin".source = ./catppuccin;
+      home.configFile."kitty/everforest".source = ./everforest;
+    };
   };
 }

@@ -7,10 +7,10 @@
 }:
 with lib;
 with lib.flowstate; let
-  cfg = config.desktop.addons.eww;
+  cfg = config.flowstate.desktop.addons.eww;
 in
 {
-  options.desktop.addons.eww = with types; {
+  options.flowstate.desktop.addons.eww = with types; {
     enable = mkBoolOpt false "Enable or disable EWW.";
     wayland = mkBoolOpt false "Enable wayland support";
   };
@@ -25,7 +25,7 @@ in
       socat
     ];
 
-    home.configFile."eww/" = {
+    flowstate.home.configFile."eww/" = {
       recursive = true;
       source = ./config;
     };

@@ -7,10 +7,10 @@
 }:
 with lib;
 with lib.flowstate; let
-  cfg = config.apps.kdeconnect;
+  cfg = config.flowstate.apps.kdeconnect;
 in
 {
-  options.apps.kdeconnect = with types; {
+  options.flowstate.apps.kdeconnect = with types; {
     enable = mkBoolOpt false "Enable or disable kdeconnect";
   };
 

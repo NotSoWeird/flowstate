@@ -6,10 +6,10 @@
 }:
 with lib;
 with lib.flowstate; let
-  cfg = config.apps.tools.nix-ld;
+  cfg = config.flowstate.apps.tools.nix-ld;
 in
 {
-  options.apps.tools.nix-ld = with types; {
+  options.flowstate.apps.tools.nix-ld = with types; {
     enable = mkBoolOpt false "Enable nix-ld";
   };
 

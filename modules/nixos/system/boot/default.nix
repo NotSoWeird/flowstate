@@ -3,10 +3,10 @@
 with lib;
 with lib.flowstate;
 let
-  cfg = config.system.boot;
+  cfg = config.flowstate.system.boot;
 in
 {
-  options.system.boot = with types; {
+  options.flowstate.system.boot = with types; {
     enable = mkBoolOpt false "Whether or not to enable booting.";
   };
 

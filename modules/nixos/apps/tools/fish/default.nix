@@ -6,10 +6,10 @@
 }:
 with lib;
 with lib.flowstate; let
-  cfg = config.apps.tools.fish;
+  cfg = config.flowstate.apps.tools.fish;
 in
 {
-  options.apps.tools.fish = with types; {
+  options.flowstate.apps.tools.fish = with types; {
     enable = mkBoolOpt false "Enable fish";
   };
 

@@ -7,10 +7,10 @@
 with lib;
 with lib.flowstate;
 let
-  cfg = config.system.nix;
+  cfg = config.flowstate.system.nix;
 in
 {
-  options.system.nix = with types; {
+  options.flowstate.system.nix = with types; {
     enable = mkBoolOpt true "Whether or not to manage nix configuration.";
     package = mkOpt package pkgs.nixUnstable "Which nix package to use.";
   };

@@ -7,10 +7,10 @@
 with lib;
 with lib.flowstate;
 let
-  cfg = config.desktops.hyprland;
+  cfg = config.flowstate.desktops.hyprland;
 in
 {
-  options.desktops.hyprland = {
+  options.flowstate.desktops.hyprland = {
     enable = mkEnableOption "pls";
   };
 

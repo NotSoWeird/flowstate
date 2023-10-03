@@ -1,10 +1,10 @@
 { options, config, pkgs, lib, ... }:
 with lib;
 with lib.flowstate;
-let cfg = config.system.env;
+let cfg = config.flowstate.system.env;
 in
 {
-  options.system.env = with types;
+  options.flowstate.system.env = with types;
     mkOption {
       type = attrsOf (oneOf [ str path (listOf (either str path)) ]);
       apply = mapAttrs (n: v:

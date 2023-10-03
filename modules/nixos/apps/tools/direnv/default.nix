@@ -6,10 +6,10 @@
 }:
 with lib;
 with lib.flowstate; let
-  cfg = config.apps.tools.direnv;
+  cfg = config.flowstate.apps.tools.direnv;
 in
 {
-  options.apps.tools.direnv = with types; {
+  options.flowstate.apps.tools.direnv = with types; {
     enable = mkBoolOpt false "Enable direnv";
   };
 

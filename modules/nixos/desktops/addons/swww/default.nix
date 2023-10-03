@@ -7,10 +7,10 @@
 }:
 with lib;
 with lib.flowstate; let
-  cfg = config.desktops.addons.swww;
+  cfg = config.flowstate.desktops.addons.swww;
 in
 {
-  options.desktops.addons.swww = with types; {
+  options.flowstate.desktops.addons.swww = with types; {
     enable = mkBoolOpt false "Enable or disable SWWW";
   };
 

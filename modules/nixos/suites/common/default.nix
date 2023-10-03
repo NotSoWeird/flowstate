@@ -3,10 +3,10 @@
 with lib;
 with lib.flowstate;
 let
-  cfg = config.suites.common;
+  cfg = config.flowstate.suites.common;
 in
 {
-  options.suites.common = with types; {
+  options.flowstate.suites.common = with types; {
     enable = mkBoolOpt false "whether or not to enable common configuration.";
   };
 

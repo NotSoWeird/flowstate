@@ -7,10 +7,10 @@
 }:
 with lib;
 with lib.flowstate; let
-  cfg = config.apps.firefox;
+  cfg = config.flowstate.apps.firefox;
 in
 {
-  options.apps.firefox = with types; {
+  options.flowstate.apps.firefox = with types; {
     enable = mkBoolOpt false "Enable or disable firefox.";
   };
 

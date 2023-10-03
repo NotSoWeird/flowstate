@@ -6,10 +6,10 @@
 }:
 with lib;
 with lib.flowstate; let
-  cfg = config.desktops.addons.rofi;
+  cfg = config.flowstate.desktops.addons.rofi;
 in
 {
-  options.desktops.addons.rofi = with types; {
+  options.flowstate.desktops.addons.rofi = with types; {
     enable = mkBoolOpt false "Enable or disable the rofi run launcher.";
   };
 
@@ -20,8 +20,10 @@ in
       theme = ./theme.rasi;
     };
 
-    home.configFile.".config/rofi/theme.rasi".source = ./theme.rasi;
-    home.configFile.".config/rofi/colors/dracula.rasi".source = ./colors/dracula.rasi;
-    home.configFile.".config/rofi/colors/catppuccin.rasi".source = ./colors/catppuccin.rasi;
+    flowstate = {
+      home.configFile.".config/rofi/theme.rasi".source = ./theme.rasi;
+      home.configFile.".config/rofi/colors/dracula.rasi".source = ./colors/dracula.rasi;
+      home.configFile.".config/rofi/colors/catppuccin.rasi".source = ./colors/catppuccin.rasi;
+    };
   };
 }

@@ -3,10 +3,10 @@
 with lib;
 with lib.flowstate;
 let
-  cfg = config.system.time;
+  cfg = config.flowstate.system.time;
 in
 {
-  options.system.time = with types; {
+  options.flowstate.system.time = with types; {
     enable = mkBoolOpt false "Whether or not to configure timezone information.";
   };
 

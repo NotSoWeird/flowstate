@@ -3,10 +3,10 @@
 with lib;
 with lib.flowstate;
 let
-  cfg = config.system.fonts;
+  cfg = config.flowstate.system.fonts;
 in
 {
-  options.system.fonts = with types; {
+  options.flowstate.system.fonts = with types; {
     enable = mkBoolOpt false "Whether or not to manage fonts.";
     fonts = mkOpt (listOf package) [ ] "Custom font packages to install.";
   };

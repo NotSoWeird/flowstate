@@ -7,10 +7,10 @@
 }:
 with lib;
 with lib.flowstate; let
-  cfg = config.desktop.addons.waybar;
+  cfg = config.flowstate.desktop.addons.waybar;
 in
 {
-  options.desktop.addons.waybar = with types; {
+  options.flowstate.desktop.addons.waybar = with types; {
     enable = mkBoolOpt false "Enable or disable waybar";
   };
 
@@ -19,7 +19,7 @@ in
       pkgs.waybar
     ];
 
-    home.configFile."waybar/" = {
+    flowstate.home.configFile."waybar/" = {
       recursive = true;
       source = ./config;
     };

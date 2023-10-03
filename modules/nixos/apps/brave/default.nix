@@ -7,14 +7,16 @@
 }:
 with lib;
 with lib.flowstate; let
-  cfg = config.apps.brave;
+  cfg = config.flowstate.apps.brave;
 in
 {
-  options.apps.brave = with types; {
+  options.flowstate.apps.brave = with types; {
     enable = mkBoolOpt false "Enable or disable brave browser";
   };
 
   config = mkIf cfg.enable {
-    environment.systemPackages = [ pkgs.brave ];
+    environment.systemPackages = with pkgs; [ 
+      brave 
+    ];
   };
 }

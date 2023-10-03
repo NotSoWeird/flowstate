@@ -6,10 +6,10 @@
 }:
 with lib;
 with lib.flowstate; let
-  cfg = config.desktop.addons.wofi;
+  cfg = config.flowstate.desktop.addons.wofi;
 in
 {
-  options.desktop.addons.wofi = with types; {
+  options.flowstate.desktop.addons.wofi = with types; {
     enable = mkBoolOpt false "Enable or disable the wofi run launcher.";
   };
 
@@ -17,8 +17,9 @@ in
     environment.systemPackages = with pkgs; [
       wofi
     ];
-
-    home.configFile."wofi/config".source = ./config;
-    home.configFile."wofi/style.css".source = ./style.css;
+    flowstate = {
+      home.configFile."wofi/config".source = ./config;
+      home.configFile."wofi/style.css".source = ./style.css;
+    };
   };
 }

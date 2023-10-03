@@ -3,10 +3,10 @@
 with lib;
 with lib.flowstate;
 let
-  cfg = config.system.locale;
+  cfg = config.flowstate.system.locale;
 in
 {
-  options.system.locale = with types; {
+  options.flowstate.system.locale = with types; {
     enable = mkBoolOpt false "Whether or not to manage locale settings.";
   };
 

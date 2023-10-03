@@ -7,10 +7,10 @@
 }:
 with lib;
 with lib.flowstate; let
-  cfg = config.apps.misc;
+  cfg = config.flowstate.apps.misc;
 in
 {
-  options.apps.misc = with types; {
+  options.flowstate.apps.misc = with types; {
     enable = mkBoolOpt false "Enable or disable misc apps";
   };
 

@@ -7,10 +7,10 @@
 }:
 with lib;
 with lib.flowstate; let
-  cfg = config.desktops.addons.waybar;
+  cfg = config.flowstate.desktops.addons.waybar;
 in
 {
-  options.desktops.addons.waybar = with types; {
+  options.flowstate.desktops.addons.waybar = with types; {
     enable = mkBoolOpt false "Enable or disable waybar";
   };
 

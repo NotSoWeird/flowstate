@@ -2,11 +2,11 @@
 with lib;
 with lib.flowstate;
 let
-  cfg = config.desktops.addons.scripts;
+  cfg = config.flowstate.desktops.addons.scripts;
   inherit (pkgs) scripts;
 in
 {
-  options.desktops.addons.scripts = with types; {
+  options.flowstate.desktops.addons.scripts = with types; {
     enable = mkBoolOpt false "Enable hyprland scripts";
   };
 

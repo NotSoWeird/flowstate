@@ -6,10 +6,10 @@
 }:
 with lib;
 with lib.flowstate; let
-  cfg = config.desktop.addons.gtklock;
+  cfg = config.flowstate.desktop.addons.gtklock;
 in
 {
-  options.desktop.addons.gtklock = with types; {
+  options.flowstate.desktop.addons.gtklock = with types; {
     enable = mkBoolOpt false "Enable or disable the gtklock screen locker.";
   };
 
@@ -19,6 +19,6 @@ in
     ];
     security.pam.services.gtklock = { };
 
-    home.configFile."gtklock/style.css".source = ./style.css;
+    flowstate.home.configFile."gtklock/style.css".source = ./style.css;
   };
 }

@@ -3,10 +3,10 @@
 with lib;
 with lib.flowstate;
 let
-  cfg = config.hardware.audio;
+  cfg = config.flowstate.hardware.audio;
 in
 {
-  options.hardware.audio = with types; {
+  options.flowstate.hardware.audio = with types; {
     enable = mkBoolOpt false "Whether or not to enable audio support.";
   };
 

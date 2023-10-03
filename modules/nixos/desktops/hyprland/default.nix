@@ -1,10 +1,10 @@
 { options, config, lib, pkgs, inputs, ... }:
 with lib;
 with lib.flowstate;
-let cfg = config.desktops.hyprland;
+let cfg = config.flowstate.desktops.hyprland;
 in
 {
-  options.desktops.hyprland = with types; {
+  options.flowstate.desktops.hyprland = with types; {
     enable = mkBoolOpt false "Enable or disable the hyprland window manager.";
   };
 
@@ -21,19 +21,23 @@ in
       cool-retro-term
     ];
 
-    apps.kitty.enable = true;
+    flowstate = {
+      apps.kitty = enabled;
 
-    desktops.addons = {
-      waybar = enabled;
-      rofi = enabled;
-      scripts = enabled;
+      desktops.addons = {
+        waybar = enabled;
+        rofi = enabled;
+        scripts = enabled;
+        wallpapers = enabled;
+      };
+    };
+    
+    programs = {
+      regreet = enabled;
+      dconf = enabled;
+      hyprland = enabled;
     };
 
-    flowstate.desktops.addons.wallpapers = enabled;
-    
-    programs.regreet = enabled;
-    programs.dconf = enabled;
-    programs.hyprland = enabled;
     services.greetd = {
       enable = true;
       settings = {
@@ -49,8 +53,10 @@ in
       wlr.enable = true;
     };
 
-    home.configFile."hypr/hyprland.conf".source = ./hyprland.conf;
-    home.configFile."hypr/launch".source = ./launch;
-    home.configFile."hypr/colors".source = ./colors;
+    flowstate = {
+      home.configFile."hypr/hyprland.conf".source = ./hyprland.conf;
+      home.configFile."hypr/launch".source = ./launch;
+      home.configFile."hypr/colors".source = ./colors;
+    }; 
   };
 }

@@ -6,23 +6,23 @@
 }:
 with lib;
 with lib.flowstate; let
-  cfg = config.apps.tools.starship;
+  cfg = config.flowstate.apps.tools.starship;
 in
 {
-  options.apps.tools.starship = with types; {
+  options.flowstate.apps.tools.starship = with types; {
     enable = mkBoolOpt false "Enable starship";
   };
 
   config = mkIf cfg.enable {
     home.programs.starship = {
       enable = true;
-      enableFishIntegration = true;
+      enableZshIntegration = true;
     };
 
     environment.systemPackages = with pkgs; [
       starship
     ];
 
-    home.configFile."starship.toml".source = ./starship.toml;
+    flowstate.home.configFile."starship.toml".source = ./starship.toml;
   };
 }

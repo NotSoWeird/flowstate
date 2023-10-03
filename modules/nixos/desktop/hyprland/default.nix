@@ -6,16 +6,16 @@
 }:
 with lib;
 with lib.flowstate; let
-  cfg = config.desktop.hyprland;
+  cfg = config.flowstate.desktop.hyprland;
 in
 {
-  options.desktop.hyprland = with types; {
+  options.flowstate.desktop.hyprland = with types; {
     enable = mkBoolOpt false "Enable or disable the hyprland window manager.";
   };
 
   config = mkIf cfg.enable {
     # Desktop additions
-    desktop.addons = {
+    flowstate.desktop.addons = {
       waybar.enable = true;
       swww.enable = true;
       wofi.enable = true;
@@ -43,7 +43,9 @@ in
     ];
 
     # Hyprland configuration files
-    home.configFile."hypr/hyprland.conf".source = ./hyprland.conf;
-    home.configFile."hypr/launch".source = ./launch;
+    flowstate = {
+      home.configFile."hypr/hyprland.conf".source = ./hyprland.conf;
+      home.configFile."hypr/launch".source = ./launch;
+    };
   };
 }

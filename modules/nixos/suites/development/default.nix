@@ -2,10 +2,10 @@
 with lib;
 with lib.flowstate;
 let
-  cfg = config.suites.development;
+  cfg = config.flowstate.suites.development;
 in
 {
-  options.suites.development = with types; {
+  options.flowstate.suites.development = with types; {
     enable = mkBoolOpt false "Enable the development suite";
   };
 

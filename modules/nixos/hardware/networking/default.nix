@@ -3,10 +3,10 @@
 with lib;
 with lib.flowstate;
 let
-  cfg = config.hardware.networking;
+  cfg = config.flowstate.hardware.networking;
 in
 {
-  options.hardware.networking = with types; {
+  options.flowstate.hardware.networking = with types; {
     enable = mkBoolOpt false "Whether or not to enable networking support";
     hosts = mkOpt attrs { }
       (mdDoc "An attribute set to merge with 'networking.hosts'");

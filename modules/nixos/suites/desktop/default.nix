@@ -6,10 +6,10 @@
 }:
 with lib;
 with lib.flowstate; let
-  cfg = config.suites.desktop;
+  cfg = config.flowstate.suites.desktop;
 in
 {
-  options.suites.desktop = with types; {
+  options.flowstate.suites.desktop = with types; {
     enable = mkBoolOpt false "Enable the desktop suite";
   };
 
