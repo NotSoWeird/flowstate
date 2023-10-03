@@ -50,7 +50,7 @@ in
       propagatedIcon
     ];
 
-    programs.zsh.enable = true;
+    #programs.zsh.enable = true;
 
     flowstate.home = {
       file = {
@@ -74,7 +74,7 @@ in
         home = "/home/${cfg.name}";
         group = "users";
 
-        shell = pkgs.zsh;
+        #shell = pkgs.zsh;
 
         extraGroups =
           [ "wheel" "audio" "sound" "video" "networkmanager" "input" "tty" "docker" ]

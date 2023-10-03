@@ -22,9 +22,9 @@ in
           theme = ./theme.rasi;
         };
 
-        configFile.".config/rofi/theme.rasi".source = ./theme.rasi;
-        configFile.".config/rofi/colors/dracula.rasi".source = ./colors/dracula.rasi;
-        configFile.".config/rofi/colors/catppuccin.rasi".source = ./colors/catppuccin.rasi;
+        configFile."rofi/theme.rasi".source = ./theme.rasi;
+        configFile."rofi/colors/dracula.rasi".source = ./colors/dracula.rasi;
+        configFile."rofi/colors/catppuccin.rasi".source = ./colors/catppuccin.rasi;
       };
     };
   };

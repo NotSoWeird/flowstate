@@ -22,11 +22,13 @@ in
       helix
     ];
 
-    # home.extraOptions = {
+    # flowstate.home.extraOptions = {
     #   helix = {
     #     defaultEditor = true;
 
     #     settings = {
+    #       theme = "base16_transparent";
+        
     #       editor = {
     #         line-number = "relative";
     #         lsp.display-messages = true;
