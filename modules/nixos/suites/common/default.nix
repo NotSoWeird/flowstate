@@ -12,8 +12,6 @@ in
 
   config = mkIf cfg.enable {
     flowstate = {
-      nix = enabled;
-
       hardware = {
         audio = enabled;
         networking = enabled;
@@ -25,6 +23,7 @@ in
         locale = enabled;
         time = enabled;
         xkb = enabled;
+        nix = enabled;
       };
 
       apps = {
