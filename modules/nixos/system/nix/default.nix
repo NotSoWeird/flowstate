@@ -25,7 +25,7 @@ in
 
     nix =
       let
-        users = [ "root" config.user.name ];
+        users = [ "root" config.flowstate.user.name ];
       in
       {
         package = cfg.package;
@@ -41,7 +41,7 @@ in
             trusted-users = users;
             allowed-users = users;
           }
-          // (lib.optionalAttrs config.apps.tools.direnv.enable {
+          // (lib.optionalAttrs config.flowstate.apps.tools.direnv.enable {
             keep-outputs = true;
             keep-derivations = true;
           });

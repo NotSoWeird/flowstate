@@ -14,7 +14,7 @@ in
   };
 
   config = mkIf cfg.enable {
-    home.programs.starship = {
+    flowstate.home.programs.starship = {
       enable = true;
       enableZshIntegration = true;
     };

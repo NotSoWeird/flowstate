@@ -23,7 +23,7 @@ in
       niche
     ];
 
-    home.programs.fish = {
+    flowstate.home.programs.fish = {
       enable = true;
       shellAliases = {
         ls = "eza -la --icons --no-user --no-time --git -s type";

@@ -19,7 +19,7 @@ in
         programs.rofi = {
           enable = true;
           terminal = "${pkgs.cool-retro-term}/bin/cool-retro-term";
-          theme = .config/rofi/theme.rasi;
+          theme = ./theme.rasi;
         };
 
         configFile.".config/rofi/theme.rasi".source = ./theme.rasi;

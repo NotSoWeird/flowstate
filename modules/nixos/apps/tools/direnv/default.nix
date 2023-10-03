@@ -14,7 +14,7 @@ in
   };
 
   config = mkIf cfg.enable {
-    home.programs.direnv = {
+    flowstate.home.programs.direnv = {
       enable = true;
       nix-direnv.enable = true;
     };

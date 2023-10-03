@@ -14,7 +14,7 @@ in
   };
 
   config = mkIf cfg.enable {
-    home.programs = {
+    flowstate.home.programs = {
       zsh = {
         oh-my-zsh = {
           enable = true;
@@ -30,7 +30,7 @@ in
       };
     };
 
-    home.file.".zshrc".text = ''
+    flowstate.home.file.".zshrc".text = ''
       export PATH=$HOME/bin:/usr/local/bin:$PATH
       # Path to your oh-my-zsh installation.
       #export ZSH="$HOME/.oh-my-zsh"
