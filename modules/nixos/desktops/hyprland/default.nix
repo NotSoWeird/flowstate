@@ -42,7 +42,7 @@ in
       enable = true;
       settings = {
         initial_session = {
-          user = config.user.name;
+          user = config.flowstate.user.name;
           command = "$SHELL -l";
         };
       };

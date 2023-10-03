@@ -10,9 +10,11 @@ with lib.flowstate; let
   cfg = config.flowstate.desktop;
 in
 {
-  options.flowstate.desktop = with types; { };
+  options.flowstate.desktop = with types; {
+    enable = mkBoolOpt false "Enable or disable some configs for desktop.";
+  };
 
-  config = {
+  config = mkIf cfg.enable {
     flowstate.home.configFile."theme/" = {
       source = ./themes/catppuccin-mocha;
       recursive = true;
@@ -22,7 +24,7 @@ in
       GTK_THEME = "Catppuccin-Mocha-Compact-Blue-dark";
     };
 
-    home.extraOptions.gtk = {
+    flowstate.home.extraOptions.gtk = {
       enable = true;
       theme = {
         name = "Catppuccin-Mocha-Compact-Blue-dark";
