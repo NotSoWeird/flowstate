@@ -11,28 +11,29 @@ in
   };
 
   config = mkIf cfg.enable {
-    nix = enabled;
+    flowstate = {
+      nix = enabled;
 
-    hardware = {
-      audio = enabled;
-      networking = enabled;
-    };
+      hardware = {
+        audio = enabled;
+        networking = enabled;
+      };
 
-    system = {
-      boot = enabled;
-      fonts = enabled;
-      locale = enabled;
-      time = enabled;
-      xkb = enabled;
-    };
+      system = {
+        boot = enabled;
+        fonts = enabled;
+        locale = enabled;
+        time = enabled;
+        xkb = enabled;
+      };
 
-    apps = {
-      helix = enabled;
-      misc = enabled;
-      tools = {
-        git = enabled;
+      apps = {
+        helix = enabled;
+        misc = enabled;
+        tools = {
+          git = enabled;
+        };
       };
     };
-
   };
 }

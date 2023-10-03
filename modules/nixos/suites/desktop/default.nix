@@ -14,11 +14,14 @@ in
   };
 
   config = mkIf cfg.enable {
-    desktop.hyprland.enable = true;
-    apps.firefox.enable = true;
-
-    apps.tools.gnupg.enable = true;
-
+    flowstate = {
+      desktop.hyprland.enable = true;
+      apps = {
+        firefox = enabled;
+        tools.gnupg = enabled;
+      };
+    };
+    
     services = {
       flatpak.enable = true;
 
