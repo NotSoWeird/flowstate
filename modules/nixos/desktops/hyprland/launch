@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+rm -rf $XDG_RUNTIME_DIR/swww.socket
+
+hyprctl setcursor Bibata-Modern-Classic 24
+
+dunst
+
+pkill waybar & sleep 0.5 && waybar
+
+swww init
+
+wallpaper_random

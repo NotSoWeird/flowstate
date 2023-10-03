@@ -12,10 +12,7 @@ in
 
     environment.systemPackages = with pkgs; [
       bibata-cursors
-      swww
-      waybar
       dunst
-      opera
       librewolf
       gnome.nautilus
       wofi
@@ -23,15 +20,20 @@ in
       slurp
       cool-retro-term
     ];
-    
+
+    apps.kitty.enable = true;
 
     desktops.addons = {
-      waybar.enable = true;
-      rofi.enable = true;
-      scripts.enable = true;
+      waybar = enabled;
+      rofi = enabled;
+      scripts = enabled;
+      waybar = enabled;
+      wallpapers = enabled;
     };
     
-    programs.regreet.enable = true;
+    programs.regreet = enabled;
+    programs.dconf = enabled;
+    programs.hyprland = enabled;
     services.greetd = {
       enable = true;
       settings = {
@@ -42,17 +44,11 @@ in
       };
     };
 
-    programs.dconf.enable = true;
-
     xdg.portal = {
       enable = true;
       wlr.enable = true;
     };
 
-
-    apps.kitty.enable = true;
-    programs.hyprland.enable = true;
-    
     home.configFile."hypr/hyprland.conf".source = ./hyprland.conf;
     home.configFile."hypr/launch".source = ./launch;
     home.configFile."hypr/colors".source = ./colors;

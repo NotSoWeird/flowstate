@@ -25,7 +25,7 @@ in
       style = ''
         * {
             font-family: "JetBrainsMono Nerd Font";
-            font-size: 12pt;
+            font-size: 14pt;
             font-weight: bold;
             border-radius: 8px;
             transition-property: background-color;
