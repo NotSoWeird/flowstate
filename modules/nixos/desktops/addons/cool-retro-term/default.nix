@@ -7,10 +7,10 @@
 }:
 with lib;
 with lib.flowstate; let
-  cfg = config.desktops.addons.cool-retro-term;
+  cfg = config.flowstate.desktops.addons.cool-retro-term;
 in
 {
-  options.desktops.addons.cool-retro-term = with types; {
+  options.flowstate.desktops.addons.cool-retro-term = with types; {
     enable = mkBoolOpt false "Enable or disable cool-retro-term";
   };
 

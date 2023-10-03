@@ -6,15 +6,18 @@
 }:
 with lib;
 with lib.flowstate; let
-  cfg = config.apps.tools.gnupg;
+  cfg = config.flowstate.apps.tools.gnupg;
 in
 {
-  options.apps.tools.gnupg = with types; {
+  options.flowstate.apps.tools.gnupg = with types; {
     enable = mkBoolOpt false "Enable gnupg";
   };
 
   config = mkIf cfg.enable {
-    environment.systemPackages = [ pkgs.pinentry pkgs.pinentry-curses ];
+    environment.systemPackages = with pkgs; [ 
+      pinentry 
+      pinentry-curses 
+    ];
 
     services.pcscd.enable = true;
     programs.gnupg.agent = {
@@ -23,7 +26,7 @@ in
       enableSSHSupport = true;
     };
 
-    home.file.".local/share/gnupg/gpg-agent.conf".source = ./gpg-agent.conf;
+    flowstate.home.file.".local/share/gnupg/gpg-agent.conf".source = ./gpg-agent.conf;
 
     environment.variables = {
       GNUPGHOME = "$XDG_DATA_HOME/gnupg";
