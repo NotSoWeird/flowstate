@@ -15,27 +15,24 @@ in
 
   config = mkIf cfg.enable {
     flowstate = {
-      desktop.hyprland.enable = true;
+      desktops = {
+        hyprland = enabled;
+      };
+
       apps = {
-        firefox = enabled;
-        tools.gnupg = enabled;
+        tools = {
+          nix-ld = enabled;
+          direnv = enabled;
+          starship = enabled;
+          zsh = enabled;
+        };
       };
+
+      environment.systemPackages = with pkgs; [
+        flowstate.sys
+        flowstate.wallpapers
+        flowstate.scripts
+      ];
     };
-    
-    services = {
-      flatpak.enable = true;
-
-      xserver = {
-        enable = true;
-        displayManager.gdm.enable = true;
-      };
-    };
-
-    environment.systemPackages = with pkgs; [
-      cinnamon.nemo
-      xclip
-      xarchiver
-    ];
-
   };
 }

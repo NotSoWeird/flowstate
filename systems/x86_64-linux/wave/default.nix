@@ -8,13 +8,12 @@ with lib;
 	imports = [ ./hardware.nix ];
 
 	flowstate = {
-		system.boot.enable = true;
-
-		apps.helix.enable = true;
-
-		desktops.hyprland.enable = true;
-		suites.common.enable = true;
-		suites.development.enable = true;
+		desktops.hyprland = enabled;
+		suites = {
+			common = enabled;
+			development = enabled;
+			desktop = enabled;
+		};
 	};
 	system.stateVersion = "23.05";
 }
