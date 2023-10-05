@@ -26,7 +26,7 @@ in
 
         enableAutosuggestions = true;
         enableCompletion = true;
-        enableSyntaxHighlightning = true;
+        # enableSyntaxHighlightning = true;
       };
     };
 

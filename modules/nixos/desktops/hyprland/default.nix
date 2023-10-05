@@ -28,7 +28,6 @@ in
         waybar = enabled;
         rofi = enabled;
         swww = enabled;
-        scripts = enabled;
         wallpapers = enabled;
       };
     };

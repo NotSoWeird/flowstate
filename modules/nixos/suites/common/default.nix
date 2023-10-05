@@ -31,6 +31,7 @@ in
         misc = enabled;
         tools = {
           git = enabled;
+          zsh = enabled;
         };
       };
     };

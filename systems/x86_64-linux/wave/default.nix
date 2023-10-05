@@ -8,11 +8,11 @@ with lib;
 	imports = [ ./hardware.nix ];
 
 	flowstate = {
-		desktops.hyprland = enabled;
+		desktops.hyprland.enable = true;
 		suites = {
-			common = enabled;
-			development = enabled;
-			desktop = enabled;
+			common.enable = true;
+			development.enable = true;
+			desktop.enable = true;
 		};
 	};
 	system.stateVersion = "23.05";

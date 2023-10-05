@@ -27,12 +27,11 @@ in
           zsh = enabled;
         };
       };
-
-      environment.systemPackages = with pkgs; [
-        flowstate.sys
-        flowstate.wallpapers
-        flowstate.scripts
-      ];
     };
+    environment.systemPackages = with pkgs; [
+      flowstate.sys
+      flowstate.wallpapers
+      # flowstate.scripts
+    ];
   };
 }
