@@ -27,7 +27,7 @@ in
       };
 
       apps = {
-        helix = enabled;
+        cli.helix = enabled;
         misc = enabled;
         tools = {
           git = enabled;

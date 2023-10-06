@@ -7,10 +7,10 @@
 }:
 with lib;
 with lib.flowstate; let
-  cfg = config.flowstate.apps.helix;
+  cfg = config.flowstate.apps.cli.helix;
 in
 {
-  options.flowstate.apps.helix = with types; {
+  options.flowstate.apps.cli.helix = with types; {
     enable = mkBoolOpt false "Enable or disable helix";
   };
 
