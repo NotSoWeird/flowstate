@@ -27,7 +27,10 @@ in
       };
 
       apps = {
-        cli.helix = enabled;
+        cli = {
+          helix = enabled;
+          fastfetch = enabled;
+        };
         misc = enabled;
         tools = {
           git = enabled;

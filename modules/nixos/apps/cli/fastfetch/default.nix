@@ -19,6 +19,14 @@ in
       fastfetch
     ];
 
-    # flowstate.home.configFile."helix/config.toml".source = ./config.toml;
+    flowstate.home.programs.fish.shellAliases = {
+      ff = "fastfetch";
+    };
+
+    flowstate.home.configFile."fastfetch/config.jsonc".source = ./config.jsonc;
+    flowstate.home.configFile."fastfetch/images/" = {
+      source = ./images;
+      recursive = true;
+    };
   };
 }
