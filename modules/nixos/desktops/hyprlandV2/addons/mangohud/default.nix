@@ -14,10 +14,10 @@ in
   };
 
   config = mkIf cfg.enable {
+    environment.systemPackages = with pkgs; [
+      mangohud
+    ];
     flowstate = {
-      environment.systemPackages = with pkgs; [
-        mangohud
-      ];
 
       home.configFile = {
         "MangoHud/MangoHud.conf".source = ./MangoHud.conf;

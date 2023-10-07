@@ -14,9 +14,11 @@ in
   };
 
   config = mkIf cfg.enable {
+    environment.systemPackages = with pkgs; [
+      xsettingsd
+    ];
+    
     flowstate = {
-      home.services.xsettingsd.enable = true;
-
       home.configFile = {
         "xsettingsd/xsettingsd.conf".source = ./xsettingsd.conf;
       };

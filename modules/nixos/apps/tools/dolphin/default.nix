@@ -6,11 +6,11 @@
 }:
 with lib;
 with lib.flowstate; let
-  cfg = config.flowstate.apps.tools.zsh;
+  cfg = config.flowstate.apps.tools.dolphin;
 in
 {
-  options.flowstate.apps.tools.zsh = with types; {
-    enable = mkBoolOpt false "Enable zsh";
+  options.flowstate.apps.tools.dolphin = with types; {
+    enable = mkBoolOpt false "Enable dolphin";
   };
 
   config = mkIf cfg.enable {

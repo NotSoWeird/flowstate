@@ -14,10 +14,10 @@ in
   };
 
   config = mkIf cfg.enable {
+    environment.systemPackages = with pkgs; [
+      libsForQt5.qt5ct
+    ];
     flowstate = {
-      environment.systemPackages = with pkgs; [
-        libsForQt5.qt5ct
-      ];
 
       home.configFile = {
         "qt5ct/".source = {

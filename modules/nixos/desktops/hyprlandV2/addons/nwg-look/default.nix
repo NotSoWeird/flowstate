@@ -14,10 +14,10 @@ in
   };
 
   config = mkIf cfg.enable {
+    environment.systemPackages = with pkgs; [
+      nwg-look
+    ];
     flowstate = {
-      environment.systemPackages = with pkgs; [
-        nwg-look
-      ];
 
       home.configFile = {
         "nwg-look/config".source = ./config;

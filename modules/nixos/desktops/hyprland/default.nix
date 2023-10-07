@@ -21,7 +21,7 @@ in
     ];
 
     flowstate = {
-      apps.kitty = enabled;
+      apps.terminal.kitty = enabled;
 
       desktops.addons = {
         cool-retro-term = enabled;

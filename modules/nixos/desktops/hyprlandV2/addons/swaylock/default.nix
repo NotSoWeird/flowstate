@@ -14,10 +14,10 @@ in
   };
 
   config = mkIf cfg.enable {
+    environment.systemPackages = with pkgs; [
+      swaylock
+    ];
     flowstate = {
-      environment.systemPackages = with pkgs; [
-        swaylock
-      ];
 
       home.configFile = {
         "swaylock/config".source = ./config;

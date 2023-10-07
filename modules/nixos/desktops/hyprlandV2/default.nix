@@ -10,7 +10,7 @@ in
 
   config = mkIf cfg.enable {
     flowstate = {
-      apps.kitty = enabled;
+      apps.terminal.kitty = enabled;
 
       desktops.hyprlandV2.addons = {
         dunst = enabled;

@@ -14,10 +14,10 @@ in
   };
 
   config = mkIf cfg.enable {
+    environment.systemPackages = with pkgs; [
+      libsForQt5.qtstyleplugin-kvantum
+    ];
     flowstate = {
-      environment.systemPackages = with pkgs; [
-        libsForQt5.qtstyleplugin-kvantum
-      ];
 
       home.configFile = {
         "Kvantum/".source = {

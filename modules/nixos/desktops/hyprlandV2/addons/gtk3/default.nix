@@ -14,10 +14,10 @@ in
   };
 
   config = mkIf cfg.enable {
+    environment.systemPackages = with pkgs; [
+      gtk3
+    ];
     flowstate = {
-      environment.systemPackages = with pkgs; [
-        gtk3
-      ];
 
       home.configFile = {
         "gtk-3.0/settings.ini".source = ./settings.ini;
