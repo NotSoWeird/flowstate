@@ -7,6 +7,8 @@ with lib;
 {
 	imports = [ ./hardware.nix ];
 
+	nixpkgs.config.allowUnfree = true;
+
 	flowstate = {
 		desktops.hyprland.enable = true;
 		suites = {

@@ -18,8 +18,8 @@ in
       vscode
     ];
 
-    flowstate.home.programs.vscode = {
-      enable = true;
-    };
+    # flowstate.home.programs.vscode = {
+    #   enable = true;
+    # };
   };
 }
