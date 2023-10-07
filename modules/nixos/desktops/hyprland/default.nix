@@ -18,13 +18,13 @@ in
       wofi
       pamixer
       slurp
-      cool-retro-term
     ];
 
     flowstate = {
       apps.kitty = enabled;
 
       desktops.addons = {
+        cool-retro-term = enabled;
         waybar = enabled;
         rofi = enabled;
         swww = enabled;

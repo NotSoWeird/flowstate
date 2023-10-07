@@ -25,6 +25,7 @@ in
           direnv = enabled;
           starship = enabled;
           zsh = enabled;
+          vscode = enabled;
         };
       };
     };
