@@ -10,8 +10,6 @@ in
 
   config = mkIf cfg.enable {
     flowstate = {
-      apps.terminal.kitty = enabled;
-
       desktops.hyprlandV2.addons = {
         dunst = enabled;
         gtk3 = enabled;
@@ -26,6 +24,15 @@ in
         waybar = enabled;
         wlogout = enabled;
         xsettingsd = enabled;
+      };
+    };
+
+    apps = {
+      terminal.kitty = enabled;
+      tools = {
+        dolphin = enabled;
+        starship = enabled;
+        zsh = enabled;
       };
     };
 

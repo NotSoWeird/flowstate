@@ -50,8 +50,6 @@ in
       propagatedIcon
     ];
 
-    programs.fish.enable = true;
-
     flowstate.home = {
       file = {
         "Documents/.keep".text = "";
@@ -74,7 +72,7 @@ in
         home = "/home/${cfg.name}";
         group = "users";
 
-        shell = pkgs.fish;
+        shell = pkgs.zsh;
 
         extraGroups =
           [ "wheel" "audio" "sound" "video" "networkmanager" "input" "tty" "docker" ]
