@@ -25,16 +25,17 @@ in
         wlogout = enabled;
         xsettingsd = enabled;
       };
-    };
-
-    apps = {
-      terminal.kitty = enabled;
-      tools = {
-        dolphin = enabled;
-        starship = enabled;
-        zsh = enabled;
+      apps = {
+        terminal.kitty = enabled;
+        cli.krabby = enabled;
+        tools = {
+          dolphin = enabled;
+          starship = enabled;
+          zsh = enabled;
+        };
       };
     };
+
 
     flowstate = {
       home.configFile."hypr/" = {

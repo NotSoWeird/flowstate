@@ -65,6 +65,8 @@ in
       };
     };
 
+    programs.zsh.enable = true;    
+    
     users.users.${cfg.name} =
       {
         isNormalUser = true;
