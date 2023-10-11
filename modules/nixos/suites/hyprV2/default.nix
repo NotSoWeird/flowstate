@@ -37,7 +37,9 @@ in
           krabby = enabled;
         };
         misc = enabled;
+        libreoffice = enabled;
         tools = {
+          keepassxc = enabled;
           git = enabled;
           zsh = enabled;
           nix-ld = enabled;

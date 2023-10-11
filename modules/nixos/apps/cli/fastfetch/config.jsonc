@@ -111,11 +111,11 @@
             "key": "├─ 󰝚 󰁔",
             // "keyColor": "blue"
         },
-        {
-            "type": "weather",
-            "key": "├─ 󱔐 󰁔",
+        //{
+        //    "type": "weather",
+        //    "key": "├─ 󱔐 󰁔",
             // "keyColor": "blue"
-        },
+        //},
         {
             "type": "datetime",
             "key": "├─  󰁔",

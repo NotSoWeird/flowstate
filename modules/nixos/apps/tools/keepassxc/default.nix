@@ -17,5 +17,7 @@ in
     environment.systemPackages = with pkgs; [
       keepassxc
     ];
+
+    flowstate.home.configFile."keepassxc/keepassxc.ini".source = ./keepassxc.ini;
   };
 }
