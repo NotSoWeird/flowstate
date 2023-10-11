@@ -20,7 +20,7 @@ in
       };
 
       home.configFile = {
-        "wlogout/".source = {
+        "wlogout/" = {
           source = ./wlogout;
           recursive = true;
         };

@@ -20,7 +20,7 @@ in
       };
 
       home.configFile = {
-        "waybar/".source = {
+        "waybar/" = {
           source = ./waybar;
           recursive = true;
         };

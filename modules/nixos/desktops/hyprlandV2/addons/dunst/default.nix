@@ -14,14 +14,17 @@ in
   };
 
   config = mkIf cfg.enable {
+    environment.systemPackages = with pkgs; [
+      dunst
+    ];
     flowstate = {
       home = {
-        programs.dunst = {
-          enable = true;
-        };
+        # services.dunst = {
+        #   enable = true;
+        # };
 
         configFile."dunst/dunstrc".source = ./dunstrc;
-        configFile."dunst/icons/".source = {
+        configFile."dunst/icons/" = {
           source = ./icons;
           recursive = true;
         };

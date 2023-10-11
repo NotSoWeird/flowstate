@@ -20,7 +20,7 @@ in
     flowstate = {
 
       home.configFile = {
-        "Kvantum/".source = {
+        "Kvantum/" = {
           source = ./Kvantum;
           recursive = true;
         };

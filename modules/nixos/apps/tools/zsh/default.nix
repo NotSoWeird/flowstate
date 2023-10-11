@@ -29,8 +29,6 @@ in
           theme = "powerlevel10k";
           plugins = [
             "git"
-            "zsh-syntax-highlighting"
-            "zsh-autosuggestions"
           ];
         };
 
@@ -49,17 +47,15 @@ in
                 ";
         };
 
-        # enableAutosuggestions = true;
-        # enableCompletion = true;
+        enableAutosuggestions = true;
+        enableCompletion = true;
+        syntaxHighlighting.enable = true;
         # enableSyntaxHighlightning = true;
       };
     };
 
     flowstate.home.file.".zshrc".text = ''
       CASE_SENSITIVE="true"
-
-      # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-      [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
       krabby random
     '';

@@ -20,7 +20,7 @@ in
       };
 
       home.configFile = {
-        "rofi/".source = {
+        "rofi/" = {
           source = ./rofi;
           recursive = true;
         };

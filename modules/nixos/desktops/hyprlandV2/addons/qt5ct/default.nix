@@ -20,7 +20,7 @@ in
     flowstate = {
 
       home.configFile = {
-        "qt5ct/".source = {
+        "qt5ct/" = {
           source = ./qt5ct;
           recursive = true;
         };
