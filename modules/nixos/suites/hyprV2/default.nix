@@ -27,7 +27,7 @@ in
       };
 
       desktops = {
-        hyprland = enabled;
+        hyprlandV2 = enabled;
       };
 
       apps = {
@@ -38,6 +38,10 @@ in
         };
         misc = enabled;
         libreoffice = enabled;
+        discord = enabled;
+        school = {
+          octave = enabled;
+        };
         tools = {
           keepassxc = enabled;
           git = enabled;
