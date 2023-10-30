@@ -27,7 +27,7 @@ in
       };
 
       desktops = {
-        hyprlandV2 = enabled;
+        hyprland = enabled;
       };
 
       apps = {
@@ -40,7 +40,7 @@ in
         libreoffice = enabled;
         discord = enabled;
         school = {
-          octave = enabled;
+          latex = enabled;
         };
         tools = {
           keepassxc = enabled;

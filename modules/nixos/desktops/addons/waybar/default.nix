@@ -93,7 +93,7 @@ in
           padding-right: 6px;
           color: #7ebae4;
         }
-        #mode, #clock, #memory, #temperature,#cpu,#mpd, #custom-wall, #temperature, #backlight, #pulseaudio, #network, #battery, #custom-powermenu, #custom-cava-internal {
+        #mode, #clock, #memory, #temperature, #battery, #cpu, #mpd, #custom-wall, #temperature, #backlight, #pulseaudio, #network, #battery, #custom-powermenu, #custom-cava-internal {
           padding-left: 10px;
           padding-right: 10px;
         }
@@ -151,6 +151,15 @@ in
         #mpd {
           color: #c0caf5;
         }
+        #battery.good {
+          color: rgb(83, 232, 88);
+        }
+        #battery.warning {
+          color: rgb(233, 239, 52);
+        }
+        #battery.critical {
+          color: rgb(198, 37, 15);
+        }
         #custom-cava-internal{
           font-family: "Hack Nerd Font" ;
           color: #33ccff;
@@ -162,6 +171,7 @@ in
         modules-left = [
           "custom/launcher"
           "temperature"
+          "battery"
           "mpd"
           "custom/cava-internal"
         ];
@@ -197,6 +207,18 @@ in
           };
           "on-click" = "pamixer -t";
           "tooltip" = false;
+        };
+        "battery" = {
+          "states" = {
+            "good" = 95;
+            "warning" = 30;
+            "critical" = 20;
+          };
+          "format" = "{icon} {capacity}%";
+          "format-charging" = " {capacity}%";
+          "format-plugged" = " {capacity}%";
+          "format-alt" = "{time} {icon}";
+          "format-icons" = ["󰁺" "󰁺" "󰁻" "󰁼" "󰁽" "󰁾" "󰁿" "󰂀" "󰂁" "󰂂" "󰁹"];
         };
         "clock" = {
           "interval" = 1;
