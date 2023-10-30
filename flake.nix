@@ -44,7 +44,7 @@
     doom-emacs = {
       url = "github:nix-community/nix-doom-emacs";
       inputs.nixpkgs.follows = "nixpkgs";
-    }
+    };
 
 #    neovim = {
 #      url = github:IogaMaster/neovim;
@@ -53,6 +53,8 @@
   };
 
   outputs = inputs: let
+    theme = "uwunicorn";
+
     lib = inputs.snowfall-lib.mkLib {
       inherit inputs;
       src = ./.;
