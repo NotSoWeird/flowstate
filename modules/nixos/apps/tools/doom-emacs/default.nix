@@ -18,6 +18,9 @@ in
       emacs
     ];
 
-    flowstate.home.configFile."doom-emacs/doom-emacs.ini".source = ./doom-emacs.ini;
+    flowstate.home.file.".doom.d/" = {
+      source = ./doom.d;
+      recursive = true;
+    };
   };
 }

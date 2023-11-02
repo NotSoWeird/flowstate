@@ -41,6 +41,7 @@ in
         discord = enabled;
         school = {
           latex = enabled;
+          cpp = enabled;
         };
         tools = {
           keepassxc = enabled;
@@ -50,6 +51,7 @@ in
           direnv = enabled;
           starship = enabled;
           vscode = enabled;
+          doom-emacs = enabled;
         };
       };
     };

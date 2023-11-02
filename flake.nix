@@ -38,10 +38,9 @@
 
     stylix = {
       url = "github:danth/stylix";
-      inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    doom-emacs = {
+    nix-doom-emacs = {
       url = "github:nix-community/nix-doom-emacs";
       inputs.nixpkgs.follows = "nixpkgs";
     };
@@ -53,8 +52,6 @@
   };
 
   outputs = inputs: let
-    theme = "uwunicorn";
-
     lib = inputs.snowfall-lib.mkLib {
       inherit inputs;
       src = ./.;
@@ -76,12 +73,12 @@
       src = ./.;
       channels-config.allowUnfree = true;
 
-
- #     overlays = with inputs; [
- #       neovim.overlays.x86_64-linux.neovim
- #     ];
+      # overlays = with inputs; [
+      #   stylix
+      # ];
 
       systems.modules = with inputs; [
+        home-manager.nixosModules.home-manager
         nix-ld.nixosModules.nix-ld
       ];
     };
