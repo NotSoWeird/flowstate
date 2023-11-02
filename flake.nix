@@ -2,7 +2,6 @@
   description = "You could not live with your own failure. Where did that bring you? Back to me. - Thanos";
 
   inputs = {
-     # NixPkgs (nixos-22.11)
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
     # NixPkgs Unstable (nixos-unstable)
@@ -39,11 +38,6 @@
     stylix = {
       url = "github:danth/stylix";
     };
-
-#    neovim = {
-#      url = github:IogaMaster/neovim;
-#      inputs.nixpkgs.follows = "nixpkgs";
-#    };
   };
 
   outputs = inputs: let
