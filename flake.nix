@@ -40,11 +40,6 @@
       url = "github:danth/stylix";
     };
 
-    nix-doom-emacs = {
-      url = "github:nix-community/nix-doom-emacs";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
 #    neovim = {
 #      url = github:IogaMaster/neovim;
 #      inputs.nixpkgs.follows = "nixpkgs";
