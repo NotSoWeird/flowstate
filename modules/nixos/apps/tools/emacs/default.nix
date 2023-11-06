@@ -14,12 +14,10 @@ in
   };
 
   config = mkIf cfg.enable {
-    environment.systemPackages = with pkgs; [
-      emacs
-    ];
+    services.emacs.enable = true;
 
-    flowstate.home.file.".doom.d/" = {
-      source = ./doom.d;
+    flowstate.home.file.".emacs.d/" = {
+      source = ./emacs;
       recursive = true;
     };
   };

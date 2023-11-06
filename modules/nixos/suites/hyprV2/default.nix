@@ -51,7 +51,7 @@ in
           direnv = enabled;
           starship = enabled;
           vscode = enabled;
-          doom-emacs = enabled;
+          emacs = enabled;
         };
       };
     };
