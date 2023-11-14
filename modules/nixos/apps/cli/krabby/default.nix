@@ -1,15 +1,15 @@
-{ options
-, config
-, pkgs
-, lib
-, inputs
-, ...
+{
+  options,
+  config,
+  pkgs,
+  lib,
+  inputs,
+  ...
 }:
 with lib;
 with lib.flowstate; let
   cfg = config.flowstate.apps.cli.krabby;
-in
-{
+in {
   options.flowstate.apps.cli.krabby = with types; {
     enable = mkBoolOpt false "Enable or disable krabby";
   };

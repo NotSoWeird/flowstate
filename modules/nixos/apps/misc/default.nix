@@ -1,15 +1,15 @@
-{ options
-, config
-, pkgs
-, lib
-, inputs
-, ...
+{
+  options,
+  config,
+  pkgs,
+  lib,
+  inputs,
+  ...
 }:
 with lib;
 with lib.flowstate; let
   cfg = config.flowstate.apps.misc;
-in
-{
+in {
   options.flowstate.apps.misc = with types; {
     enable = mkBoolOpt false "Enable or disable misc apps";
   };

@@ -1,15 +1,15 @@
-{ options
-, config
-, pkgs
-, lib
-, inputs
-, ...
+{
+  options,
+  config,
+  pkgs,
+  lib,
+  inputs,
+  ...
 }:
 with lib;
 with lib.flowstate; let
   cfg = config.flowstate.apps.libreoffice;
-in
-{
+in {
   options.flowstate.apps.libreoffice = with types; {
     enable = mkBoolOpt false "Enable or disable libreoffice";
   };

@@ -1,11 +1,14 @@
-{ options, config, lib, pkgs, ... }:
-
-with lib;
-with lib.flowstate;
-let
-  cfg = config.flowstate.suites.common;
-in
 {
+  options,
+  config,
+  lib,
+  pkgs,
+  ...
+}:
+with lib;
+with lib.flowstate; let
+  cfg = config.flowstate.suites.common;
+in {
   options.flowstate.suites.common = with types; {
     enable = mkBoolOpt false "whether or not to enable common configuration.";
   };

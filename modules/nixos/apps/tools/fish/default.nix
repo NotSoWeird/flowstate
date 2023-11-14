@@ -1,14 +1,14 @@
-{ options
-, config
-, lib
-, pkgs
-, ...
+{
+  options,
+  config,
+  lib,
+  pkgs,
+  ...
 }:
 with lib;
 with lib.flowstate; let
   cfg = config.flowstate.apps.tools.fish;
-in
-{
+in {
   options.flowstate.apps.tools.fish = with types; {
     enable = mkBoolOpt false "Enable fish";
   };

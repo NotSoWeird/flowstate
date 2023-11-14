@@ -1,14 +1,14 @@
-{ options
-, config
-, lib
-, pkgs
-, ...
+{
+  options,
+  config,
+  lib,
+  pkgs,
+  ...
 }:
 with lib;
 with lib.flowstate; let
   cfg = config.flowstate.desktops.hyprlandV2.addons.swaylock;
-in
-{
+in {
   options.flowstate.desktops.hyprlandV2.addons.swaylock = with types; {
     enable = mkBoolOpt false "Enable or disable swaylock.";
   };
@@ -18,7 +18,6 @@ in
       swaylock
     ];
     flowstate = {
-
       home.configFile = {
         "swaylock/config".source = ./config;
       };

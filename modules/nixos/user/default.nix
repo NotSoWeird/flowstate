@@ -1,8 +1,9 @@
-{ options
-, config
-, pkgs
-, lib
-, ...
+{
+  options,
+  config,
+  pkgs,
+  lib,
+  ...
 }:
 with lib;
 with lib.flowstate; let
@@ -18,31 +19,30 @@ with lib.flowstate; let
       cp $src $out
     '';
 
-    passthru = { fileName = defaultIconFileName; };
+    passthru = {fileName = defaultIconFileName;};
   };
   propagatedIcon =
     pkgs.runCommandNoCC "propagated-icon"
-      { passthru = { fileName = cfg.icon.fileName; }; }
-      ''
-        local target="$out/share/icons/user/${cfg.name}"
-        mkdir -p "$target"
+    {passthru = {fileName = cfg.icon.fileName;};}
+    ''
+      local target="$out/share/icons/user/${cfg.name}"
+      mkdir -p "$target"
 
-        cp ${cfg.icon} "$target/${cfg.icon.fileName}"
-      '';
-in
-{
+      cp ${cfg.icon} "$target/${cfg.icon.fileName}"
+    '';
+in {
   options.flowstate.user = with types; {
     name = mkOpt str "notsoweird" "The name to use for the user account.";
     initialPassword =
       mkOpt str "password"
-        "The initial password to use when the user is first created.";
+      "The initial password to use when the user is first created.";
     icon =
       mkOpt (nullOr package) defaultIcon
-        "The profile picture to use for the user.";
-    extraGroups = mkOpt (listOf str) [ ] "Groups for the user to be assigned.";
+      "The profile picture to use for the user.";
+    extraGroups = mkOpt (listOf str) [] "Groups for the user to be assigned.";
     extraOptions =
-      mkOpt attrs { }
-        "Extra options passed to <option>users.users.<name></option>.";
+      mkOpt attrs {}
+      "Extra options passed to <option>users.users.<name></option>.";
   };
 
   config = {
@@ -65,8 +65,8 @@ in
       };
     };
 
-    programs.zsh.enable = true;    
-    
+    programs.zsh.enable = true;
+
     users.users.${cfg.name} =
       {
         isNormalUser = true;
@@ -77,7 +77,7 @@ in
         shell = pkgs.zsh;
 
         extraGroups =
-          [ "wheel" "audio" "sound" "video" "networkmanager" "input" "tty" "docker" ]
+          ["wheel" "audio" "sound" "video" "networkmanager" "input" "tty" "docker"]
           ++ cfg.extraGroups;
       }
       // cfg.extraOptions;

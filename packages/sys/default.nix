@@ -1,6 +1,7 @@
-{ writeShellScriptBin
-, glib
-, ...
+{
+  writeShellScriptBin,
+  glib,
+  ...
 }:
 writeShellScriptBin "sys" ''
 

@@ -1,14 +1,14 @@
-{ options
-, config
-, lib
-, pkgs
-, ...
+{
+  options,
+  config,
+  lib,
+  pkgs,
+  ...
 }:
 with lib;
 with lib.flowstate; let
   cfg = config.flowstate.desktops.hyprlandV2.addons.nwg-look;
-in
-{
+in {
   options.flowstate.desktops.hyprlandV2.addons.nwg-look = with types; {
     enable = mkBoolOpt false "Enable or disable nwg-look.";
   };
@@ -18,7 +18,6 @@ in
       nwg-look
     ];
     flowstate = {
-
       home.configFile = {
         "nwg-look/config".source = ./config;
       };

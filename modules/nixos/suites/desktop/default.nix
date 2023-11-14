@@ -1,14 +1,14 @@
-{ options
-, config
-, lib
-, pkgs
-, ...
+{
+  options,
+  config,
+  lib,
+  pkgs,
+  ...
 }:
 with lib;
 with lib.flowstate; let
   cfg = config.flowstate.suites.desktop;
-in
-{
+in {
   options.flowstate.suites.desktop = with types; {
     enable = mkBoolOpt false "Enable the desktop suite";
   };

@@ -1,15 +1,15 @@
-{ options
-, config
-, pkgs
-, lib
-, inputs
-, ...
+{
+  options,
+  config,
+  pkgs,
+  lib,
+  inputs,
+  ...
 }:
 with lib;
 with lib.flowstate; let
   cfg = config.flowstate.apps.browser.firefox;
-in
-{
+in {
   options.flowstate.apps.browser.firefox = with types; {
     enable = mkBoolOpt false "Enable or disable firefox.";
   };

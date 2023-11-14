@@ -1,9 +1,15 @@
-{ options, config, lib, pkgs, inputs, ... }:
-with lib;
-with lib.flowstate;
-let cfg = config.flowstate.desktops.hyprlandV2;
-in
 {
+  options,
+  config,
+  lib,
+  pkgs,
+  inputs,
+  ...
+}:
+with lib;
+with lib.flowstate; let
+  cfg = config.flowstate.desktops.hyprlandV2;
+in {
   options.flowstate.desktops.hyprlandV2 = with types; {
     enable = mkBoolOpt false "Enable or disable the hyprland window manager.";
   };
@@ -36,13 +42,12 @@ in
       };
     };
 
-
     flowstate = {
       home.configFile."hypr/" = {
         source = ./hypr;
         recursive = true;
       };
       home.configFile."kdeglobals".source = ./kdeglobals;
-    }; 
+    };
   };
 }

@@ -1,14 +1,14 @@
-{ options
-, config
-, lib
-, pkgs
-, ...
+{
+  options,
+  config,
+  lib,
+  pkgs,
+  ...
 }:
 with lib;
 with lib.flowstate; let
   cfg = config.flowstate.desktops.hyprlandV2.addons.dunst;
-in
-{
+in {
   options.flowstate.desktops.hyprlandV2.addons.dunst = with types; {
     enable = mkBoolOpt false "Enable or disable the dunst.";
   };

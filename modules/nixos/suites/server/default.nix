@@ -1,12 +1,15 @@
-{ options, config, lib, pkgs, ... }:
-
-with lib;
-with lib.flowstate;
-let
-  cfg = config.flowstate.suites.hyprV2;
-in
 {
-  options.flowstate.suites.hyprV2 = with types; {
+  options,
+  config,
+  lib,
+  pkgs,
+  ...
+}:
+with lib;
+with lib.flowstate; let
+  cfg = config.flowstate.suites.server;
+in {
+  options.flowstate.suites.server = with types; {
     enable = mkBoolOpt false "whether or not to enable common configuration.";
   };
 

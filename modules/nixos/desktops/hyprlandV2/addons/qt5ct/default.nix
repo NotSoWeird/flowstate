@@ -1,14 +1,14 @@
-{ options
-, config
-, lib
-, pkgs
-, ...
+{
+  options,
+  config,
+  lib,
+  pkgs,
+  ...
 }:
 with lib;
 with lib.flowstate; let
   cfg = config.flowstate.desktops.hyprlandV2.addons.qt5ct;
-in
-{
+in {
   options.flowstate.desktops.hyprlandV2.addons.qt5ct = with types; {
     enable = mkBoolOpt false "Enable or disable qt5ct.";
   };
@@ -18,7 +18,6 @@ in
       libsForQt5.qt5ct
     ];
     flowstate = {
-
       home.configFile = {
         "qt5ct/" = {
           source = ./qt5ct;

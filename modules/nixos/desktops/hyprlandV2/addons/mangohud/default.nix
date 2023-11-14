@@ -1,14 +1,14 @@
-{ options
-, config
-, lib
-, pkgs
-, ...
+{
+  options,
+  config,
+  lib,
+  pkgs,
+  ...
 }:
 with lib;
 with lib.flowstate; let
   cfg = config.flowstate.desktops.hyprlandV2.addons.mangohud;
-in
-{
+in {
   options.flowstate.desktops.hyprlandV2.addons.mangohud = with types; {
     enable = mkBoolOpt false "Enable or disable mangoHud.";
   };
@@ -18,7 +18,6 @@ in
       mangohud
     ];
     flowstate = {
-
       home.configFile = {
         "MangoHud/MangoHud.conf".source = ./MangoHud.conf;
       };

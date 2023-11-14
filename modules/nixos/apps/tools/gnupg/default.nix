@@ -1,22 +1,22 @@
-{ options
-, config
-, lib
-, pkgs
-, ...
+{
+  options,
+  config,
+  lib,
+  pkgs,
+  ...
 }:
 with lib;
 with lib.flowstate; let
   cfg = config.flowstate.apps.tools.gnupg;
-in
-{
+in {
   options.flowstate.apps.tools.gnupg = with types; {
     enable = mkBoolOpt false "Enable gnupg";
   };
 
   config = mkIf cfg.enable {
-    environment.systemPackages = with pkgs; [ 
-      pinentry 
-      pinentry-curses 
+    environment.systemPackages = with pkgs; [
+      pinentry
+      pinentry-curses
     ];
 
     services.pcscd.enable = true;

@@ -5,11 +5,9 @@
   ...
 }:
 with lib;
-with lib.flowstate;
-let
+with lib.flowstate; let
   cfg = config.flowstate.desktops.hyprland;
-in
-{
+in {
   options.flowstate.desktops.hyprland = {
     enable = mkEnableOption "pls";
   };

@@ -1,6 +1,7 @@
-{ channels, stylix, ... }:
-
-final: prev:
 {
-    inherit (stylix.nixosModules.stylix) stylix;
+  channels,
+  stylix,
+  ...
+}: final: prev: {
+  inherit (stylix.nixosModules.stylix) stylix;
 }

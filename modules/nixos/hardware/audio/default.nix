@@ -1,11 +1,14 @@
-{ options, config, lib, pkgs, ... }:
-
-with lib;
-with lib.flowstate;
-let
-  cfg = config.flowstate.hardware.audio;
-in
 {
+  options,
+  config,
+  lib,
+  pkgs,
+  ...
+}:
+with lib;
+with lib.flowstate; let
+  cfg = config.flowstate.hardware.audio;
+in {
   options.flowstate.hardware.audio = with types; {
     enable = mkBoolOpt false "Whether or not to enable audio support.";
   };

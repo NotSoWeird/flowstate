@@ -1,15 +1,20 @@
-{ options, config, lib, pkgs, inputs, ... }:
-with lib;
-with lib.flowstate;
-let cfg = config.flowstate.desktops.hyprland;
-in
 {
+  options,
+  config,
+  lib,
+  pkgs,
+  inputs,
+  ...
+}:
+with lib;
+with lib.flowstate; let
+  cfg = config.flowstate.desktops.hyprland;
+in {
   options.flowstate.desktops.hyprland = with types; {
     enable = mkBoolOpt false "Enable or disable the hyprland window manager.";
   };
 
   config = mkIf cfg.enable {
-
     environment.systemPackages = with pkgs; [
       bibata-cursors
       dunst
@@ -31,7 +36,7 @@ in
         wallpapers = enabled;
       };
     };
-    
+
     programs = {
       regreet = enabled;
       dconf = enabled;
@@ -57,6 +62,6 @@ in
       home.configFile."hypr/hyprland.conf".source = ./hyprland.conf;
       home.configFile."hypr/launch".source = ./launch;
       home.configFile."hypr/colors".source = ./colors;
-    }; 
+    };
   };
 }
