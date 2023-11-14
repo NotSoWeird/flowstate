@@ -26,9 +26,9 @@ in {
       # Util
       unzip
       sshfs
-      btop
+      bottom
       ffmpeg
-      python3
+      wget
       wl-clipboard
     ];
   };
