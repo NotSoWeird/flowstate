@@ -45,6 +45,9 @@ in
           cff = "clear \
                 fastfetch
                 ";
+          mkenv = "nix flake new -t github:nix-community/nix-direnv .
+                    direnv allow
+                    ";
         };
 
         enableAutosuggestions = true;
@@ -58,6 +61,8 @@ in
       CASE_SENSITIVE="true"
 
       krabby random
+
+      eval "$(direnv hook zsh)"
     '';
   };
 }

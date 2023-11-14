@@ -16,12 +16,7 @@ in
 
   config = mkIf cfg.enable {
     environment.systemPackages = with pkgs; [ 
-      cmake
-      gcc13
       qtcreator
-      glibc
-      qt6.full
-      gnumake
     ];
   };
 }

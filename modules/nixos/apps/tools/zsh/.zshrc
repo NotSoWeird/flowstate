@@ -129,3 +129,5 @@ krabby random
 
 #Display random gifs
 #kitten icat --align left $(find $HOME/.config/neofetch/gifs/ -name "*.gif" | sort -R | head -1)
+
+eval "$(direnv hook zsh)"
