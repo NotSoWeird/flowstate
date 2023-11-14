@@ -16,7 +16,7 @@ in {
   config = mkIf cfg.enable {
     services.emacs.enable = true;
 
-    flowstate.home.file.".emacs.d/" = {
+    flowstate.home.configFile."emacs/" = {
       source = ./emacs;
       recursive = true;
     };

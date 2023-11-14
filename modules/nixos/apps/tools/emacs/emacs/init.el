@@ -1,5 +1,4 @@
-;; Don't show the splash screen
-(setq inhibit-startup-message t)
-(global-set-key (kbd "C-c l") #'org-store-link)
-(global-set-key (kbd "C-c a") #'org-agenda)
-(global-set-key (kbd "C-c c") #'org-capture)
+(org-babel-load file
+    (expand-file-name
+    "config.org"
+    user-name-directory))
