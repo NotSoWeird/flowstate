@@ -34,6 +34,10 @@ in {
       };
 
       apps = {
+        browser = {
+          firefox = enabled;
+          brave = enabled;
+        };
         cli = {
           helix = enabled;
           fastfetch = enabled;

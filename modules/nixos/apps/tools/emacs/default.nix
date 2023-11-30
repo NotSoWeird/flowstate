@@ -14,11 +14,13 @@ in {
   };
 
   config = mkIf cfg.enable {
-    services.emacs.enable = true;
+    environment.systemPackages = with pkgs; [
+      emacs29
+    ];
 
-    flowstate.home.configFile."emacs/" = {
-      source = ./emacs;
-      recursive = true;
-    };
+    #flowstate.home.configFile."emacs/" = {
+    #  source = ./emacs;
+    #  recursive = true;
+    #};
   };
 }
