@@ -26,7 +26,6 @@ in {
         enable = true;
         oh-my-zsh = {
           enable = true;
-          #theme = "powerlevel10k";
           plugins = [
             "git"
           ];

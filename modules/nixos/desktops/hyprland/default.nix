@@ -18,7 +18,6 @@ in {
     environment.systemPackages = with pkgs; [
       bibata-cursors
       dunst
-      librewolf
       gnome.nautilus
       wofi
       pamixer
