@@ -14,8 +14,10 @@ in {
   };
 
   config = mkIf cfg.enable {
+    flowstate.apps.tools.python3 = enabled;
+
     environment.systemPackages = with pkgs; [
-      emacs29
+      emacs29-gtk3
     ];
 
     #flowstate.home.configFile."emacs/" = {
