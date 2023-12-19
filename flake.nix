@@ -4,8 +4,8 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
-    # NixPkgs Unstable (nixos-unstable)
-    # unstable.url = "github:nixos/nixpkgs/nixos-unstable";
+    #NixPkgs Unstable (nixos-unstable)
+    #unstable.url = "github:nixos/nixpkgs/nixos-unstable";
 
     home-manager = {
       url = "github:nix-community/home-manager/master";
@@ -13,31 +13,31 @@
     };
 
     snowfall-lib = {
-      url = "github:snowfallorg/lib?ref=v2.1.1";
+      url = "github:snowfallorg/lib";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
     # Snowfall Flake
-    flake.url = "github:snowfallorg/flake?ref=v1.1.0";
+    flake.url = "github:snowfallorg/flake";
     flake.inputs.nixpkgs.follows = "nixpkgs";
 
     # Comma
-    comma.url = "github:nix-community/comma";
-    comma.inputs.nixpkgs.follows = "nixpkgs";
+    #comma.url = "github:nix-community/comma";
+    #comma.inputs.nixpkgs.follows = "nixpkgs";
 
-    nixos-generators = {
-      url = "github:nix-community/nixos-generators";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    #nixos-generators = {
+    #  url = "github:nix-community/nixos-generators";
+    #  inputs.nixpkgs.follows = "nixpkgs";
+    #};
 
-    nix-ld = {
-      url = "github:Mic92/nix-ld";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    #nix-ld = {
+    #  url = "github:Mic92/nix-ld";
+    #  inputs.nixpkgs.follows = "nixpkgs";
+    #};
 
-    stylix = {
-      url = "github:danth/stylix";
-    };
+    #stylix = {
+    #  url = "github:danth/stylix";
+    #};
   };
 
   outputs = inputs: let
@@ -60,7 +60,7 @@
       namespace = "flowstate";
 
       src = ./.;
-      channels-config.allowUnfree = true;
+      #channels-config.allowUnfree = true;
 
       # overlays = with inputs; [
       #   stylix

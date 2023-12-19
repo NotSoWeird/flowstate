@@ -51,8 +51,7 @@ in {
 
         enableAutosuggestions = true;
         enableCompletion = true;
-        syntaxHighlighting.enable = true;
-        # enableSyntaxHighlightning = true;
+        #syntaxHighlighting.enable = true;
       };
     };
 

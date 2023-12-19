@@ -23,7 +23,7 @@ in {
       font-manager
     ];
 
-    fonts.packages = with pkgs;
+    fonts.fonts = with pkgs;
       [
         nerdfonts
         noto-fonts
