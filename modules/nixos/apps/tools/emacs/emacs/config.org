@@ -642,7 +642,7 @@ Sane man pages.
 * TRANSPARENCY
 With Emacs version 29, true transparency has been added.
 #+begin_src emacs-lisp
-(add-to-list 'default-frame-alist '(alpha-background . 80)) ; For all new frames henceforth
+(add-to-list 'default-frame-alist '(alpha-background . 60)) ; For all new frames henceforth
 #+end_src
 
 * TREEMACS

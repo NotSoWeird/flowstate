@@ -13,12 +13,12 @@
     };
 
     snowfall-lib = {
-      url = "github:snowfallorg/lib/dev";
+      url = "github:snowfallorg/lib?ref=v2.1.1";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
     # Snowfall Flake
-    flake.url = "github:snowfallorg/flake";
+    flake.url = "github:snowfallorg/flake?ref=v1.1.0";
     flake.inputs.nixpkgs.follows = "nixpkgs";
 
     # Comma
