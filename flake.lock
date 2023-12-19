@@ -171,6 +171,7 @@
       },
       "original": {
         "owner": "snowfallorg",
+        "ref": "v1.1.0",
         "repo": "flake",
         "type": "github"
       }
@@ -542,6 +543,7 @@
       },
       "original": {
         "owner": "snowfallorg",
+        "ref": "v2.1.1",
         "repo": "lib",
         "type": "github"
       }
