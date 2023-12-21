@@ -20,9 +20,9 @@ in {
       emacs29-gtk3
     ];
 
-    #flowstate.home.configFile."emacs/" = {
-    #  source = ./emacs;
-    #  recursive = true;
-    #};
+    flowstate.home.configFile."emacs/" = {
+     source = ./emacs;
+     recursive = true;
+    };
   };
 }
