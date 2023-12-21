@@ -1,0 +1,17 @@
+#+TITLE: The Weird Emacs Init
+#+AUTHOR: NotSoWeird
+#+DESCRIPTION: NotSoWeird:s personal Emacs config.
+#+STARTUP: showeverything
+#+OPTIONS: toc:2
+
+* TABLE OF CONTENTS :toc:
+- [[#init][INIT]]
+
+* INIT
+Need a init file that is editable for doom-theme so this is here.
+#+begin_src emacs-lisp
+(org-babel-load-file
+    (expand-file-name
+    "config.org"
+    user-emacs-directory))
+#+end_src
