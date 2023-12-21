@@ -60,11 +60,7 @@
       namespace = "flowstate";
 
       src = ./.;
-      #channels-config.allowUnfree = true;
-
-      # overlays = with inputs; [
-      #   stylix
-      # ];
+      channels-config.allowUnfree = true;
 
       systems.modules = with inputs; [
         home-manager.nixosModules.home-manager

@@ -26,6 +26,7 @@
 - [[#language-support][LANGUAGE SUPPORT]]
 - [[#minibuffer-escape][MINIBUFFER ESCAPE]]
 - [[#modeline][MODELINE]]
+- [[#nix-mode][NIX MODE]]
 - [[#org-mode][ORG MODE]]
   - [[#enabling-table-of-contents][Enabling Table of Contents]]
   - [[#enabling-org-bullets][Enabling Org Bullets]]
@@ -480,6 +481,21 @@ The modeline is the bottom status bar that appears in Emacs windows.  While you 
 
 #+end_src
 
+* NIX MODE
+An Emacs major mode for editing Nix expressions. There is also a manual available at [[nix-mode.org]].
+#+begin_src emacs-lisp
+(use-package nix-mode
+  :mode ("\\.nix\\'" "\\.nix.in\\'"))
+(use-package nix-drv-mode
+  :ensure nix-mode
+  :mode "\\.drv\\'")
+(use-package nix-shell
+  :ensure nix-mode
+  :commands (nix-shell-unpack nix-shell-configure nix-shell-build))
+(use-package nix-repl
+  :ensure nix-mode
+  :commands (nix-repl))
+#+end_src
 
 * ORG MODE
 
