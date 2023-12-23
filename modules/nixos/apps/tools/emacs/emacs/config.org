@@ -10,6 +10,7 @@
   - [[#load-scripts][Load scripts]]
   - [[#load-evil-mode][Load Evil Mode]]
   - [[#generalel-keybindings][General.el Keybindings]]
+  - [[#set-custom-settings-file][Set custom settings file]]
 - [[#all-the-icons][ALL THE ICONS]]
 - [[#backup][BACKUP]]
 - [[#company][COMPANY]]
@@ -264,6 +265,12 @@ Evil is an extensible vi/vim layer for Emacs.  Because…let’s face it.  The V
   )
 #+end_src
 
+** Set custom settings file
+#+begin_src emacs-lisp
+(setq custom-file "~/.config/emacs/emacs-custom.el")
+(load custom-file t)
+#+end_src
+
 * ALL THE ICONS
 This is an icon set that can be used with dashboard, dired, ibuffer and other Emacs programs.
 #+begin_src emacs-lisp
@@ -279,6 +286,7 @@ This is an icon set that can be used with dashboard, dired, ibuffer and other Em
 By default, Emacs creates automatic backups of files in their original directories, such “file.el” and the backup “file.el~”.  This leads to a lot of clutter, so let’s tell Emacs to put all backups that it creates in the TRASH directory.
 #+begin_src emacs-lisp
 (setq backup-directory-alist '((".*" . "~/.local/share/Trash/files")))
+(setq auto-save-file-name-transforms '((".*" "~/.local/share/Trash/files")))
 #+end_src
 
 * COMPANY
