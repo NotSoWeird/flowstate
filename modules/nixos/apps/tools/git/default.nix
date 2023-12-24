@@ -26,7 +26,7 @@ in {
       g = "git";
       ga = "git add";
       gs = "git status";
-      gcm = "git commit -m";
+      gc = "git commit -m";
       gp = "git push";
     };
 
