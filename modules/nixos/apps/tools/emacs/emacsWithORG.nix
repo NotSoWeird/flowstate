@@ -16,10 +16,11 @@ in {
   config = mkIf cfg.enable {
     flowstate.apps.tools.python3 = enabled;
 
-    services.emacs = {
-      package = pkgs.emacs-gtk;
-      enable = true;
-    };
+    #services.emacs.enable = true;
+
+    environment.systemPackages = with pkgs; [
+      emacs-gtk
+    ];
 
     flowstate.home.configFile."emacs/" = {
      source = ./emacs;

@@ -21,6 +21,15 @@ in {
       lazygit
       commitizen
     ];
+
+    flowstate.home.programs.shellAliases = {
+      g = "git";
+      ga = "git add";
+      gs = "git status";
+      gcm = "git commit -m";
+      gp = "git push";
+    };
+
     flowstate = {
       home.configFile."git/config".source = ./config;
       home.configFile."lazygit/config.yml".source = ./lazygitConfig.yml;

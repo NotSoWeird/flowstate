@@ -13,102 +13,102 @@
         "separator": " ",
         "showErrors": false,
         "temperatureUnit": "C",
-        "percentType": 9,
+        "percent": {"type": 9},
         "brightColor": true,
         "color": {
           "keys": "magenta",
           "title": "cyan"
-        }, 
+        }
     },
     "modules": [
         {
             "type": "title",
             "key": "╭─  󰁔",
-            "format": "{1}@{2}",
+            "format": "{1}@{2}"
             // "keyColor": "blue"
         },
         {
             "type": "os",
-            "key": "├─  󰁔", // Just get your distro's logo off nerdfonts.com
+            "key": "├─  󰁔" // Just get your distro's logo off nerdfonts.com
             // "keyColor": "blue"
         },
         {
             "type": "host",
-            "key": "├─ 󱩊 󰁔",
+            "key": "├─ 󱩊 󰁔"
             // "keyColor": "cyan"
         },
         {
             "type": "localip",
             "key": "├─ 󰩟 󰁔",
-            "compact": true,
+            "compact": true
             // "keyColor": "blue"
         },
         {
             "type": "publicip",
-            "key": "├─ 󰩠 󰁔",
+            "key": "├─ 󰩠 󰁔"
             // "keyColor": "blue"
         },
         {
             "type": "wifi",
             "key": "├─  󰁔",
-            "format": "{4}", // ssid
+            "format": "{4}" // ssid
             // "keyColor": "blue"
         },
         {
             "type": "cpu",
             "temp": true,
-            "key": "├─  󰁔",
+            "key": "├─  󰁔"
             // "keyColor": "yellow"
         },
         {
             "type": "gpu",
             "temp": true,
-            "key": "├─ 󰢮 󰁔",
+            "key": "├─ 󰢮 󰁔"
             // "keyColor": "magenta"
         },
         {
             "type": "disk",
-            "key": "├─  󰁔",
+            "key": "├─  󰁔"
             // "keyColor": "green"
         },
         {
             "type": "memory",
-            "key": "├─ 󰑭 󰁔",
+            "key": "├─ 󰑭 󰁔"
             // "keyColor": "green"
         },
         {
             "type": "swap",
-            "key": "├─ 󰓡 󰁔",
+            "key": "├─ 󰓡 󰁔"
             // "keyColor": "green"
         },
         {
             "type": "display",
-            "key": "├─ 󰍹 󰁔",
+            "key": "├─ 󰍹 󰁔"
             // "keyColor": "green"
         },
         {
             "type": "brightness",
-            "key": "├─ 󰃞 󰁔",
+            "key": "├─ 󰃞 󰁔"
             // "keyColor": "green"
         },
         {
             "type": "battery",
-            "key": "├─   󰁔",
+            "key": "├─   󰁔"
             // "keyColor": "green"
         },
         {
             "type": "poweradapter",
-            "key": "├─  󰁔",
+            "key": "├─  󰁔"
             // "keyColor": "green"
         },
         {
             "type": "packages",
-            "key": "├─ 󰏖 󰁔",
+            "key": "├─ 󰏖 󰁔"
             // "keyColor": "blue"
         },
         {
             "type": "media",
-            "key": "├─ 󰝚 󰁔",
+            "key": "├─ 󰝚 󰁔"
             // "keyColor": "blue"
         },
         //{
@@ -118,12 +118,12 @@
         //},
         {
             "type": "datetime",
-            "key": "├─  󰁔",
+            "key": "├─  󰁔"
             // "keyColor": "blue"
         },
         {
             "type": "uptime",
-            "key": "╰─ 󰅐 󰁔",
+            "key": "╰─ 󰅐 󰁔"
             // "keyColor": "blue"
         },
         {
