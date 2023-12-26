@@ -14,16 +14,19 @@ in {
   };
 
   config = mkIf cfg.enable {
-    flowstate.apps.tools.python3 = enabled;
+    flowstate = {
+      apps.tools.python3 = enabled;
 
-    services.emacs = {
-      package = pkgs.emacs-gtk;
-      enable = true;
+      home = {
+        programs.emacs = {
+          package = pkgs.emacs29-pgtk;
+          enable = true;
+        };
+      };
     };
-
     flowstate.home.configFile."emacs/" = {
-     source = ./emacs;
-     recursive = true;
-    };
+        source = ./emacs;
+        recursive = true;
+      };
   };
 }

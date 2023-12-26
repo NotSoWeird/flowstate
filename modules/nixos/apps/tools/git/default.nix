@@ -22,17 +22,16 @@ in {
       commitizen
     ];
 
-    flowstate.home.programs.shellAliases = {
+    flowstate = {
+      home.configFile."git/config".source = ./config;
+      home.configFile."lazygit/config.yml".source = ./lazygitConfig.yml;
+      home.programs.zsh.shellAliases = {
       g = "git";
       ga = "git add";
       gs = "git status";
       gc = "git commit -m";
       gp = "git push";
     };
-
-    flowstate = {
-      home.configFile."git/config".source = ./config;
-      home.configFile."lazygit/config.yml".source = ./lazygitConfig.yml;
     };
   };
 }
