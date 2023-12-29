@@ -11,7 +11,6 @@ in {
     flowstate = {
       system = {
         boot = enabled;
-        env = enabled;
         fonts = enabled;
         locale = enabled;
         nix = enabled;
