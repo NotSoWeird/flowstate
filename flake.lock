@@ -186,6 +186,38 @@
         "type": "github"
       }
     },
+    "eaf": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1702340603,
+        "narHash": "sha256-b0JOLFatGNpc9zV6gjH6QbMopXX1sAAX+BryySvgYEI=",
+        "owner": "emacs-eaf",
+        "repo": "emacs-application-framework",
+        "rev": "6932f017932d26363387d18d4fdbeae66aff9459",
+        "type": "github"
+      },
+      "original": {
+        "owner": "emacs-eaf",
+        "repo": "emacs-application-framework",
+        "type": "github"
+      }
+    },
+    "eaf-browser": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1699540848,
+        "narHash": "sha256-VyDwQiYfeEhIEpsl2Tw5hdspNFPC3I9jeSrp80G8IPo=",
+        "owner": "emacs-eaf",
+        "repo": "eaf-browser",
+        "rev": "1c0076cca287c384f46e5104365f679e94135734",
+        "type": "github"
+      },
+      "original": {
+        "owner": "emacs-eaf",
+        "repo": "eaf-browser",
+        "type": "github"
+      }
+    },
     "emacs-overlay": {
       "flake": false,
       "locked": {
@@ -792,6 +824,70 @@
         "type": "github"
       }
     },
+    "org-nursery": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1703802001,
+        "narHash": "sha256-WreExyEdR1JH3E0V8oDPZZeqOWdT+4EqwgJebj8zIyc=",
+        "owner": "chrisbarrett",
+        "repo": "nursery",
+        "rev": "5cf0a462cd3cfc1410fe11710d947f4ff042cc5e",
+        "type": "github"
+      },
+      "original": {
+        "owner": "chrisbarrett",
+        "repo": "nursery",
+        "type": "github"
+      }
+    },
+    "org-side-tree": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1703862557,
+        "narHash": "sha256-VaNqyx9c9dpPvwVwZvd7KbNcVTn4wuZugkdaYCY+s5g=",
+        "owner": "localauthor",
+        "repo": "org-side-tree",
+        "rev": "fb7115acbe1f4ba61df28426520889d53275391f",
+        "type": "github"
+      },
+      "original": {
+        "owner": "localauthor",
+        "repo": "org-side-tree",
+        "type": "github"
+      }
+    },
+    "org-timeblock": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1702702971,
+        "narHash": "sha256-Oq34Fsm8foGVT67QwPSYah+wP+mH7ixilH+4BL0LPGs=",
+        "owner": "ichernyshovvv",
+        "repo": "org-timeblock",
+        "rev": "cf326f5dadbf7b90750f54455b00fcd0b8b60b0a",
+        "type": "github"
+      },
+      "original": {
+        "owner": "ichernyshovvv",
+        "repo": "org-timeblock",
+        "type": "github"
+      }
+    },
+    "org-yaap": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1698161278,
+        "narHash": "sha256-as0mZLRoArfo1vMeqm/l1r4Cqy9ABi7gcjEupzXJyaw=",
+        "owner": "tygrdev",
+        "repo": "org-yaap",
+        "rev": "b3fa87454b1d96d1a2477ca9aae8976a2bbc5dc4",
+        "type": "gitlab"
+      },
+      "original": {
+        "owner": "tygrdev",
+        "repo": "org-yaap",
+        "type": "gitlab"
+      }
+    },
     "org-yt": {
       "flake": false,
       "locked": {
@@ -824,6 +920,22 @@
         "type": "github"
       }
     },
+    "phscroll": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1697087101,
+        "narHash": "sha256-LklBCgDYnC1SF2MD5LDI/CoQVSWlmrG83JGa155z4DI=",
+        "owner": "misohena",
+        "repo": "phscroll",
+        "rev": "582abedb4cf6aba216cdb5fe7217d612a1d68d5a",
+        "type": "github"
+      },
+      "original": {
+        "owner": "misohena",
+        "repo": "phscroll",
+        "type": "github"
+      }
+    },
     "revealjs": {
       "flake": false,
       "locked": {
@@ -843,11 +955,18 @@
     "root": {
       "inputs": {
         "comma": "comma",
+        "eaf": "eaf",
+        "eaf-browser": "eaf-browser",
         "flake": "flake",
         "home-manager": "home-manager",
         "nix-doom-emacs": "nix-doom-emacs",
         "nix-ld": "nix-ld",
         "nixpkgs": "nixpkgs_2",
+        "org-nursery": "org-nursery",
+        "org-side-tree": "org-side-tree",
+        "org-timeblock": "org-timeblock",
+        "org-yaap": "org-yaap",
+        "phscroll": "phscroll",
         "snowfall-lib": "snowfall-lib_2",
         "stylix": "stylix"
       }

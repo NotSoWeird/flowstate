@@ -95,7 +95,7 @@
       systems.modules = with inputs; [
         home-manager.nixosModules.home-manager
         nix-ld.nixosModules.nix-ld
-        stylix.nixosModules.stylix
+        #stylix.nixosModules.stylix
       ];
     };
 }
