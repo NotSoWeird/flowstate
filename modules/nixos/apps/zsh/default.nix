@@ -50,7 +50,8 @@ in {
     };
 
     flowstate.home.file.".zshrc".text = ''
-      CASE_SENSITIVE="true"
+      CASE_SENSITIVE="true"krabby = enabled;
+      starship = enabled
 
       krabby random
 
