@@ -1,7 +1,13 @@
-{ options, config, lib, pkgs, ... }:
+{
+  options,
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 with lib;
-with lib.flowstate;
-let cfg = config.flowstate.apps.zsh;
+with lib.flowstate; let
+  cfg = config.flowstate.apps.zsh;
 in {
   options.flowstate.apps.zsh = with types; {
     enable = mkBoolOpt false "Enable zsh";
@@ -13,7 +19,7 @@ in {
     flowstate.home.programs = {
       zsh = {
         enable = true;
-        oh-my-zsh = { enable = true; };
+        oh-my-zsh = {enable = true;};
 
         shellAliases = {
           l = "eza -l --icons";
@@ -26,8 +32,7 @@ in {
           clr = "clear";
           ff = "fastfetch";
           cff = "clear \n                fastfetch\n                ";
-          mkenv =
-            "nix flake new -t github:nix-community/nix-direnv .\n                    direnv allow\n                    ";
+          mkenv = "nix flake new -t github:nix-community/nix-direnv .\n                    direnv allow\n                    ";
         };
 
         enableAutosuggestions = true;

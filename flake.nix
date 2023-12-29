@@ -56,7 +56,6 @@
         namespace = "flowstate";
       };
     };
-
   in
     lib.mkFlake {
       inherit inputs;
