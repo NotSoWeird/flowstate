@@ -34,11 +34,6 @@ in {
 
       apps = {
         zsh = enabled;
-        cli = {
-          fastfetch = enabled;
-          krabby = enabled;
-          starship = enabled;
-        };
         tools = {
           direnv = enabled;
           git = enabled;

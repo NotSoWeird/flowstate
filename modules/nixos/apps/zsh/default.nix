@@ -14,6 +14,13 @@ in {
   };
 
   config = mkIf cfg.enable {
+    flowstate.apps.cli = {
+      fastfetch = enabled;
+      krabby = enabled;
+      onefetch = enabled;
+      starship = enabled;
+    };
+
     programs.zsh.ohMyZsh.enable = true;
 
     flowstate.home.programs = {
