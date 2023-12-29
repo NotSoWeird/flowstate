@@ -32,7 +32,16 @@ in {
         #power = enabled;
       };
 
+      apps = {
+        zsh = enabled;
+        tools = {
+          direnv = enabled;
+        };
+      };
+
       desktop.hyprland = enabled;
+
+
     };
 
     environment.systemPackages = with pkgs.flowstate; [

@@ -35,9 +35,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    #stylix = {
-    #  url = "github:danth/stylix";
-    #};
+    nix-doom-emacs.url = "github:librephoenix/nix-doom-emacs?ref=pgtk-patch";
+
+    stylix = {
+      url = "github:danth/stylix";
+    };
   };
 
   outputs = inputs: let
@@ -54,6 +56,7 @@
         namespace = "flowstate";
       };
     };
+
   in
     lib.mkFlake {
       inherit inputs;
