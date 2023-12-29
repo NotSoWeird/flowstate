@@ -9,9 +9,7 @@ with lib;
 with lib.flowstate; let
   cfg = config.flowstate.system.boot;
 in {
-  options.flowstate.system.boot = with types; {
-    enable = mkBoolOpt false "Whether or not to enable booting.";
-  };
+  options.flowstate.system.boot = with types; {enable = mkBoolOpt false "Whether or not to enable booting.";};
 
   config = mkIf cfg.enable {
     boot.loader = {

@@ -10,9 +10,7 @@ with lib;
 with lib.flowstate; let
   cfg = config.flowstate.apps.tools.git;
 in {
-  options.flowstate.apps.tools.git = with types; {
-    enable = mkBoolOpt false "Enable or disable git";
-  };
+  options.flowstate.apps.tools.git = with types; {enable = mkBoolOpt false "Enable or disable git";};
 
   config = mkIf cfg.enable {
     environment.systemPackages = with pkgs; [git gh lazygit commitizen];

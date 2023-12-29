@@ -9,9 +9,7 @@ with lib;
 with lib.flowstate; let
   cfg = config.flowstate.apps.shell.zsh;
 in {
-  options.flowstate.apps.shell.zsh = with types; {
-    enable = mkBoolOpt false "Enable zsh";
-  };
+  options.flowstate.apps.shell.zsh = with types; {enable = mkBoolOpt false "Enable zsh";};
 
   config = mkIf cfg.enable {
     flowstate.apps.cli = {

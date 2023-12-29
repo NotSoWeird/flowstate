@@ -9,9 +9,7 @@ with lib;
 with lib.flowstate; let
   cfg = config.flowstate.apps.tools.vscode;
 in {
-  options.flowstate.apps.tools.vscode = with types; {
-    enable = mkBoolOpt false "Enable vscode";
-  };
+  options.flowstate.apps.tools.vscode = with types; {enable = mkBoolOpt false "Enable vscode";};
 
   config = mkIf cfg.enable {
     environment.systemPackages = with pkgs; [vscode];

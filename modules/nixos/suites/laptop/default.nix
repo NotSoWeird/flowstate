@@ -10,8 +10,7 @@ with lib.flowstate; let
   cfg = config.flowstate.suites.laptop;
 in {
   options.flowstate.suites.laptop = with types; {
-    enable =
-      mkBoolOpt false "whether or not to enable the laptop configuration.";
+    enable = mkBoolOpt false "whether or not to enable the laptop configuration.";
   };
 
   config = mkIf cfg.enable {

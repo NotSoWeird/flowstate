@@ -11,9 +11,7 @@ with lib.flowstate; let
 in {
   options.flowstate.hardware.networking = with types; {
     enable = mkBoolOpt false "Whether or not to enable networking support";
-    hosts =
-      mkOpt attrs {}
-      (mdDoc "An attribute set to merge with 'networking.hosts'");
+    hosts = mkOpt attrs {} (mdDoc "An attribute set to merge with 'networking.hosts'");
   };
 
   config = mkIf cfg.enable {

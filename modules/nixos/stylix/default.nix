@@ -12,18 +12,11 @@ with lib.flowstate; let
   theme = "uwunicorn";
   themePath = "../../../../themes" + ("/" + theme + "/" + theme) + ".yaml";
   themePolarity =
-    lib.removeSuffix "\n" (builtins.readFile
-      (./. + "../../../../themes" + ("/" + theme) + "/polarity.txt"));
-  backgroundUrl =
-    builtins.readFile
-    (./. + "../../../../themes" + ("/" + theme) + "/backgroundurl.txt");
-  backgroundSha256 =
-    builtins.readFile
-    (./. + "../../../../themes/" + ("/" + theme) + "/backgroundsha256.txt");
+    lib.removeSuffix "\n" (builtins.readFile (./. + "../../../../themes" + ("/" + theme) + "/polarity.txt"));
+  backgroundUrl = builtins.readFile (./. + "../../../../themes" + ("/" + theme) + "/backgroundurl.txt");
+  backgroundSha256 = builtins.readFile (./. + "../../../../themes/" + ("/" + theme) + "/backgroundsha256.txt");
 in {
-  options.flowstate.stylix = with types; {
-    enable = mkBoolOpt false "Enable Stylix";
-  };
+  options.flowstate.stylix = with types; {enable = mkBoolOpt false "Enable Stylix";};
 
   config = mkIf cfg.enable {
     flowstate.home.file.".currenttheme".text = theme;
@@ -61,10 +54,10 @@ in {
         };
       };
       opacity = {
-        terminal = 0.90;
-        applications = 0.90;
-        popups = 0.50;
-        desktop = 0.90;
+        terminal = 0.9;
+        applications = 0.9;
+        popups = 0.5;
+        desktop = 0.9;
       };
       targets = {
         console.enable = true;

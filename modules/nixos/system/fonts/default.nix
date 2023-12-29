@@ -20,15 +20,7 @@ in {
     environment.systemPackages = with pkgs; [font-manager];
 
     fonts.packages = with pkgs;
-      [
-        nerdfonts
-        noto-fonts
-        noto-fonts-cjk
-        noto-fonts-emoji
-        twemoji-color-font
-        fira-code
-        fira-code-symbols
-      ]
+      [nerdfonts noto-fonts noto-fonts-cjk noto-fonts-emoji twemoji-color-font fira-code fira-code-symbols]
       ++ cfg.fonts;
   };
 }
