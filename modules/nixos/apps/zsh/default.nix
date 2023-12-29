@@ -31,6 +31,7 @@ in {
           c = "clear";
           clr = "clear";
           ff = "fastfetch";
+          of = "onefetch";
           cff = "clear \n                fastfetch\n                ";
           mkenv = "nix flake new -t github:nix-community/nix-direnv .\n                    direnv allow\n                    ";
         };
