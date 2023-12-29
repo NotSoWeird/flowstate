@@ -1,17 +1,26 @@
-{ options, config, pkgs, lib, inputs, ... }:
+{
+  options,
+  config,
+  pkgs,
+  lib,
+  inputs,
+  ...
+}:
 with lib;
-with lib.flowstate;
-let cfg = config.flowstate.home;
+with lib.flowstate; let
+  cfg = config.flowstate.home;
 in {
-  imports = with inputs; [ home-manager.nixosModules.home-manager ];
+  imports = with inputs; [home-manager.nixosModules.home-manager];
 
   options.flowstate.home = with types; {
-    file = mkOpt attrs { }
+    file =
+      mkOpt attrs {}
       "A set of files to be managed by home-manager's <option>home.file</option>.";
-    configFile = mkOpt attrs { }
+    configFile =
+      mkOpt attrs {}
       "A set of files to be managed by home-manager's <option>xdg.configFile</option>.";
-    programs = mkOpt attrs { } "Programs to be managed by home-manager.";
-    extraOptions = mkOpt attrs { } "Options to pass directly to home-manager.";
+    programs = mkOpt attrs {} "Programs to be managed by home-manager.";
+    extraOptions = mkOpt attrs {} "Options to pass directly to home-manager.";
   };
 
   config = {

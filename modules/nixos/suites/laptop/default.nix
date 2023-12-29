@@ -1,7 +1,13 @@
-{ options, config, lib, pkgs, ... }:
+{
+  options,
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 with lib;
-with lib.flowstate;
-let cfg = config.flowstate.suites.laptop;
+with lib.flowstate; let
+  cfg = config.flowstate.suites.laptop;
 in {
   options.flowstate.suites.laptop = with types; {
     enable = mkBoolOpt false "whether or not to enable the laptop configuration.";
@@ -23,8 +29,10 @@ in {
         audio = enabled;
         bluetooth = enabled;
         networking = enabled;
-        power = enabled;
+        #power = enabled;
       };
+
+      desktop.hyprland = enabled;
     };
 
     environment.systemPackages = with pkgs.flowstate; [

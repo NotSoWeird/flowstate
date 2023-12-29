@@ -1,7 +1,13 @@
-{ options, config, lib, pkgs, ... }:
+{
+  options,
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 with lib;
-with lib.flowstate;
-let cfg = config.flowstate.hardware.power;
+with lib.flowstate; let
+  cfg = config.flowstate.hardware.power;
 in {
   options.flowstate.hardware.power = with types; {
     enable = mkBoolOpt false "Whether or not to enable power management.";

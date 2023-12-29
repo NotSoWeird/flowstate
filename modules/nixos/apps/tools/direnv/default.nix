@@ -1,7 +1,13 @@
-{ options, config, lib, pkgs, ... }:
+{
+  options,
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 with lib;
-with lib.flowstate;
-let cfg = config.flowstate.apps.tools.direnv;
+with lib.flowstate; let
+  cfg = config.flowstate.apps.tools.direnv;
 in {
   options.flowstate.apps.tools.direnv = with types; {
     enable = mkBoolOpt false "Enable direnv";
