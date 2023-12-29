@@ -21,9 +21,11 @@ in {
           auth include login
         '';
       };
-      #    pam.services.gtklock = {};
       pam.services.login.enableGnomeKeyring = true;
     };
+
+    services.gnome.gnome-keyring.enable = true;
+    
     programs = {
       hyprland = {
         enable = true;

@@ -3,7 +3,7 @@
   config,
   pkgs,
   lib,
-  stylix,
+  inputs,
   ...
 }:
 with lib;
@@ -27,7 +27,7 @@ in {
 
   config = mkIf cfg.enable {
     flowstate.home.file.".currenttheme".text = theme;
-    stylix = {
+    lib.stylix = {
       polarity = themePolarity;
 
       image = pkgs.fetchurl {
