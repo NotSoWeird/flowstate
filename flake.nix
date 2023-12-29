@@ -38,6 +38,36 @@
     nix-doom-emacs.url = "github:librephoenix/nix-doom-emacs?ref=pgtk-patch";
 
     stylix = {url = "github:danth/stylix";};
+
+    eaf = {
+      url = "github:emacs-eaf/emacs-application-framework";
+      flake = false;
+    };
+    eaf-browser = {
+      url = "github:emacs-eaf/eaf-browser";
+      flake = false;
+    };
+    org-nursery = {
+      url = "github:chrisbarrett/nursery";
+      flake = false;
+    };
+    org-yaap = {
+      url = "gitlab:tygrdev/org-yaap";
+      flake = false;
+    };
+    org-side-tree = {
+      url = "github:localauthor/org-side-tree";
+      flake = false;
+    };
+    org-timeblock = {
+      url = "github:ichernyshovvv/org-timeblock";
+      flake = false;
+    };
+    phscroll = {
+      url = "github:misohena/phscroll";
+      flake = false;
+    };
+
   };
 
   outputs = inputs: let
