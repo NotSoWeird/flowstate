@@ -1,6 +1,5 @@
 {
-  description =
-    "You could not live with your own failure. Where did that bring you? Back to me. - Thanos";
+  description = "You could not live with your own failure. Where did that bring you? Back to me. - Thanos";
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
@@ -23,40 +22,40 @@
     flake.inputs.nixpkgs.follows = "nixpkgs";
 
     # Comma
-    #comma.url = "github:nix-community/comma";
-    #comma.inputs.nixpkgs.follows = "nixpkgs";
+    comma.url = "github:nix-community/comma";
+    comma.inputs.nixpkgs.follows = "nixpkgs";
 
     #nixos-generators = {
     #  url = "github:nix-community/nixos-generators";
     #  inputs.nixpkgs.follows = "nixpkgs";
     #};
 
-    #nix-ld = {
-    #  url = "github:Mic92/nix-ld";
-    #  inputs.nixpkgs.follows = "nixpkgs";
-    #};
+    nix-ld = {
+      url = "github:Mic92/nix-ld";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     #stylix = {
     #  url = "github:danth/stylix";
     #};
   };
 
-  outputs = inputs:
-    let
-      lib = inputs.snowfall-lib.mkLib {
-        inherit inputs;
-        src = ./.;
+  outputs = inputs: let
+    lib = inputs.snowfall-lib.mkLib {
+      inherit inputs;
+      src = ./.;
 
-        snowfall = {
-          meta = {
-            name = "flowstate";
-            title = "Flowstate";
-          };
-
-          namespace = "flowstate";
+      snowfall = {
+        meta = {
+          name = "flowstate";
+          title = "Flowstate";
         };
+
+        namespace = "flowstate";
       };
-    in lib.mkFlake {
+    };
+  in
+    lib.mkFlake {
       inherit inputs;
       namespace = "flowstate";
 
