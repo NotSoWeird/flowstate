@@ -11,10 +11,6 @@ in {
     environment.systemPackages = with pkgs; [ dunst ];
     flowstate = {
       home = {
-        services.dunst = {
-         enable = true;
-        };
-
         configFile."dunst/dunstrc".source = ./dunstrc;
         configFile."dunst/icons/" = {
           source = ./icons;
