@@ -1,13 +1,7 @@
-{
-  options,
-  config,
-  lib,
-  pkgs,
-  ...
-}:
+{ options, config, lib, pkgs, ... }:
 with lib;
-with lib.flowstate; let
-  cfg = config.flowstate.system.printing;
+with lib.flowstate;
+let cfg = config.flowstate.system.printing;
 in {
   options.flowstate.system.printing = with types; {
     enable = mkBoolOpt false "Whether or not to enable printer support.";
@@ -22,6 +16,6 @@ in {
         openFirewall = true;
       };
     };
-    environment.systemPackages = [pkgs.cups-filters];
+    environment.systemPackages = [ pkgs.cups-filters ];
   };
 }

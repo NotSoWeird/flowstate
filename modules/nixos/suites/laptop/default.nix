@@ -11,18 +11,21 @@ in {
     flowstate = {
       system = {
         boot = enabled;
+        env = enabled;
         fonts = enabled;
         locale = enabled;
+        nix = enabled;
+        printing = enabled;
         time = enabled;
         xkb = enabled;
-        nix = enabled;
       };
 
       hardware = {
         audio = enabled;
         bluetooth = enabled;
         networking = enabled;
-      }
+        power = enabled;
+      };
     };
 
     environment.systemPackages = with pkgs.flowstate; [

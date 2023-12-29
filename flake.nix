@@ -1,5 +1,6 @@
 {
-  description = "You could not live with your own failure. Where did that bring you? Back to me. - Thanos";
+  description =
+    "You could not live with your own failure. Where did that bring you? Back to me. - Thanos";
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
@@ -40,22 +41,22 @@
     #};
   };
 
-  outputs = inputs: let
-    lib = inputs.snowfall-lib.mkLib {
-      inherit inputs;
-      src = ./.;
+  outputs = inputs:
+    let
+      lib = inputs.snowfall-lib.mkLib {
+        inherit inputs;
+        src = ./.;
 
-      snowfall = {
-        meta = {
-          name = "flowstate";
-          title = "Flowstate";
+        snowfall = {
+          meta = {
+            name = "flowstate";
+            title = "Flowstate";
+          };
+
+          namespace = "flowstate";
         };
-
-        namespace = "flowstate";
       };
-    };
-  in
-    lib.mkFlake {
+    in lib.mkFlake {
       inherit inputs;
       namespace = "flowstate";
 

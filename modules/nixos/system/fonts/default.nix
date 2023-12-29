@@ -1,23 +1,17 @@
-{
-  options,
-  config,
-  lib,
-  pkgs,
-  ...
-}:
+{ options, config, lib, pkgs, ... }:
 with lib;
-with lib.flowstate; let
-  cfg = config.flowstate.system.fonts;
+with lib.flowstate;
+let cfg = config.flowstate.system.fonts;
 in {
   options.flowstate.system.fonts = with types; {
     enable = mkBoolOpt false "Whether or not to manage fonts.";
-    fonts = mkOpt (listOf package) [] "Custom font packages to install.";
+    fonts = mkOpt (listOf package) [ ] "Custom font packages to install.";
   };
 
   config = mkIf cfg.enable {
-    environment.variables = {LOG_ICONS = "true";};
+    environment.variables = { LOG_ICONS = "true"; };
 
-    environment.systemPackages = with pkgs; [font-manager];
+    environment.systemPackages = with pkgs; [ font-manager ];
 
     fonts.packages = with pkgs;
       [
@@ -28,7 +22,6 @@ in {
         twemoji-color-font
         fira-code
         fira-code-symbols
-      ]
-      ++ cfg.fonts;
+      ] ++ cfg.fonts;
   };
 }
