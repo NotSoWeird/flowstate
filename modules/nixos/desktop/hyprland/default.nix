@@ -27,18 +27,12 @@ in {
     programs = {
       hyprland = {
         enable = true;
-        xwayland = {
-          enable = true;
-        };
+        xwayland = {enable = true;};
         portalPackage = pkgs.xdg-desktop-portal-hyprland;
       };
     };
 
-    flowstate = {
-      desktop.hyprland.addons = {
-        dunst = enabled;
-      };
-    };
+    flowstate = {desktop.hyprland.addons = {dunst = enabled;};};
 
     flowstate = {
       home.configFile."hypr/" = {

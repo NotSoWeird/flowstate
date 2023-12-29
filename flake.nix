@@ -37,9 +37,7 @@
 
     nix-doom-emacs.url = "github:librephoenix/nix-doom-emacs?ref=pgtk-patch";
 
-    stylix = {
-      url = "github:danth/stylix";
-    };
+    stylix = {url = "github:danth/stylix";};
   };
 
   outputs = inputs: let

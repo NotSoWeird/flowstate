@@ -10,7 +10,8 @@ with lib.flowstate; let
   cfg = config.flowstate.suites.laptop;
 in {
   options.flowstate.suites.laptop = with types; {
-    enable = mkBoolOpt false "whether or not to enable the laptop configuration.";
+    enable =
+      mkBoolOpt false "whether or not to enable the laptop configuration.";
   };
 
   config = mkIf cfg.enable {
@@ -33,7 +34,7 @@ in {
       };
 
       apps = {
-        zsh = enabled;
+        shell.zsh = enabled;
         tools = {
           direnv = enabled;
           git = enabled;
@@ -43,8 +44,6 @@ in {
       desktop.hyprland = enabled;
     };
 
-    environment.systemPackages = with pkgs.flowstate; [
-      wallpapers
-    ];
+    environment.systemPackages = with pkgs.flowstate; [wallpapers];
   };
 }
