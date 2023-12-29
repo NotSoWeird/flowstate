@@ -1,9 +1,4 @@
-{
-  config,
-  lib,
-  pkgs,
-  ...
-}:
+{ config, lib, pkgs, ... }:
 # https://github.com/HeinzDev/Hyprland-dotfiles/blob/9a729b79e83f71c291063ca82b5092075815d021/home/scripts/default.nix
 let
   cava-internal = pkgs.writeShellScriptBin "cava-internal" ''

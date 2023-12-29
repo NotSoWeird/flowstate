@@ -1,13 +1,7 @@
-{
-  options,
-  config,
-  lib,
-  pkgs,
-  ...
-}:
+{ options, config, lib, pkgs, ... }:
 with lib;
-with lib.flowstate; let
-  cfg = config.flowstate.suites.server;
+with lib.flowstate;
+let cfg = config.flowstate.suites.server;
 in {
   options.flowstate.suites.server = with types; {
     enable = mkBoolOpt false "whether or not to enable common configuration.";
@@ -29,9 +23,7 @@ in {
         nix = enabled;
       };
 
-      desktops = {
-        hyprland = enabled;
-      };
+      desktops = { hyprland = enabled; };
 
       apps = {
         cli = {

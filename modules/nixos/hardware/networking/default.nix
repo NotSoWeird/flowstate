@@ -1,18 +1,11 @@
-{
-  options,
-  config,
-  lib,
-  pkgs,
-  ...
-}:
+{ options, config, lib, pkgs, ... }:
 with lib;
-with lib.flowstate; let
-  cfg = config.flowstate.hardware.networking;
+with lib.flowstate;
+let cfg = config.flowstate.hardware.networking;
 in {
   options.flowstate.hardware.networking = with types; {
     enable = mkBoolOpt false "Whether or not to enable networking support";
-    hosts =
-      mkOpt attrs {}
+    hosts = mkOpt attrs { }
       (mdDoc "An attribute set to merge with 'networking.hosts'");
   };
 

@@ -1,14 +1,7 @@
-{
-  options,
-  config,
-  pkgs,
-  lib,
-  inputs,
-  ...
-}:
+{ options, config, pkgs, lib, inputs, ... }:
 with lib;
-with lib.flowstate; let
-  cfg = config.flowstate.desktops.addons.cool-retro-term;
+with lib.flowstate;
+let cfg = config.flowstate.desktops.addons.cool-retro-term;
 in {
   options.flowstate.desktops.addons.cool-retro-term = with types; {
     enable = mkBoolOpt false "Enable or disable cool-retro-term";

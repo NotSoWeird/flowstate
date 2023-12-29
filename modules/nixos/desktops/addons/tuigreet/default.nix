@@ -1,12 +1,7 @@
-{
-  config,
-  pkgs,
-  lib,
-  ...
-}:
+{ config, pkgs, lib, ... }:
 with lib;
-with lib.flowstate; let
-  cfg = config.flowstate.desktops.addons.tuigreet;
+with lib.flowstate;
+let cfg = config.flowstate.desktops.addons.tuigreet;
 in {
   options.flowstate.desktops.addons.tuigreet = with types; {
     enable = mkBoolOpt false "Whether or not to use tuigreet";
@@ -17,7 +12,8 @@ in {
       enable = true;
       settings = {
         default_session = {
-          command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --cmd Hyprland";
+          command =
+            "${pkgs.greetd.tuigreet}/bin/tuigreet --time --cmd Hyprland";
           user = "greeter";
         };
       };

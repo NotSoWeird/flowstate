@@ -1,13 +1,7 @@
-{
-  options,
-  config,
-  lib,
-  pkgs,
-  ...
-}:
+{ options, config, lib, pkgs, ... }:
 with lib;
-with lib.flowstate; let
-  cfg = config.flowstate.apps.tools.starship;
+with lib.flowstate;
+let cfg = config.flowstate.apps.tools.starship;
 in {
   options.flowstate.apps.tools.starship = with types; {
     enable = mkBoolOpt false "Enable starship";
@@ -19,9 +13,7 @@ in {
       enableZshIntegration = true;
     };
 
-    environment.systemPackages = with pkgs; [
-      starship
-    ];
+    environment.systemPackages = with pkgs; [ starship ];
 
     flowstate.home.configFile."starship.toml".source = ./starship.toml;
   };

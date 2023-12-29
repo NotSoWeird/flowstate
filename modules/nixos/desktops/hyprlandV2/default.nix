@@ -1,14 +1,7 @@
-{
-  options,
-  config,
-  lib,
-  pkgs,
-  inputs,
-  ...
-}:
+{ options, config, lib, pkgs, inputs, ... }:
 with lib;
-with lib.flowstate; let
-  cfg = config.flowstate.desktops.hyprlandV2;
+with lib.flowstate;
+let cfg = config.flowstate.desktops.hyprlandV2;
 in {
   options.flowstate.desktops.hyprlandV2 = with types; {
     enable = mkBoolOpt false "Enable or disable the hyprland window manager.";

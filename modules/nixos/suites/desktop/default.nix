@@ -1,13 +1,7 @@
-{
-  options,
-  config,
-  lib,
-  pkgs,
-  ...
-}:
+{ options, config, lib, pkgs, ... }:
 with lib;
-with lib.flowstate; let
-  cfg = config.flowstate.suites.desktop;
+with lib.flowstate;
+let cfg = config.flowstate.suites.desktop;
 in {
   options.flowstate.suites.desktop = with types; {
     enable = mkBoolOpt false "Enable the desktop suite";
@@ -15,9 +9,7 @@ in {
 
   config = mkIf cfg.enable {
     flowstate = {
-      desktops = {
-        hyprland = enabled;
-      };
+      desktops = { hyprland = enabled; };
 
       apps = {
         tools = {

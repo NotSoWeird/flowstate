@@ -1,14 +1,7 @@
-{
-  options,
-  config,
-  pkgs,
-  lib,
-  inputs,
-  ...
-}:
+{ options, config, pkgs, lib, inputs, ... }:
 with lib;
-with lib.flowstate; let
-  cfg = config.flowstate.desktops.addons.swww;
+with lib.flowstate;
+let cfg = config.flowstate.desktops.addons.swww;
 in {
   options.flowstate.desktops.addons.swww = with types; {
     enable = mkBoolOpt false "Enable or disable SWWW";

@@ -1,23 +1,14 @@
-{
-  options,
-  config,
-  pkgs,
-  lib,
-  inputs,
-  ...
-}:
+{ options, config, pkgs, lib, inputs, ... }:
 with lib;
-with lib.flowstate; let
-  cfg = config.flowstate.apps.browser.firefox;
+with lib.flowstate;
+let cfg = config.flowstate.apps.browser.firefox;
 in {
   options.flowstate.apps.browser.firefox = with types; {
     enable = mkBoolOpt false "Enable or disable firefox.";
   };
 
   config = mkIf cfg.enable {
-    programs.firefox = {
-      enable = true;
-    };
+    programs.firefox = { enable = true; };
 
     programs.firefox.preferences = {
       # Performance settings
@@ -42,12 +33,17 @@ in {
       "browser.ctrlTab.recentlyUsedOrder" = false;
       "browser.discovery.enabled" = false;
       "browser.laterrun.enabled" = false;
-      "browser.newtabpage.activity-stream.asrouter.userprefs.cfr.addons" = false;
-      "browser.newtabpage.activity-stream.asrouter.userprefs.cfr.features" = false;
+      "browser.newtabpage.activity-stream.asrouter.userprefs.cfr.addons" =
+        false;
+      "browser.newtabpage.activity-stream.asrouter.userprefs.cfr.features" =
+        false;
       "browser.newtabpage.activity-stream.feeds.snippets" = false;
-      "browser.newtabpage.activity-stream.improvesearch.topSiteSearchShortcuts.havePinned" = "";
-      "browser.newtabpage.activity-stream.improvesearch.topSiteSearchShortcuts.searchEngines" = "";
-      "browser.newtabpage.activity-stream.section.highlights.includePocket" = false;
+      "browser.newtabpage.activity-stream.improvesearch.topSiteSearchShortcuts.havePinned" =
+        "";
+      "browser.newtabpage.activity-stream.improvesearch.topSiteSearchShortcuts.searchEngines" =
+        "";
+      "browser.newtabpage.activity-stream.section.highlights.includePocket" =
+        false;
       "browser.newtabpage.activity-stream.showSponsored" = false;
       "browser.newtabpage.activity-stream.showSponsoredTopSites" = false;
       "browser.newtabpage.pinned" = false;
@@ -71,5 +67,4 @@ in {
     };
   };
 
-  
 }

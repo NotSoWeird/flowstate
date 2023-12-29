@@ -1,13 +1,7 @@
-{
-  options,
-  config,
-  lib,
-  pkgs,
-  ...
-}:
+{ options, config, lib, pkgs, ... }:
 with lib;
-with lib.flowstate; let
-  cfg = config.flowstate.desktops.addons.rofi;
+with lib.flowstate;
+let cfg = config.flowstate.desktops.addons.rofi;
 in {
   options.flowstate.desktops.addons.rofi = with types; {
     enable = mkBoolOpt false "Enable or disable the rofi run launcher.";
@@ -24,7 +18,8 @@ in {
 
         configFile."rofi/theme.rasi".source = ./theme.rasi;
         configFile."rofi/colors/dracula.rasi".source = ./colors/dracula.rasi;
-        configFile."rofi/colors/catppuccin.rasi".source = ./colors/catppuccin.rasi;
+        configFile."rofi/colors/catppuccin.rasi".source =
+          ./colors/catppuccin.rasi;
       };
     };
   };

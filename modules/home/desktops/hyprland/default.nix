@@ -1,16 +1,9 @@
-{
-  lib,
-  config,
-  pkgs,
-  ...
-}:
+{ lib, config, pkgs, ... }:
 with lib;
-with lib.flowstate; let
-  cfg = config.flowstate.desktops.hyprland;
+with lib.flowstate;
+let cfg = config.flowstate.desktops.hyprland;
 in {
-  options.flowstate.desktops.hyprland = {
-    enable = mkEnableOption "pls";
-  };
+  options.flowstate.desktops.hyprland = { enable = mkEnableOption "pls"; };
 
   config = mkIf cfg.enable {
     home = {
