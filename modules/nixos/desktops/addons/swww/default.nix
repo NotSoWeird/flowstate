@@ -12,8 +12,7 @@ in {
       swww
       (writeShellScriptBin "wallpaper_random" ''
         if command -v swww >/dev/null 2>&1; then
-            killall dynamic_wallpaper
-            swww img $(find ~/Pictures/wallpapers/. -name "*.png" | shuf -n1) --transition-type simple
+            swww img $(find ~/Pictures/wallpapers/. -regex '.*\(.png\|.jpg\)$'  | shuf -n1) --transition-type random
         fi
       '')
     ];
