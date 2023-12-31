@@ -43,6 +43,8 @@ in {
       desktop.hyprland = enabled;
     };
 
-    environment.systemPackages = with pkgs.flowstate; [wallpapers];
+    environment.systemPackages = with pkgs.flowstate; [
+      wallpapers
+    ];
   };
 }

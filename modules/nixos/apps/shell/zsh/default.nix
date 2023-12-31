@@ -37,8 +37,11 @@ in {
           clr = "clear";
           ff = "fastfetch";
           of = "onefetch";
-          cff = "clear \n                fastfetch\n                ";
-          mkenv = "nix flake new -t github:nix-community/nix-direnv .\n                    direnv allow\n                    ";
+          cff = "clear 
+                fastfetch";
+          mkenv = "nix flake new -t github:nix-community/nix-direnv .
+          direnv allow";
+          wallpaper_random = "swww img $(find ~/Pictures/wallpapers/. -regex '.*\(.png\|.jpg\)$'  | shuf -n1) --transition-type random";
         };
 
         enableAutosuggestions = true;
