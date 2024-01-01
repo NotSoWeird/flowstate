@@ -52,7 +52,7 @@ in {
     };
 
     flowstate.home.file.".zshrc".text = ''
-      CASE_SENSITIVE="true"krabby = enabled;
+      CASE_SENSITIVE="true"
 
       krabby random
 
