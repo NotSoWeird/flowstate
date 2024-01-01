@@ -48,6 +48,7 @@ in {
           direnv = enabled;
           git = enabled;
           vscode = enabled;
+          keepassxc = enabled;
         };
       };
       stylix = enabled;

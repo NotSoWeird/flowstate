@@ -12,6 +12,33 @@ in {
   };
 
   config = mkIf cfg.enable {
-    environment.systemPackages = with pkgs; [ emacs29-pgtk ];
+    flowstate.apps.tools.python3 = enabled;
+
+    environment.systemPackages = with pkgs; [ 
+      emacs29-pgtk 
+
+      #Needed for doom packages
+      cmake
+      gnumake
+      libxml2
+      discount
+      black
+      python311Packages.pyflakes
+      python311Packages.isort
+      python311Packages.pipenv
+      python311Packages.pytest
+      rustc
+      cargo
+      rust-analyzer
+      shfmt
+      shellcheck
+      html-tidy
+      stylelint
+      jsbeautifier
+
+      flameshot
+    ];
+
+    
   };
 }
