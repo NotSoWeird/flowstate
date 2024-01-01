@@ -10,6 +10,8 @@ in {
   config = mkIf cfg.enable {
     environment.systemPackages = with pkgs; [ pyprland ];
 
-    flowstate = { home = { configFile."dunst/dunstrc".source = ./dunstrc; }; };
+    flowstate = {
+      home = { configFile."hypr/pyprland.toml".source = ./pyprland.toml; };
+    };
   };
 }

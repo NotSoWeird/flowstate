@@ -1,9 +1,11 @@
 { config, lib, pkgs, inputs, ... }:
 with lib;
-with lib.flowstate; let
+with lib.flowstate;
+let
   cfg = config.flowstate.apps.doom-emacs;
   theme = lib.flowstate.setting.theme;
-  themePolarity = config.lib.stylix.polarity; #lib.removeSuffix "\n" (builtins.readFile (./. + "../../../../themes" + ("/" + theme) + "/polarity.txt"));
+  themePolarity =
+    config.lib.stylix.polarity; # lib.removeSuffix "\n" (builtins.readFile (./. + "../../../../themes" + ("/" + theme) + "/polarity.txt"));
   dashboardLogo = ./. + "/nix-" + themePolarity + ".png";
 
 in {
@@ -14,8 +16,8 @@ in {
   config = mkIf cfg.enable {
     flowstate.apps.tools.python3 = enabled;
 
-    environment.systemPackages = with pkgs; [ 
-      emacs29-pgtk 
+    environment.systemPackages = with pkgs; [
+      emacs29-pgtk
 
       #Needed for doom packages
       cmake
@@ -41,6 +43,5 @@ in {
       mermaid-cli
     ];
 
-    
   };
 }
