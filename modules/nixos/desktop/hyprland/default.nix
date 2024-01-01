@@ -261,22 +261,26 @@ in {
                 bindm = $mainMod, mouse:273, resizewindow
                 #bindm = ALT, mouse:272, resizewindow
 
-                bind=$mainMod, Z, exec, pypr toggle kitty && hyprctl dispatch bringactivetotop
-                bind=$mainMod, X,exec,pypr toggle volume && hyprctl dispatch bringactivetotop
-                bind=$mainMod, B,exec,pypr toggle btm && hyprctl dispatch bringactivetotop
-                $scratchpadsize = size 80% 85%
+                #bind=$mainMod, Z, exec, pypr toggle term && hyprctl dispatch bringactivetotop
+                #bind=$mainMod, X,exec,pypr toggle volume && hyprctl dispatch bringactivetotop
+                #bind=$mainMod, B,exec,pypr toggle btm && hyprctl dispatch bringactivetotop
+                #$scratchpadsize = size 80% 85%
 
-                $scratchpad = class:^(scratchpad)$
-                windowrulev2 = float,$scratchpad
-                windowrulev2 = $scratchpadsize,$scratchpad
-                windowrulev2 = workspace special silent,$scratchpad
-                windowrulev2 = center,$scratchpad
+                bind = $mainMod,A,exec,pypr toggle term
+                $dropterm  = ^(kitty-dropterm)$
+                windowrule = float,$dropterm
+                windowrule = workspace special:scratch_term silent,$dropterm
+                windowrule = size 75% 60%,$dropterm
+                windowrule = move 12% -200%,$dropterm
 
-                $gearyscratchpad = class:^(geary)$
-                windowrulev2 = float,$gearyscratchpad
-                windowrulev2 = $scratchpadsize,$gearyscratchpad
-                windowrulev2 = workspace special silent,$gearyscratchpad
-                windowrulev2 = center,$gearyscratchpad
+                bind = $mainMod,V,exec,pypr toggle btm
+                windowrule = float,^(btm)$
+                windowrule = size 90% 90%,^(btm)$
+                #windowrule = move 200% 5%,^(btm)$
+                windowrule = workspace special:scratch_volume silent,^(btm)$
+
+
+
 
                 bind=SUPERCTRL,right,workspace,+1
                 bind=SUPERCTRL,left,workspace,-1
@@ -292,41 +296,6 @@ in {
         #  recursive = true;
         #};
 
-        configFile."hypr/pyprland.json".text = ''
-          {
-            "pyprland": {
-              "plugins": ["scratchpads", "magnify"]
-            },
-            "scratchpads": {
-              "term": {
-                "command": "alacritty --class scratchpad",
-                "margin": 50
-              },
-              "ranger": {
-                "command": "kitty --class scratchpad -e ranger",
-                "margin": 50
-              },
-              "musikcube": {
-                "command": "alacritty --class scratchpad -e musikcube",
-                "margin": 50
-              },
-              "btm": {
-                "command": "alacritty --class scratchpad -e btm",
-                "margin": 50
-              },
-              "geary": {
-                "command": "geary",
-                "margin": 50
-              },
-              "pavucontrol": {
-                "command": "pavucontrol",
-                "margin": 50,
-                "unfocus": "hide",
-                "animation": "fromTop"
-              }
-            }
-          }
-        '';
       };
     };
   };

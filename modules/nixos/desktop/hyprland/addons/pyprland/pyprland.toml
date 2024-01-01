@@ -7,7 +7,7 @@ plugins = [
 [workspaces_follow_focus]
 max_workspaces = 9
 
-[scratchpads.kitty]
+[scratchpads.term]
 command = "kitty --class kitty-dropterm"
 animation = "fromTop"
 margin = 50
