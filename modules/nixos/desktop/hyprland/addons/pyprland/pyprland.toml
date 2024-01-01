@@ -1,0 +1,29 @@
+[pyprland]
+plugins = [
+  "scratchpads",
+  "workspaces_follow_focus"
+]
+
+[workspaces_follow_focus]
+max_workspaces = 9
+
+[scratchpads.kitty]
+command = "kitty --class kitty-dropterm"
+animation = "fromTop"
+margin = 50
+unfocus = "hide"
+size = "75% 60%"
+max_size = "1920px 100%"
+
+[scratchpads.btm]
+command = "btm"
+animation = "fromTop"
+lazy = true
+unfocus = "hide"
+
+[scratchpads.volume]
+command = "pavucontrol"
+animation = "fromRight"
+class = "pavucontrol"
+lazy = true
+size = "40% 90%"

@@ -25,7 +25,7 @@ in {
       black
       python311Packages.pyflakes
       python311Packages.isort
-      python311Packages.pipenv
+      pipenv
       python311Packages.pytest
       rustc
       cargo
@@ -35,8 +35,10 @@ in {
       html-tidy
       stylelint
       jsbeautifier
-
+      jdk
       flameshot
+
+      mermaid-cli
     ];
 
     
