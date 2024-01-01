@@ -42,6 +42,7 @@ in {
           mkenv = "nix flake new -t github:nix-community/nix-direnv .
           direnv allow";
           wallpaper_random = "swww img $(find ~/Pictures/wallpapers/. -regex '.*\(.png\|.jpg\)$'  | shuf -n1) --transition-type random";
+          doom = "~/.config/emacs/bin/doom";
         };
 
         enableAutosuggestions = true;
@@ -52,7 +53,6 @@ in {
 
     flowstate.home.file.".zshrc".text = ''
       CASE_SENSITIVE="true"krabby = enabled;
-      starship = enabled
 
       krabby random
 

@@ -37,6 +37,8 @@ in {
         shell.zsh = enabled;
         discord = enabled;
         doom-emacs = enabled;
+        terminal.kitty = enabled;
+        misc = enabled;
 
         school = {
           #cpp = enabled;
