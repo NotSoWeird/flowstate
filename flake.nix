@@ -82,6 +82,15 @@
         };
 
         namespace = "flowstate";
+
+        #fontPkg = pkgs.intel-one-mono; # Font package
+
+        # editor spawning translator
+        # generates a command that can be used to spawn editor inside a gui
+        # EDITOR and TERM session variables must be set in home.nix or other module
+        # I set the session variable SPAWNEDITOR to this in my home.nix for convenience
+        #spawnEditor = if (editor == "emacsclient") then "emacsclient -c -a 'emacs'"
+        #              else (if ((editor == "vim") || (editor == "nvim") || (editor == "nano")) then "exec " + term + " -e " + editor else editor);
       };
     };
   in
@@ -95,7 +104,7 @@
       systems.modules = with inputs; [
         home-manager.nixosModules.home-manager
         nix-ld.nixosModules.nix-ld
-        #stylix.nixosModules.stylix
+        stylix.nixosModules.stylix
       ];
     };
 }

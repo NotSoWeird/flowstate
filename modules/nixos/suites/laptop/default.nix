@@ -33,13 +33,22 @@ in {
       };
 
       apps = {
+        browser.firefox = enabled;
         shell.zsh = enabled;
+        discord = enabled;
+        doom-emacs = enabled;
+
+        school = {
+          #cpp = enabled;
+          latex = enabled;
+        };
         tools = {
           direnv = enabled;
           git = enabled;
+          vscode = enabled;
         };
       };
-
+      stylix = enabled;
       desktop.hyprland = enabled;
     };
 
