@@ -80,6 +80,7 @@ in {
         swaylock = enabled;
         swww = enabled;
         waybar = enabled;
+        wallpapers = enabled;
       };
     };
 

@@ -23,6 +23,9 @@ in {
       ffmpeg
       wget
       wl-clipboard
+      ripgrep
+      coreutils # basic GNU utilities
+      clang
     ];
   };
 }
