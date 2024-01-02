@@ -57,6 +57,7 @@ in {
         fuzzel = enabled;
         gdm = enabled;
         pyprland = enabled;
+        rofi = enabled;
         swaylock = enabled;
         swww = enabled;
         waybar = enabled;
@@ -132,8 +133,6 @@ in {
                   col.active_border = 0xff'' + config.lib.stylix.colors.base08
               + "col.inactive_border = 0x33" + config.lib.stylix.colors.base00
               + ''
-
-
                   layout = dwindle
                 }
 
@@ -198,6 +197,7 @@ in {
                 bind = $mainMod, RETURN, exec, kitty
                 bind = $mainMod, F, exec, firefox
                 bind = $mainMod, E, exec, emacs
+                bind = $mainMod, O, exec, wallpaper_random
                 bind = $mainMod, Q, killactive,
                 bind = $mainMod, M, exit,
                 bind = $mainMod, G, exec, nautilus

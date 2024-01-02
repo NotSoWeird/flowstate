@@ -27,3 +27,12 @@ animation = "fromRight"
 class = "pavucontrol"
 lazy = true
 size = "40% 90%"
+
+[scratchpads.nixsearch]
+command = "firefox --new-window https://search.nixos.org/packages"
+animation = "fromTop"
+margin = 50
+unfocus = "hide"
+lazy = true
+size = "75% 60%"
+max_size = "1920px 100%"
