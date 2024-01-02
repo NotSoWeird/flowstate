@@ -16,8 +16,16 @@ in {
   config = mkIf cfg.enable {
     flowstate.apps.tools.python3 = enabled;
 
+    services = {
+      emacs = {
+        enable = true;
+        package = pkgs.emacs29.pgtk;
+        defaultEditor = true;
+      };
+    };
+
     environment.systemPackages = with pkgs; [
-      emacs29-pgtk
+      #emacs29-pgtk
 
       #Needed for doom packages
       cmake
@@ -43,6 +51,8 @@ in {
       libclang
       graphviz
       mermaid-cli
+      hunspell
+      hunspellDicts.sv_SE
     ];
 
   };
