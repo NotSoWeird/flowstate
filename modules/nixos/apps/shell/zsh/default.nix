@@ -1,15 +1,11 @@
-{
-  options,
-  config,
-  lib,
-  pkgs,
-  ...
-}:
+{ options, config, lib, pkgs, ... }:
 with lib;
-with lib.flowstate; let
-  cfg = config.flowstate.apps.shell.zsh;
+with lib.flowstate;
+let cfg = config.flowstate.apps.shell.zsh;
 in {
-  options.flowstate.apps.shell.zsh = with types; {enable = mkBoolOpt false "Enable zsh";};
+  options.flowstate.apps.shell.zsh = with types; {
+    enable = mkBoolOpt false "Enable zsh";
+  };
 
   config = mkIf cfg.enable {
     flowstate.apps.cli = {
@@ -24,7 +20,7 @@ in {
     flowstate.home.programs = {
       zsh = {
         enable = true;
-        oh-my-zsh = {enable = true;};
+        oh-my-zsh = { enable = true; };
 
         shellAliases = {
           l = "eza -l --icons";
@@ -37,11 +33,13 @@ in {
           clr = "clear";
           ff = "fastfetch";
           of = "onefetch";
-          cff = "clear 
-                fastfetch";
-          mkenv = "nix flake new -t github:nix-community/nix-direnv .
-          direnv allow";
-          wallpaper_random = "swww img $(find ~/Pictures/wallpapers/. -regex '.*\(.png\|.jpg\)$'  | shuf -n1) --transition-type random";
+          cff = ''
+            clear
+            fastfetch'';
+          mkenv = ''
+            nix flake new -t github:nix-community/nix-direnv .
+            direnv allow'';
+          #wallpaper_random = "swww img $(find ~/Pictures/wallpapers/. -regex '.*\(.png\|.jpg\)$'  | shuf -n1) --transition-type random";
           doom = "~/.config/emacs/bin/doom";
         };
 

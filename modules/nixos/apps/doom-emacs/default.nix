@@ -39,7 +39,7 @@ in {
       jsbeautifier
       jdk
       flameshot
-
+      nil
       mermaid-cli
     ];
 

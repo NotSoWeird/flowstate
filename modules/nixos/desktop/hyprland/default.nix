@@ -197,6 +197,7 @@ in {
                 #bind = $mainMod, RETURN, exec, cool-retro-term-zsh
                 bind = $mainMod, RETURN, exec, kitty
                 bind = $mainMod, F, exec, firefox
+                bind = $mainMod, E, exec, emacs
                 bind = $mainMod, Q, killactive,
                 bind = $mainMod, M, exit,
                 bind = $mainMod, G, exec, nautilus

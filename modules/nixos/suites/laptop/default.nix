@@ -1,9 +1,5 @@
 {
-  options,
-  config,
-  lib,
-  pkgs,
-  ...
+   options, config, pkgs, lib, inputs, ... 
 }:
 with lib;
 with lib.flowstate; let
@@ -55,8 +51,13 @@ in {
       desktop.hyprland = enabled;
     };
 
-    environment.systemPackages = with pkgs.flowstate; [
-      wallpapers
+    environment.systemPackages = with pkgs; [
+      flowstate.wallpapers
+      (writeShellScriptBin "wallpaper_random" ''
+        if command -v swww >/dev/null 2>&1; then
+            swww img $(find ~/Pictures/wallpapers/. -regex '.*\(.png\|.jpg\)$'  | shuf -n1) --transition-type random
+        fi
+      '')
     ];
   };
 }

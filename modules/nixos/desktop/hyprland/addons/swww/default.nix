@@ -10,11 +10,6 @@ in {
   config = mkIf cfg.enable {
     environment.systemPackages = with pkgs; [
       swww
-      (writeShellScriptBin "wallpaper_random" ''
-        if command -v swww >/dev/null 2>&1; then
-            swww img $(find ~/Pictures/wallpapers/. -regex '.*\(.png\|.jpg\)$'  | shuf -n1) --transition-type random
-        fi
-      '')
     ];
   };
 }
