@@ -202,7 +202,7 @@ in {
                 bind = $mainMod, M, exit,
                 bind = $mainMod, G, exec, nautilus
                 bind = $mainMod, V, togglefloating,
-                bind = $mainMod, w, exec, fuzzel
+                bind = $mainMod, w, exec, rofi -show drun
                 bind = $mainMod, P, pseudo, # dwindle
                 bind = $mainMod, J, togglesplit, # dwindle
 

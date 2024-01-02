@@ -11,7 +11,7 @@ in {
     services.xserver = {
       enable = true;
       displayManager = {
-        defaultSession = "hyprland";
+        #defaultSession = "hyprland";
         gdm = {
           enable = true;
           wayland = true;
