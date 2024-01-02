@@ -40,6 +40,8 @@ in {
       jdk
       flameshot
       nil
+      libclang
+      graphviz
       mermaid-cli
     ];
 
