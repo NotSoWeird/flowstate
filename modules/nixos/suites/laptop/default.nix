@@ -28,7 +28,10 @@ in {
       };
 
       apps = {
-        browser.firefox = enabled;
+        browser = {
+          firefox = enabled;
+          qutebrowser = enabled;
+        };
         shell.zsh = enabled;
         discord = enabled;
         doom-emacs = enabled;
