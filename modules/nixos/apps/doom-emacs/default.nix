@@ -57,5 +57,9 @@ in {
       zathura
     ];
 
+    flowstate.home.configFile."doom/" = {
+      source = ./doom;
+      recursive = true;
+    };
   };
 }
