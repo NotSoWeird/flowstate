@@ -223,11 +223,17 @@ in {
                 bind = SUPER,Tab,cyclenext,
                 bind = SUPER,Tab,bringactivetotop,
 
-                # Move focus with mainMod + arrow keys
-                bind = $mainMod, left, movefocus, l
-                bind = $mainMod, right, movefocus, r
-                bind = $mainMod, up, movefocus, u
-                bind = $mainMod, down, movefocus, d
+                # Move focus with mainMod + hjkl
+                bind = $mainMod, h, movefocus, l
+                bind = $mainMod, l, movefocus, r
+                bind = $mainMod, k, movefocus, u
+                bind = $mainMod, j, movefocus, d
+
+                # Move window in workspace with mainMod + CTRL + hjkl
+                bind = $mainMod, left, swapwindow, l
+                bind = $mainMod, right, swapwindow, r
+                bind = $mainMod, up, swapwindow, u
+                bind = $mainMod, down, swapwindow, d
 
                 # Switch workspaces with mainMod + [0-9]
                 bind = $mainMod, 1, workspace, 1
@@ -280,7 +286,25 @@ in {
                 #windowrule = move 200% 5%,^(btm)$
                 windowrule = workspace special:scratch_volume silent,^(btm)$
 
+                # will switch to a submap called resize
+                bind=ALT,R,submap,resize
 
+                # will start a submap called "resize"
+                submap=resize
+
+                # sets repeatable binds for resizing the active window
+                binde=,right,resizeactive,10 0
+                binde=,left,resizeactive,-10 0
+                binde=,up,resizeactive,0 -10
+                binde=,down,resizeactive,0 10
+
+                # use reset to go back to the global submap
+                bind=,escape,submap,reset
+
+                # will reset the submap, meaning end the current one and return to the global one
+                submap=reset
+
+                # keybinds further down will be global again...
 
 
                 bind=SUPERCTRL,right,workspace,+1

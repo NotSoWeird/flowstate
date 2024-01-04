@@ -54,6 +54,7 @@ in {
       hunspell
       hunspellDicts.sv_SE
       ccls
+      zathura
     ];
 
   };
