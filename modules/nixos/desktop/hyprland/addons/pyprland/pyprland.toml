@@ -21,7 +21,7 @@ animation = "fromTop"
 lazy = true
 unfocus = "hide"
 
-[scratchpads.volume]
+[scratchpads.pavucontrol]
 command = "pavucontrol"
 animation = "fromRight"
 class = "pavucontrol"

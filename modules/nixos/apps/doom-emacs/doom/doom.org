@@ -1,3 +1,59 @@
+#+TITLE: Doom Emacs Literate Config
+#+AUTHOR: NotSoWeird
+
+* Table of Contents :TOC:QUOTE:
+#+BEGIN_QUOTE
+- [[#what-is-doom-emacs][What is Doom Emacs?]]
+- [[#configuration-for-doom-emacs][Configuration for Doom Emacs]]
+- [[#my-configel][My config.el]]
+  - [[#preamble--user-configuration][Preamble + User Configuration]]
+  - [[#org-mode-configuration][Org Mode Configuration]]
+  - [[#org-roam-configuration][Org Roam Configuration]]
+  - [[#org-agenda-configuration][Org Agenda Configuration]]
+  - [[#magit-configuration][Magit Configuration]]
+  - [[#ibuffer-configuration][Ibuffer Configuration]]
+  - [[#dired-configuration][Dired Configuration]]
+  - [[#focus-mode-configuration][Focus Mode Configuration]]
+  - [[#helpful-mode-configuration][Helpful Mode Configuration]]
+  - [[#direnv][Direnv]]
+  - [[#projectile][Projectile]]
+  - [[#sudo-edit][sudo-edit]]
+  - [[#lsp][LSP]]
+  - [[#keybindings][Keybindings]]
+- [[#my-initel][My init.el]]
+- [[#my-packagesel][My packages.el]]
+#+END_QUOTE
+
+* What is Doom Emacs?
+[[https://github.com/doomemacs/doomemacs][Doom Emacs]] is a distribution of the [[https://www.gnu.org/software/emacs/][Emacs Text Editor]] designed for [[https://www.vim.org/][Vim]] users. I like to use Emacs due to its extensibility and extra features it is capable of (besides text editing). Some of these extra features include:
+- [[https://orgmode.org/][Org Mode]] (Hierarchical text-based document format)
+- [[https://www.orgroam.com/][Org Roam]] (A second brain / personal wiki)
+- [[https://orgmode.org/][Org Agenda]] (Calendar and todo list)
+- [[https://magit.vc/][Magit]] (Git Client)
+
+I have found Emacs to be incredibly efficient, and transferring my workflow to fit inside of Emacs has allowed me to get much more work done.  I primarily use Emacs for writing, note-taking, task/project management and organizing information.
+
+* Configuration for Doom Emacs
+Doom Emacs is configured via 3 main files, written in Elisp, a dialect of the Lisp programming language designed for Emacs. These 3 main files are:
+- [[./config.el][config.el]] - Stores your main configuration and allows to set user variables.
+- [[./init.el][init.el]] - Allows quick downloads of groups of Emacs packages. These groups of Emacs packages are curated by the Doom Emacs developers.
+- [[./packages.el][packages.el]] - Allows you to download additional packages from Melpa (Emacs package manager).
+
+By storing your configuration in these 3 files, it allows for quick reproducible builds of Doom Emacs.
+
+You can also load separate files inside of [[./config.el][config.el]] via the =load!= function, like so:
+
+#+BEGIN_SRC emacs-lisp
+(load! "~/.doom.d/private.el")
+#+END_SRC
+
+This can be used to load private config file with non-public information, or can be used to create modular configuration.
+
+Doom Emacs is traditionally installed by cloning the repository ([[https://github.com/doomemacs/doomemacs][https://github.com/doomemacs/doomemacs]]) and running =./bin/doom install=.
+
+* My config.el
+** Preamble + User Configuration
+#+BEGIN_SRC emacs-lisp :tangle config.el
 ;;; $DOOMDIR/config.el -*- lexical-binding: t; -*-
 
 ;;;------ User configuration ------;;;
@@ -148,6 +204,10 @@
 ;; For camelCase
 (global-subword-mode 1)
 
+#+END_SRC
+** Org Mode Configuration
+*** Standard Org Mode Configuration
+#+BEGIN_SRC emacs-lisp :tangle config.el
 ;;;------ Org mode configuration ------;;;
 
 ;; Set default org directory
@@ -234,6 +294,10 @@
   :side 'top'
   :size 0.9)
 
+#+END_SRC
+
+*** Org Inline Macros
+#+BEGIN_SRC emacs-lisp :tangle config.el
 ;; Display macros inline in buffers
 (add-to-list 'font-lock-extra-managed-props 'display)
 
@@ -252,6 +316,9 @@
                           text
                         input-str)))))))
 
+#+END_SRC
+*** Org Transclusion
+#+BEGIN_SRC emacs-lisp :tangle config.el
 ;; Org transclusion
 (use-package! org-transclusion
   :after org
@@ -265,6 +332,11 @@
 
 (add-hook 'org-mode-hook #'org-transclusion-mode)
 
+#+END_SRC
+
+** Org Roam Configuration
+*** Standard Org Roam Configuration
+#+BEGIN_SRC emacs-lisp :tangle config.el
 ;;;------ Org roam configuration ------;;;
 (require 'org-roam)
 (require 'org-roam-dailies)
@@ -287,6 +359,9 @@
  org-roam-db-choice)
 )
 
+#+END_SRC
+*** Multi Org Roam Configuration
+#+BEGIN_SRC emacs-lisp :tangle config.el
 (setq full-org-roam-db-list nil)
 
 (setq full-org-roam-db-list (directory-files "~/Org" t "\\.[p,s]$"))
@@ -369,6 +444,9 @@
   (when (not switchpersist)
     (org-roam-switch-db prev-org-roam-db-choice 1)))
 
+#+END_SRC
+*** Org Roam "todos" Tagging for Org Agenda
+#+BEGIN_SRC emacs-lisp :tangle config.el
 ;;;------ Org-roam-agenda configuration ------;;;
 (defun text-in-buffer-p (TEXT)
 (save-excursion (goto-char (point-min)) (search-forward TEXT nil t)))
@@ -452,6 +530,9 @@ tasks."
 
 (add-hook 'before-save-hook 'add-todos-tag-on-save-org-mode-file)
 
+#+END_SRC
+*** Setup Org Agenda from Org Roam
+#+BEGIN_SRC emacs-lisp :tangle config.el
 (defun org-roam-filter-by-tag (tag-name)
   (lambda (node)
     (member tag-name (org-roam-node-tags node))))
@@ -493,12 +574,18 @@ tasks."
 ;; Build agenda for first time during this session
 (org-roam-refresh-agenda-list)
 
+#+END_SRC
+*** Org Roam Capture Templates
+#+BEGIN_SRC emacs-lisp :tangle config.el
 (after! org-roam
   (setq org-roam-capture-templates
         '(("d" "default" plain "%?" :target
   (file+head "%<%Y%m%d%H%M%S>-${slug}.org" "#+title: ${title}\n")
   :unnarrowed t))))
 
+#+END_SRC
+*** Org Roam Olivetti Mode
+#+BEGIN_SRC emacs-lisp :tangle config.el
 (setq olivetti-style 'fancy
       olivetti-margin-width 100)
 (setq-default olivetti-body-width 100)
@@ -511,13 +598,24 @@ tasks."
 
 (add-hook 'org-mode-hook 'org-roam-olivetti-mode)
 
+#+END_SRC
+*** Org Roam Dynamic Blocks
+#+BEGIN_SRC emacs-lisp :tangle config.el
 (add-load-path! "~/.config/doom/org-nursery/lisp")
 (require 'org-roam-dblocks)
 (use-package org-roam-dblocks
   :hook (org-mode . org-roam-dblocks-autoupdate-mode))
 
+#+END_SRC
+*** Org Roam Export Setup
+#+BEGIN_SRC emacs-lisp :tangle config.el
 (setq org-id-extra-files 'org-agenda-text-search-extra-files)
 
+#+END_SRC
+*** Org Roam UI Setup
+I want this to be able to automatically open ORUI in EAF Browser in a split to the right.  This kinda works now?
+On Wayland, EAF doesn't work.
+#+BEGIN_SRC emacs-lisp :tangle config.el
 (setq org-roam-ui-browser-function 'browse-url) ; wayland
 
 (defun open-org-roam-ui ()
@@ -531,6 +629,10 @@ tasks."
   (kill-buffer "*httpd*")
 )
 
+#+END_SRC
+** Org Agenda Configuration
+*** Standard Org Agenda Configuration
+#+BEGIN_SRC emacs-lisp :tangle config.el
 ;;;------ Org agenda configuration ------;;;
 ;; Set span for agenda to be just daily
 (setq org-agenda-span 1
@@ -579,6 +681,9 @@ tasks."
         ("Personal.p" ,(list (all-the-icons-material "person" :height 0.9)) nil nil :ascent center)
         ))
 
+#+END_SRC
+*** Org Agenda Convenience Functions
+#+BEGIN_SRC emacs-lisp :tangle config.el
 (defun org-categorize-by-roam-db-on-save ()
   (interactive)
   (when (string= (message "%s" major-mode) "org-mode")
@@ -646,6 +751,9 @@ tasks."
   (org-roam-olivetti-mode)
 )
 
+#+END_SRC
+*** Org Super Agenda Configuration
+#+BEGIN_SRC emacs-lisp :tangle config.el
 (require 'org-super-agenda)
 
 (setq org-super-agenda-groups
@@ -682,8 +790,26 @@ tasks."
 
 (org-super-agenda-mode t)
 
+#+END_SRC
+
+*** Org Agenda Notifications
+#+BEGIN_SRC emacs-lisp
+(require 'org-yaap)
+(setq org-yaap-alert-title "Org Agenda")
+(setq org-yaap-overdue-alerts 20)
+(setq org-yaap-alert-before 20)
+(setq org-yaap-daily-alert '(7 30))
+(setq org-yaap-daemon-idle-time 30)
+(org-yaap-mode 1)
+
+#+END_SRC
+*** Org Timeblock
+#+begin_src emacs-lisp :tangle config.el
 (require 'org-timeblock)
 
+#+end_src
+** Magit Configuration
+#+BEGIN_SRC emacs-lisp :tangle config.el
 ;;;------ magit configuration ------;;;
 ;; Need the following two blocks to make magit work with git bare repos
 (defun ~/magit-process-environment (env)
@@ -703,6 +829,9 @@ https://github.com/magit/magit/issues/460 (@cpitclaudel)."
 (require 'magit-todos)
 (magit-todos-mode 1)
 
+#+END_SRC
+** Ibuffer Configuration
+#+BEGIN_SRC emacs-lisp :tangle config.el
 (evil-set-initial-state 'ibuffer-mode 'motion)
 (evil-define-key 'motion 'ibuffer-mode
   "j" 'evil-next-visual-line
@@ -711,10 +840,16 @@ https://github.com/magit/magit/issues/460 (@cpitclaudel)."
   "q" 'kill-buffer
   (kbd "<return>") 'ibuffer-visit-buffer)
 
+#+END_SRC
+** Dired Configuration
+#+BEGIN_SRC emacs-lisp :tangle config.el
 ;;;------ dired configuration ------;;;
 
 (add-hook 'dired-mode-hook 'all-the-icons-dired-mode)
 
+#+END_SRC
+** Focus Mode Configuration
+#+BEGIN_SRC emacs-lisp :tangle config.el
 (require 'focus)
 
 
@@ -724,6 +859,9 @@ https://github.com/magit/magit/issues/460 (@cpitclaudel)."
 
 ;(add-hook 'org-mode-hook #'focus-mode)
 
+#+END_SRC
+** Helpful Mode Configuration
+#+BEGIN_SRC emacs-lisp :tangle config.el
 ;;;------ helpful configuration ------;;;
 
 (evil-set-initial-state 'helpful-mode 'normal)
@@ -732,20 +870,32 @@ https://github.com/magit/magit/issues/460 (@cpitclaudel)."
   "k" 'evil-previous-visual-line
   "q" 'helpful-kill-buffers)
 
+#+END_SRC
+** Direnv
+#+BEGIN_SRC emacs-lisp :tangle config.el
 ;;;-- Load emacs direnv;;;--
 (require 'direnv)
 (direnv-mode)
 
+#+END_SRC
+** Projectile
+#+BEGIN_SRC emacs-lisp :tangle config.el
 ;;;-- projectile wrapper commands ;;;--
 (defun projectile-goto-project ()
   (interactive)
   (projectile-switch-project t)
 )
 
+#+END_SRC
+** sudo-edit
+#+BEGIN_SRC emacs-lisp :tangle config.el
 ;;;-- projectile wrapper commands ;;;--
 (require 'sudo-edit)
 (setq sudo-edit-local-method "su")
 
+#+END_SRC
+** LSP
+#+BEGIN_SRC emacs-lisp :tangle config.el
 ;;;-- LSP stuff ;;;--
 (use-package lsp-mode
   :ensure t)
@@ -773,6 +923,10 @@ https://github.com/magit/magit/issues/460 (@cpitclaudel)."
 
 (setq +format-on-save-enabled-modes '(not emacs-lisp-mode sql-mode tex-mode latex-mode org-msg-edit-mode nix-mode))
 
+#+END_SRC
+
+** Keybindings
+#+begin_src emacs-lisp :tangle config.el
 ;;;-------- Keybindings -----------;;;
 
 (map! :map evil-normal-state-map
@@ -792,6 +946,10 @@ https://github.com/magit/magit/issues/460 (@cpitclaudel)."
       :desc "Projectile grep"
       "/" #'projectile-grep)
 
+#+end_src
+
+*** "F" Focus Configuration
+#+BEGIN_SRC emacs-lisp :tangle config.el
 (map! :leader
       :prefix ("F" . "Focus mode")
       :desc "Toggle focus mode"
@@ -802,7 +960,10 @@ https://github.com/magit/magit/issues/460 (@cpitclaudel)."
 
       :desc "Unpin focused section"
       "u" 'focus-unpin)
+#+END_SRC
 
+*** "P" Print Configuration
+#+BEGIN_SRC emacs-lisp :tangle config.el
 (map! :leader
       :prefix ("P" . "Print")
       :desc "Simple print buffer in web browser"
@@ -810,7 +971,10 @@ https://github.com/magit/magit/issues/460 (@cpitclaudel)."
 
       :desc "Simple print buffer in web browser"
       "b" 'org-simple-print-buffer)
+#+END_SRC
 
+*** "N" org-roam Configuration
+#+BEGIN_SRC emacs-lisp :tangle config.el
 (map! :leader
       :prefix ("N" . "org-roam Notes")
       :desc "Visualize org-roam database with org-roam-ui"
@@ -818,7 +982,10 @@ https://github.com/magit/magit/issues/460 (@cpitclaudel)."
 
       :desc "Kill all org-roam ui buffers"
       "V" 'kill-org-roam-ui)
+#+END_SRC
 
+*** "o" Open Configuration
+#+BEGIN_SRC emacs-lisp :tangle config.el
 (map! :leader
       :prefix ("o" . "Open")
       :desc "Open org timeblock"
@@ -831,7 +998,10 @@ https://github.com/magit/magit/issues/460 (@cpitclaudel)."
 
       :desc "Refresh org agenda from roam dbs"
       "r" 'org-roam-refresh-agenda-list)
+#+END_SRC
 
+*** "p" Projectile Configuration
+#+BEGIN_SRC emacs-lisp :tangle config.el
 (map! :leader
       :prefix ("p" . "Projectile")
       :desc "Open project"
@@ -839,7 +1009,10 @@ https://github.com/magit/magit/issues/460 (@cpitclaudel)."
 
       :desc "Projectile commander"
       "@" #'projectile-commander)
+#+END_SRC
 
+*** org-agenda Configuration
+#+BEGIN_SRC emacs-lisp :tangle config.el
 (map!
   :map evil-org-agenda-mode-map
   :after org-agenda
@@ -854,6 +1027,10 @@ https://github.com/magit/magit/issues/460 (@cpitclaudel)."
   :after org-agenda
   :nvmeg "<RET>" #'org-agenda-switch-with-roam
   :nvmeg "<return>" #'org-agenda-switch-with-roam)
+#+END_SRC
+
+*** "f" File Configuration
+#+BEGIN_SRC emacs-lisp :tangle config.el
 
 (map! :leader
       :prefix ("f" . "File")
@@ -862,7 +1039,10 @@ https://github.com/magit/magit/issues/460 (@cpitclaudel)."
 
       :desc "Find a file and open as root"
       "f u" #'sudo-edit-find-file)
+#+END_SRC
 
+*** org-super-agenda Configuration
+#+BEGIN_SRC emacs-lisp :tangle config.el
 (map! :desc "Next line"
       :map org-super-agenda-header-map
       "j" 'org-agenda-next-line)
@@ -870,7 +1050,10 @@ https://github.com/magit/magit/issues/460 (@cpitclaudel)."
 (map! :desc "Next line"
       :map org-super-agenda-header-map
       "k" 'org-agenda-previous-line)
+#+END_SRC
 
+*** org-timeblock Configuration
+#+BEGIN_SRC emacs-lisp :tangle config.el
 (map! :desc "Next day"
       :map org-timeblock-mode-map
       :nvmeg "l" 'org-timeblock-day-later)
@@ -883,7 +1066,10 @@ https://github.com/magit/magit/issues/460 (@cpitclaudel)."
 (map! :desc "Event duration"
       :map org-timeblock-mode-map
       :nvmeg "d" 'org-timeblock-set-duration)
+#+END_SRC
 
+*** Org Roam Keybindings
+#+BEGIN_SRC emacs-lisp :tangle config.el
 (map! :leader
       :prefix ("N" . "org-roam notes")
 
@@ -916,3 +1102,267 @@ https://github.com/magit/magit/issues/460 (@cpitclaudel)."
 
       :desc "Visualize org-roam database with org-roam-ui"
       "o" 'org-roam-open-dashboard)
+
+#+END_SRC
+
+* My init.el
+This section is the [[./init.el][init.el]] section, which controls which Doom modules are loaded.
+
+=SPC h d h= (vim) or =C-h d h= (non-vim) can be used to access Doom's documentation (including a "Module Index").
+
+=K= (vim) or =C-c c k= (non-vim) can be used to view a module's documentation (this can help you discover module flags as well).
+
+=gd= (vim) or =C-c c d= (non-vim) will let you browse a module's directory (source code).
+
+#+BEGIN_SRC emacs-lisp :tangle init.el
+
+;;; init.el -*- lexical-binding: t; -*-
+
+;; This file controls what Doom modules are enabled and what order they load
+;; in. Remember to run 'doom sync' after modifying it!
+
+;; NOTE Press 'SPC h d h' (or 'C-h d h' for non-vim users) to access Doom's
+;;      documentation. There you'll find a link to Doom's Module Index where all
+;;      of our modules are listed, including what flags they support.
+
+;; NOTE Move your cursor over a module's name (or its flags) and press 'K' (or
+;;      'C-c c k' for non-vim users) to view its documentation. This works on
+;;      flags as well (those symbols that start with a plus).
+;;
+;;      Alternatively, press 'gd' (or 'C-c c d') on a module to browse its
+;;      directory (for easy access to its source code).
+
+(doom! :input
+       ;;bidi              ; (tfel ot) thgir etirw uoy gnipleh
+       ;;chinese
+       ;;japanese
+       ;;layout            ; auie,ctsrnm is the superior home row
+
+       :completion
+       (company +childframe)           ; the ultimate code completion backend
+       ;;helm              ; the *other* search engine for love and life
+       ;;ido               ; the other *other* search engine...
+       ;;ivy               ; a search engine for love and life
+       (vertico +icons)        ; the search engine of the future
+
+       :ui
+       deft              ; notational velocity for Emacs
+       doom              ; what makes DOOM look the way it does
+       doom-dashboard    ; a nifty splash screen for Emacs
+       doom-quit         ; DOOM quit-message prompts when you quit Emacs
+       (emoji +unicode)  ; 🙂
+       hl-todo           ; highlight TODO/FIXME/NOTE/DEPRECATED/HACK/REVIEW
+       ;;hydra
+       ;;indent-guides     ; highlighted indent columns
+       ;;ligatures         ; ligatures and symbols to make your code pretty again
+       ;;minimap           ; show a map of the code on the side
+       modeline          ; snazzy, Atom-inspired modeline, plus API
+       nav-flash         ; blink cursor line after big motions
+       ;;neotree           ; a project drawer, like NERDTree for vim
+       ophints           ; highlight the region an operation acts on
+       (popup +defaults)   ; tame sudden yet inevitable temporary windows
+       ;;tabs              ; a tab bar for Emacs
+       treemacs          ; a project drawer, like neotree but cooler
+       unicode           ; extended unicode support for various languages
+       (vc-gutter +pretty) ; vcs diff in the fringe
+       ;;vi-tilde-fringe   ; fringe tildes to mark beyond EOB
+       window-select     ; visually switch windows
+       workspaces        ; tab emulation, persistence & separate workspaces
+       ;;zen               ; distraction-free coding or writing
+
+       :editor
+       (evil +everywhere); come to the dark side, we have cookies
+       file-templates    ; auto-snippets for empty files
+       fold              ; (nigh) universal code folding
+       (format +onsave)  ; automated prettiness
+       ;;god               ; run Emacs commands without modifier keys
+       ;;lispy             ; vim for lisp, for people who don't like vim
+       multiple-cursors  ; editing in many places at once
+       ;;objed             ; text object editing for the innocent
+       ;;parinfer          ; turn lisp into python, sort of
+       ;;rotate-text       ; cycle region at point between text candidates
+       snippets          ; my elves. They type so I don't have to
+       ;;word-wrap         ; soft wrapping with language-aware indent
+
+       :emacs
+       (dired +ranger +icons)   ; making dired pretty [functional]
+       electric          ; smarter, keyword-based electric-indent
+       (ibuffer +icons)         ; interactive buffer management
+       undo              ; persistent, smarter undo for your inevitable mistakes
+       vc                ; version-control and Emacs, sitting in a tree
+
+       :term
+       eshell            ; the elisp shell that works everywhere
+       ;;shell             ; simple shell REPL for Emacs
+       ;;term              ; basic terminal emulator for Emacs
+       vterm             ; the best terminal emulation in Emacs
+
+       :checkers
+       syntax              ; tasing you for every semicolon you forget
+       ;;(spell +flyspell) ; tasing you for misspelling mispelling
+       ;;grammar           ; tasing grammar mistake every you make
+
+       :tools
+       ;;ansible
+       ;;biblio            ; Writes a PhD for you (citation needed)
+       ;;collab            ; buffers with friends
+       (debugger +lsp)          ; FIXME stepping through code, to help you add bugs
+       ;;direnv
+       ;;docker
+       ;;editorconfig      ; let someone else argue about tabs vs spaces
+       ;;ein               ; tame Jupyter notebooks with emacs
+       (eval +overlay)     ; run code, run (also, repls)
+       ;;gist              ; interacting with github gists
+       lookup              ; navigate your code and its documentation
+       lsp               ; M-x vscode
+       magit             ; a git porcelain for Emacs
+       make              ; run make tasks from Emacs
+       ;;pass              ; password manager for nerds
+       ;;pdf               ; pdf enhancements
+       ;;prodigy           ; FIXME managing external services & code builders
+       rgb               ; creating color strings
+       ;;taskrunner        ; taskrunner for all your projects
+       ;;terraform         ; infrastructure as code
+       ;;tmux              ; an API for interacting with tmux
+       ;;tree-sitter       ; syntax and parsing, sitting in a tree...
+       ;;upload            ; map local to remote projects via ssh/ftp
+
+       :os
+       (:if IS-MAC macos)  ; improve compatibility with macOS
+       ;;tty               ; improve the terminal Emacs experience
+
+       :lang
+       ;;agda              ; types of types of types of types...
+       ;;beancount         ; mind the GAAP
+       (cc +lsp)         ; C > C++ == 1
+       ;;clojure           ; java with a lisp
+       ;;common-lisp       ; if you've seen one lisp, you've seen them all
+       ;;coq               ; proofs-as-programs
+       ;;crystal           ; ruby at the speed of c
+       ;;csharp            ; unity, .NET, and mono shenanigans
+       data              ; config/data formats
+       ;;(dart +flutter)   ; paint ui and not much else
+       ;;dhall
+       ;;elixir            ; erlang done right
+       ;;elm               ; care for a cup of TEA?
+       emacs-lisp        ; drown in parentheses
+       ;;erlang            ; an elegant language for a more civilized age
+       ;;ess               ; emacs speaks statistics
+       ;;factor
+       ;;faust             ; dsp, but you get to keep your soul
+       ;;fortran           ; in FORTRAN, GOD is REAL (unless declared INTEGER)
+       ;;fsharp            ; ML stands for Microsoft's Language
+       ;;fstar             ; (dependent) types and (monadic) effects and Z3
+       ;;gdscript          ; the language you waited for
+       ;;(go +lsp)         ; the hipster dialect
+       ;;(graphql +lsp)    ; Give queries a REST
+       ;;(haskell +lsp)    ; a language that's lazier than I am
+       ;;hy                ; readability of scheme w/ speed of python
+       ;;idris             ; a language you can depend on
+       json              ; At least it ain't XML
+       (java +lsp)       ; the poster child for carpal tunnel syndrome
+       ;;javascript        ; all(hope(abandon(ye(who(enter(here))))))
+       ;;julia             ; a better, faster MATLAB
+       ;;kotlin            ; a better, slicker Java(Script)
+       (latex +lsp)            ; writing papers in Emacs has never been so fun
+       ;;lean              ; for folks with too much to prove
+       ;;ledger            ; be audit you can be
+       ;;lua               ; one-based indices? one-based indices
+       markdown          ; writing docs for people to ignore
+       ;;nim               ; python + lisp at the speed of c
+       (nix +lsp)               ; I hereby declare "nix geht mehr!"
+       ;;ocaml             ; an objective camel
+       (org +roam2)              ; organize your plain life in plain text
+       ;;php               ; perl's insecure younger brother
+       ;;plantuml          ; diagrams for confusing people more
+       ;;purescript        ; javascript, but functional
+       ;;python            ; beautiful is better than ugly
+       ;;qt                ; the 'cutest' gui framework ever
+       ;;racket            ; a DSL for DSLs
+       ;;raku              ; the artist formerly known as perl6
+       ;;rest              ; Emacs as a REST client
+       ;;rst               ; ReST in peace
+       ;;(ruby +rails)     ; 1.step {|i| p "Ruby is #{i.even? ? 'love' : 'life'}"}
+       (rust +lsp)       ; Fe2O3.unwrap().unwrap().unwrap().unwrap()
+       ;;scala             ; java, but good
+       ;;(scheme +guile)   ; a fully conniving family of lisps
+       sh                ; she sells {ba,z,fi}sh shells on the C xor
+       ;;sml
+       ;;solidity          ; do you need a blockchain? No.
+       ;;swift             ; who asked for emoji variables?
+       ;;terra             ; Earth and Moon in alignment for performance.
+       web               ; the tubes
+       yaml              ; JSON, but readable
+       ;;zig               ; C, but simpler
+
+       :email
+       ;;(mu4e +org +gmail)
+       ;;notmuch
+       ;;(wanderlust +gmail)
+
+       :app
+       ;;calendar
+       ;;emms
+       ;;everywhere        ; *leave* Emacs!? You must be joking
+       ;;irc               ; how neckbeards socialize
+       (rss +org)        ; emacs as an RSS reader
+       ;;twitter           ; twitter client https://twitter.com/vnought
+
+       :config
+       ;;literate
+       (default +bindings +smartparens))
+#+END_SRC
+
+* My packages.el
+The [[./packages.el][packages.el]] file allows extra packages to be configured outside of the typical Doom modules from [[./init.el][init.el]].
+
+Packages are declared via =(package! some-package)= where =some-package= is from MELPA, ELPA, or emacsmirror.
+
+There are other ways to install packages outside of Emacs package archives, including directly from git.  Installing a package directly from git requires a =:recipe=.  Here is [[https://github.com/raxod502/straight.el#the-recipe-format][a full documentation of the recipe format]].
+
+Doom's built-in packages can also be modified here:
+- =(package! builtin-package :disable t)= to disable
+- =(package! builtin-package-2 :recipe (:repo "myfork/package"))= to override the recipe
+  - Side-note: the full recipe for built-in packages does not need specification, as the override will inherit the unspecified properties directly from Doom
+
+Any git package can be configured for a particular commit or branch:
+- =(package! builtin-package :recipe (:branch "develop")= for a particular branch
+- =(package! builtin-package :pin "1a2b3c4d5e")= for a particular commit
+- =(unpin! pinned-package another-pinned-package)= to get bleeding edge instead of Doom's stability
+
+#+BEGIN_SRC emacs-lisp :tangle packages.el
+(package! embark)
+(package! dashboard)
+(package! direnv)
+(package! org-modern)
+(package! org-super-agenda)
+(package! emacsql)
+(package! org-roam-ui)
+(package! org-transclusion)
+(package! org-yt)
+(package! toc-org)
+(package! lister)
+(package! all-the-icons-dired)
+(package! all-the-icons-completion)
+(package! all-the-icons-ivy)
+(package! ox-reveal)
+(package! magit-todos)
+(package! hledger-mode)
+(package! rainbow-mode)
+(package! crdt)
+(package! ess)
+(package! focus)
+(package! olivetti)
+(package! async)
+(package! centered-cursor-mode)
+(package! org-ql)
+(package! persist)
+(package! sudo-edit)
+(package! org-yaap
+  :recipe (:host gitlab
+           :repo "tygrdev/org-yaap"))
+(package! org-timeblock
+  :recipe (:host github
+           :repo "ichernyshovvv/org-timeblock"))
+(package! auctex)
+#+END_SRC
