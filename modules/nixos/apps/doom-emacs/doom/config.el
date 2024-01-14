@@ -62,70 +62,6 @@
 (bind-key* "<mouse-9>" #'next-buffer)
 (bind-key* "<mouse-8>" #'previous-buffer)
 
-;; emacs-dashboard setup
-(require 'all-the-icons)
-(require 'dashboard)
-(setq initial-buffer-choice (lambda () (get-buffer-create "*dashboard*"))
-      doom-fallback-buffer-name "*dashboard*")
-
-;; emacs-dashboard variables
-(setq dashboard-banner-logo-title "Welcome to Nix Doom Emacs")
-(setq dashboard-startup-banner 2)
-(setq dashboard-icon-type 'all-the-icons) ;; use `all-the-icons' package
-(setq dashboard-set-heading-icons t)
-(setq dashboard-set-file-icons t)
-(setq dashboard-set-navigator t)
-(setq dashboard-items '())
-(setq dashboard-center-content t)
-(setq dashboard-footer-messages '("Here to do customizing, or actual work?"
-                                  "M-x insert-inspiring-message"
-                                  "My software never has bugs. It just develops random features."
-                                  "Dad, what are clouds made of? Linux servers, mostly."
-                                  "There is no place like ~"
-                                  "~ sweet ~"
-                                  "sudo chown -R us ./allyourbase"
-                                  "I’ll tell you a DNS joke but it could take 24 hours for everyone to get it."
-                                  "I'd tell you a UDP joke, but you might not get it."
-                                  "I'll tell you a TCP joke. Do you want to hear it?"))
-(setq dashboard-navigator-buttons
-  `(;; line1
-    ( (,"Roam" "" "" (lambda (&rest _)) 'org-formula)
-     (,(all-the-icons-octicon "globe" :height 1.0 :v-adjust 0.0)
-      "Notes overview" "" (lambda (&rest _) (org-roam-default-overview)) 'org-formula)
-     (,(all-the-icons-fileicon "org" :height 1.0 :v-adjust 0.0)
-      "Switch roam db" "" (lambda (&rest _) (org-roam-switch-db)) 'org-formula)
-    )
-    ;; line 2
-    ( (,"Git" "" "" (lambda (&rest _)) 'diredfl-exec-priv)
-     (,(all-the-icons-octicon "mark-github" :height 1.0 :v-adjust 0.0)
-       "GitHub" "" (lambda (&rest _) (browse-url "ext+container:name=Tech&url=https://github.com/librephoenix")) 'diredfl-exec-priv)
-     (,(all-the-icons-faicon "gitlab" :height 1.0 :v-adjust 0.0)
-       "GitLab" "" (lambda (&rest _) (browse-url "ext+container:name=Tech&url=https://gitlab.com/librephoenix")) 'diredfl-exec-priv)
-     (,(all-the-icons-faicon "coffee" :height 1.0 :v-adjust 0.0)
-       "Gitea" "" (lambda (&rest _) (browse-url my-gitea-domain)) 'diredfl-exec-priv)
-    )
-    ;; line 3
-    ( (,"Agenda" "" "" (lambda (&rest _)) 'dired-warning)
-     (,(all-the-icons-octicon "checklist" :height 1.0 :v-adjust 0.0)
-      "Agenda todos" "" (lambda (&rest _) (org-agenda-list)) 'dired-warning)
-     (,(all-the-icons-octicon "calendar" :height 1.0 :v-adjust 0.0)
-      "Agenda calendar" "" (lambda (&rest _) (cfw:open-org-calendar)) 'dired-warning)
-    )
-    ;; line 4
-    ( (,"Config" "" "" (lambda (&rest _)) 'dired-mark)
-     (,(all-the-icons-faicon "cogs" :height 1.0 :v-adjust 0.0)
-      "System config" "" (lambda (&rest _) (projectile-switch-project-by-name "~/.dotfiles" t)) 'dired-mark)
-     (,(all-the-icons-material "help" :height 1.0 :v-adjust -0.2)
-      "Doom documentation" "" (lambda (&rest _) (doom/help)) 'dired-mark)
-    )))
-
-(setq dashboard-footer-icon
-  (all-the-icons-faicon "list-alt"
-    :height 1.0
-    :v-adjust -0.15
-    :face 'font-lock-keyword-face))
-(dashboard-setup-startup-hook)
-
 (setq scroll-margin 30)
 (setq hscroll-margin 10)
 
@@ -667,7 +603,7 @@ tasks."
          :and(:file-path "School.p" :not (:tag "event"))
          :order 3)
 
-        (:name "FIA"
+        (:name "FIA "
          :and(:file-path "FIA.s" :not (:tag "event"))
          :order 3)
 
@@ -756,11 +692,6 @@ https://github.com/magit/magit/issues/460 (@cpitclaudel)."
 
 (setq lsp-java-workspace-dir (concat user-home-directory "/.local/share/doom/java-workspace"))
 
-(require 'gdscript-mode)
-(use-package gdscript-mode
-  :hook (gdscript-mode . lsp-deferred)
-  :ensure t)
-
 (setq lsp-treemacs-deps-position-params
   '((side . right)
    (slot . 1)
@@ -824,10 +755,8 @@ https://github.com/magit/magit/issues/460 (@cpitclaudel)."
       :desc "Open org timeblock"
       "c" 'org-timeblock
 
-      :prefix ("a" . "org-agenda options")
-
       :desc "Switch to specific org agenda file"
-      "s" 'list-and-switch-to-agenda-file
+      "a s" 'list-and-switch-to-agenda-file
 
       :desc "Refresh org agenda from roam dbs"
       "r" 'org-roam-refresh-agenda-list)
@@ -854,14 +783,6 @@ https://github.com/magit/magit/issues/460 (@cpitclaudel)."
   :after org-agenda
   :nvmeg "<RET>" #'org-agenda-switch-with-roam
   :nvmeg "<return>" #'org-agenda-switch-with-roam)
-
-(map! :leader
-      :prefix ("f" . "File")
-      :desc "Open current file as root"
-      "f U" #'sudo-edit-current-file
-
-      :desc "Find a file and open as root"
-      "f u" #'sudo-edit-find-file)
 
 (map! :desc "Next line"
       :map org-super-agenda-header-map

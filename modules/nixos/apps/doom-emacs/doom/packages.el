@@ -1,9 +1,7 @@
 (package! embark)
-(package! dashboard)
 (package! direnv)
 (package! org-modern)
 (package! org-super-agenda)
-(package! emacsql)
 (package! org-roam-ui)
 (package! org-transclusion)
 (package! org-yt)
@@ -31,4 +29,13 @@
 (package! org-timeblock
   :recipe (:host github
            :repo "ichernyshovvv/org-timeblock"))
-(package! auctex)
+(package! vulpea)
+
+
+
+;; These packages attempt to build native C code at runtime. Prefer copies
+;; installed by Nix if they exist to avoid having to make GCC globally
+;; available.
+(package! emacsql :built-in 'prefer)
+(package! emacsql-sqlite :built-in 'prefer)
+(package! pdf-tools :built-in 'prefer)

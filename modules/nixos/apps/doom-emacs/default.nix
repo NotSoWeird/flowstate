@@ -16,11 +16,18 @@ in {
   config = mkIf cfg.enable {
     flowstate.apps.tools.python3 = enabled;
 
-    services = {
+    flowstate.home.programs = {
       emacs = {
         enable = true;
         package = pkgs.emacs29-pgtk;
-        defaultEditor = true;
+        extraPackages = epkgs:
+          with epkgs; [
+            # include Doom Emacs dependencies that tries to build native C code
+            emacsql
+            emacsql-sqlite
+            pdf-tools
+            vterm
+          ];
       };
     };
 
@@ -39,6 +46,7 @@ in {
       python311Packages.pytest
       rustc
       cargo
+      sqlite
       rust-analyzer
       shfmt
       shellcheck
