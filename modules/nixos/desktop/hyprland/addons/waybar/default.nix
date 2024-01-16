@@ -32,6 +32,7 @@ in {
             "backlight"
             "pulseaudio"
             "cpu"
+            "temperature"
             "memory"
           ];
           modules-center = [ "hyprland/workspaces" ];
@@ -87,7 +88,10 @@ in {
             #    "9" = ["eDP-1" "DP-1" "HDMI-A-1"];
             #};
           };
-
+          "temperature" = {
+            "thermal-zone" = 6;
+            "format" = "{temperatureC}°C ";
+          };
           "idle_inhibitor" = {
             format = "{icon}";
             format-icons = {
@@ -332,10 +336,13 @@ in {
                               color: #'' + config.lib.stylix.colors.base0C + ''
                     ;
                             }
-
-                            #pulseaudio.muted {
-                                color: #'' + config.lib.stylix.colors.base04
-        + ''
+                            #temperature {
+                              color: #'' + config.lib.stylix.colors.base0D + ''
+                      ;
+                      }
+                                                  #pulseaudio.muted {
+                                                      color: #''
+        + config.lib.stylix.colors.base04 + ''
           ;
                   }
 

@@ -9,6 +9,7 @@
   - [[#preamble--user-configuration][Preamble + User Configuration]]
   - [[#org-mode-configuration][Org Mode Configuration]]
   - [[#org-roam-configuration][Org Roam Configuration]]
+  - [[#latex-config][Latex Config]]
   - [[#org-agenda-configuration][Org Agenda Configuration]]
   - [[#magit-configuration][Magit Configuration]]
   - [[#ibuffer-configuration][Ibuffer Configuration]]
@@ -566,6 +567,12 @@ On Wayland, EAF doesn't work.
 )
 
 #+END_SRC
+
+** Latex Config
+#+begin_src emacs-lisp :tangle config.el
+(setq +latex-viewers '(zathura))
+#+end_src
+
 ** Org Agenda Configuration
 *** Standard Org Agenda Configuration
 #+BEGIN_SRC emacs-lisp :tangle config.el

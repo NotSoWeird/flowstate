@@ -232,7 +232,7 @@ in {
                 # Move window in workspace with mainMod + CTRL + hjkl
                 bind = $mainMod, left, swapwindow, l
                 bind = $mainMod, right, swapwindow, r
-                bind = $mainMod, up, swapwindow, u
+                bind = $mainMod, up, u, swapwindow
                 bind = $mainMod, down, swapwindow, d
 
                 # Switch workspaces with mainMod + [0-9]
