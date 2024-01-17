@@ -102,9 +102,9 @@ in {
                 exec-once = nm-applet
                 exec-once = blueman-applet
                 exec-once = emacs --daemon
-                exec = pkill waybar & sleep 0.5 && waybar
                 exec-once = swww init
                 exec-once = wallpaper_random
+                exec = pkill waybar & sleep 0.5 && waybar
 
                 exec-once = swayidle -w timeout 90 'swaylock' timeout 210 'suspend-unless-render' resume '$hyprctl dispatch dpms on' before-sleep "swaylock"
 
@@ -196,7 +196,7 @@ in {
                 #bind = $mainMod, RETURN, exec, cool-retro-term-zsh
                 bind = $mainMod, RETURN, exec, kitty
                 bind = $mainMod, F, exec, firefox
-                bind = $mainMod, E, exec, emacs
+                bind = $mainMod, E, exec, emacsclient -r
                 bind = $mainMod, O, exec, wallpaper_random
                 bind = $mainMod, Q, killactive,
                 bind = $mainMod, M, exit,
@@ -205,6 +205,8 @@ in {
                 bind = $mainMod, w, exec, rofi -show drun
                 bind = $mainMod, P, pseudo, # dwindle
                 bind = $mainMod, J, togglesplit, # dwindle
+                bind = $mainMod, L, exec, swaylock
+
 
                 bind = , Print, exec, grim -g "$(slurp)" - | wl-copy
                 bind = SHIFT, Print, exec, grim -g "$(slurp)"
@@ -232,7 +234,7 @@ in {
                 # Move window in workspace with mainMod + CTRL + hjkl
                 bind = $mainMod, left, swapwindow, l
                 bind = $mainMod, right, swapwindow, r
-                bind = $mainMod, up, u, swapwindow
+                bind = $mainMod, up, swapwindow, u
                 bind = $mainMod, down, swapwindow, d
 
                 # Switch workspaces with mainMod + [0-9]
@@ -280,11 +282,19 @@ in {
                 windowrule = size 75% 60%,$dropterm
                 windowrule = move 12% -200%,$dropterm
 
-                bind = $mainMod,V,exec,pypr toggle btm
-                windowrule = float,^(btm)$
-                windowrule = size 90% 90%,^(btm)$
-                #windowrule = move 200% 5%,^(btm)$
-                windowrule = workspace special:scratch_volume silent,^(btm)$
+                bind = $mainMod,B,exec,pypr toggle btm
+                $dropbtm = ^(kitty-btm)$
+                windowrule = float,$dropbtm
+                windowrule = workspace special:scratch_btm silent,$dropbtm
+                windowrule = size 75% 60%,$dropbtm
+                windowrule = move 12% -200%,$dropbtm
+
+                bind = $mainMod,S,exec,pypr toggle nixsearch
+                $nsearch  = ^(nix-search)$
+                windowrule = float,$nsearch
+                windowrule = workspace special:scratch_nix silent,$nsearch
+                windowrule = size 75% 60%,$nsearch
+                windowrule = move 12% -200%,$nsearch
 
                 # will switch to a submap called resize
                 bind=ALT,R,submap,resize
@@ -304,7 +314,7 @@ in {
                 # will reset the submap, meaning end the current one and return to the global one
                 submap=reset
 
-                # keybinds further down will be global again...
+                # keybinds further down will be global again
 
 
                 bind=SUPERCTRL,right,workspace,+1

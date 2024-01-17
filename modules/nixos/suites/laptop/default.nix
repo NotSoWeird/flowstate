@@ -35,9 +35,15 @@ in {
         shell.zsh = enabled;
         discord = enabled;
         doom-emacs = enabled;
-        terminal.kitty = enabled;
+        terminal = {
+          kitty = enabled;
+          xfce4-terminal = enabled;
+        };
+
         misc = enabled;
         spotify = enabled;
+        teams = enabled;
+        libreoffice = enabled;
 
         school = {
           #cpp = enabled;
@@ -58,7 +64,7 @@ in {
       flowstate.wallpapers
       (writeShellScriptBin "wallpaper_random" ''
         if command -v swww >/dev/null 2>&1; then
-            swww img $(find ~/Pictures/wallpapers/. -regex '.*\(.png\|.jpg\)$'  | shuf -n1) --transition-type random
+            swww img $(find ~/Pictures/wallpapers/. -regex '.*\(.png\|.jpg\|.gif\)$'  | shuf -n1) --transition-type random
         fi
       '')
     ];
