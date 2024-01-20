@@ -8,6 +8,6 @@ in {
   };
 
   config = mkIf cfg.enable {
-    environment.systemPackages = with pkgs; [ xfce4-terminal ];
+    environment.systemPackages = with pkgs; [ xfce.xfce4-terminal ];
   };
 }

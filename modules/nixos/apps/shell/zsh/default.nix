@@ -50,6 +50,8 @@ in {
     };
 
     flowstate.home.file.".zshrc".text = ''
+      export PATH=''${PATH}:/home/notsoweird/dev/C/pintos/utils
+
       CASE_SENSITIVE="true"
 
       krabby random

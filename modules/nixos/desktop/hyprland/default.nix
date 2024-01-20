@@ -97,7 +97,7 @@ in {
               + builtins.toString
               config.flowstate.home.extraOptions.gtk.cursorTheme.size + ''
                 exec-once = dunst
-
+                exec-once = wlsunset -L 59.3 -l 18.1
                 exec-once = pypr
                 exec-once = nm-applet
                 exec-once = blueman-applet

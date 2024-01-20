@@ -1,9 +1,9 @@
 { options, config, pkgs, lib, inputs, ... }:
 with lib;
 with lib.flowstate;
-let cfg = config.flowstate.apps.teams;
+let cfg = config.flowstate.apps.chat.teams;
 in {
-  options.flowstate.apps.teams = with types; {
+  options.flowstate.apps.chat.teams = with types; {
     enable = mkBoolOpt false "Enable or disable Teams";
   };
 

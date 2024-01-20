@@ -32,28 +32,39 @@ in {
           firefox = enabled;
           qutebrowser = enabled;
         };
+        editor = {
+          vscode = enabled;
+          doom-emacs = enabled;
+        };
         shell.zsh = enabled;
-        discord = enabled;
-        doom-emacs = enabled;
         terminal = {
           kitty = enabled;
           xfce4-terminal = enabled;
         };
-
         misc = enabled;
-        spotify = enabled;
-        teams = enabled;
-        libreoffice = enabled;
-
+        media = {
+          spotify = enabled;
+          nuclear = enabled;
+          termusic = enabled;
+        };
+        chat = {
+          teams = enabled;
+          slack = enabled;
+          discord = enabled;
+        };
         school = {
           #cpp = enabled;
           latex = enabled;
         };
         tools = {
+          libreoffice = enabled;
           direnv = enabled;
           git = enabled;
-          vscode = enabled;
           keepassxc = enabled;
+          qemu = enabled;
+          distrobox = enabled;
+          gcc = enabled;
+          tangram = enabled;
         };
       };
       stylix = enabled;
