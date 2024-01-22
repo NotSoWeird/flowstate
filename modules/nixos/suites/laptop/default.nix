@@ -66,7 +66,6 @@ in {
           gcc = enabled;
           tangram = enabled;
         };
-        prog-lang = { rust = enabled; };
       };
       stylix = enabled;
       desktop.hyprland = enabled;
