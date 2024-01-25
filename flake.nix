@@ -19,24 +19,12 @@
     };
 
     # Snowfall Flake
-    flake.url = "github:snowfallorg/flake";
-    flake.inputs.nixpkgs.follows = "nixpkgs";
-
-    # Comma
-    comma.url = "github:nix-community/comma";
-    comma.inputs.nixpkgs.follows = "nixpkgs";
-
-    #nixos-generators = {
-    #  url = "github:nix-community/nixos-generators";
-    #  inputs.nixpkgs.follows = "nixpkgs";
-    #};
-
-    nix-ld = {
-      url = "github:Mic92/nix-ld";
+    flake = {
+      url = "github:snowfallorg/flake";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    nix-doom-emacs.url = "github:librephoenix/nix-doom-emacs?ref=pgtk-patch";
+    devenv = { url = "github:cachix/devenv"; };
 
     stylix = { url = "github:danth/stylix"; };
 
@@ -66,8 +54,8 @@
 
       systems.modules = with inputs; [
         home-manager.nixosModules.home-manager
-        nix-ld.nixosModules.nix-ld
         stylix.nixosModules.stylix
+        devenv.nixosModules.devenv
       ];
     };
 }
