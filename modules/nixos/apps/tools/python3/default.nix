@@ -7,6 +7,7 @@ in {
     enable = mkBoolOpt false "Enable python3";
   };
 
-  config =
-    mkIf cfg.enable { environment.systemPackages = with pkgs; [ python3 ]; };
+  config = mkIf cfg.enable {
+    environment.systemPackages = with pkgs; [ python3 python311Packages.pip ];
+  };
 }

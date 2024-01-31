@@ -1,0 +1,39 @@
+[pyprland]
+plugins = [
+  "scratchpads",
+  "workspaces_follow_focus"
+]
+
+[workspaces_follow_focus]
+max_workspaces = 9
+
+[scratchpads.term]
+command = "kitty --class kitty-dropterm"
+animation = "fromTop"
+margin = 50
+unfocus = "hide"
+size = "75% 60%"
+max_size = "1920px 100%"
+
+[scratchpads.btm]
+command = "kitty --class kitty-btm btm"
+animation = "fromTop"
+margin = 50
+unfocus = "hide"
+size = "75% 60%"
+max_size = "1920px 100%"
+
+[scratchpads.pavucontrol]
+command = "pavucontrol"
+animation = "fromRight"
+class = "pavucontrol"
+lazy = true
+size = "40% 90%"
+
+[scratchpads.nixsearch]
+command = "qutebrowser https://search.nixos.org/packages"
+animation = "fromTop"
+margin = 50
+lazy = true
+size = "75% 60%"
+max_size = "1920px 100%"

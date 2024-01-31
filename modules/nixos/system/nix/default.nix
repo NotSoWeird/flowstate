@@ -1,7 +1,13 @@
-{ options, config, pkgs, lib, ... }:
+{
+  options,
+  config,
+  pkgs,
+  lib,
+  ...
+}:
 with lib;
-with lib.flowstate;
-let cfg = config.flowstate.system.nix;
+with lib.flowstate; let
+  cfg = config.flowstate.system.nix;
 in {
   options.flowstate.system.nix = with types; {
     enable = mkBoolOpt true "Whether or not to manage nix configuration.";
@@ -18,23 +24,26 @@ in {
       nix-prefetch-git
     ];
 
-    nix = let users = [ "root" config.flowstate.user.name ];
+    nix = let
+      users = ["root" config.flowstate.user.name];
     in {
       package = cfg.package;
 
-      settings = {
-        experimental-features = "nix-command flakes";
-        http-connections = 50;
-        warn-dirty = false;
-        log-lines = 50;
-        sandbox = "relaxed";
-        auto-optimise-store = true;
-        trusted-users = users;
-        allowed-users = users;
-      } // (lib.optionalAttrs config.flowstate.apps.tools.direnv.enable {
-        keep-outputs = true;
-        keep-derivations = true;
-      });
+      settings =
+        {
+          experimental-features = "nix-command flakes";
+          http-connections = 50;
+          warn-dirty = false;
+          log-lines = 50;
+          sandbox = "relaxed";
+          auto-optimise-store = true;
+          trusted-users = users;
+          allowed-users = users;
+        }
+        // (lib.optionalAttrs config.flowstate.apps.tools.direnv.enable {
+          keep-outputs = true;
+          keep-derivations = true;
+        });
 
       gc = {
         automatic = true;

@@ -1,17 +1,22 @@
-{ options, config, pkgs, lib, ... }:
+{
+  options,
+  config,
+  pkgs,
+  lib,
+  ...
+}:
 with lib;
-with lib.flowstate;
-let cfg = config.flowstate.system.env;
+with lib.flowstate; let
+  cfg = config.flowstate.system.env;
 in {
   options.flowstate.system.env = with types;
     mkOption {
-      type = attrsOf (oneOf [ str path (listOf (either str path)) ]);
+      type = attrsOf (oneOf [str path (listOf (either str path))]);
       apply = mapAttrs (n: v:
-        if isList v then
-          concatMapStringSep ":" (x: toString x) v
-        else
-          (toString v));
-      default = { };
+        if isList v
+        then concatMapStringSep ":" (x: toString x) v
+        else (toString v));
+      default = {};
       description = "A set of environment variables to set";
     };
 
@@ -29,8 +34,7 @@ in {
         LESSHISTFILE = "$XDG_CACHE_HOME/less.history";
         WGETRC = "$XDG_CONFIG_HOME/wgetrc";
       };
-      extraInit = concatStringsSep "\n"
-        (mapAttrsToList (n: v: ''export ${n}="${v}"'') cfg);
+      extraInit = concatStringsSep "\n" (mapAttrsToList (n: v: ''export ${n}="${v}"'') cfg);
     };
   };
 }

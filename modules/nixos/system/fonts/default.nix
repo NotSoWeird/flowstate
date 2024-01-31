@@ -22,6 +22,10 @@ in {
         twemoji-color-font
         fira-code
         fira-code-symbols
+        fira
+        fira-go
+        font-awesome
+        font-awesome_5
       ] ++ cfg.fonts;
   };
 }

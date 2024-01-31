@@ -1,11 +1,15 @@
-{ options, config, lib, pkgs, ... }:
+{
+  options,
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 with lib;
-with lib.flowstate;
-let cfg = config.flowstate.system.boot;
+with lib.flowstate; let
+  cfg = config.flowstate.system.boot;
 in {
-  options.flowstate.system.boot = with types; {
-    enable = mkBoolOpt false "Whether or not to enable booting.";
-  };
+  options.flowstate.system.boot = with types; {enable = mkBoolOpt false "Whether or not to enable booting.";};
 
   config = mkIf cfg.enable {
     boot.loader = {
@@ -23,12 +27,14 @@ in {
         efiSupport = true;
         useOSProber = true;
         configurationLimit = 5;
-        theme = pkgs.fetchFromGitHub {
-          owner = "semimqmo";
-          repo = "sekiro_grub_theme";
-          rev = "1affe05f7257b72b69404cfc0a60e88aa19f54a6";
-          sha256 = "02gdihkd2w33qy86vs8g0pfljp919ah9c13cj4bh9fvvzm5zjfn1";
-        } + "/Sekiro";
+        theme =
+          pkgs.fetchFromGitHub {
+            owner = "semimqmo";
+            repo = "sekiro_grub_theme";
+            rev = "1affe05f7257b72b69404cfc0a60e88aa19f54a6";
+            sha256 = "02gdihkd2w33qy86vs8g0pfljp919ah9c13cj4bh9fvvzm5zjfn1";
+          }
+          + "/Sekiro";
       };
     };
   };

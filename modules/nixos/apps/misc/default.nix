@@ -19,10 +19,15 @@ in {
       # Util
       unzip
       sshfs
+      unzip
       bottom
       ffmpeg
       wget
       wl-clipboard
+      ripgrep
+      coreutils # basic GNU utilities
+      clang
+      perl
     ];
   };
 }
