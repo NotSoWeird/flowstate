@@ -61,6 +61,8 @@ in {
       mermaid-cli
       hunspell
       hunspellDicts.sv_SE
+      hunspellDicts.en_US
+      languagetool
       ccls
       zathura
     ];

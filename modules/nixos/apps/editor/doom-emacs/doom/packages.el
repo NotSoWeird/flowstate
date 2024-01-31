@@ -30,7 +30,7 @@
   :recipe (:host github
            :repo "ichernyshovvv/org-timeblock"))
 (package! vulpea)
-
+(package! flyspell-lazy)
 
 
 ;; These packages attempt to build native C code at runtime. Prefer copies

@@ -25,6 +25,7 @@ in {
         fira
         fira-go
         font-awesome
+        font-awesome_5
       ] ++ cfg.fonts;
   };
 }

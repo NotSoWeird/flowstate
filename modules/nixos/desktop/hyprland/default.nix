@@ -191,7 +191,7 @@ in {
 
                 $mainMod = ALT
                 bind = $mainMod SHIFT, F, fullscreen,
-
+                bind = $mainMod SHIFT, L, exec, swaylock
 
                 #bind = $mainMod, RETURN, exec, cool-retro-term-zsh
                 bind = $mainMod, RETURN, exec, kitty
@@ -205,7 +205,6 @@ in {
                 bind = $mainMod, w, exec, rofi -show drun
                 bind = $mainMod, P, pseudo, # dwindle
                 bind = $mainMod, J, togglesplit, # dwindle
-                bind = $mainMod, L, exec, swaylock
 
 
                 bind = , Print, exec, grim -g "$(slurp)" - | wl-copy

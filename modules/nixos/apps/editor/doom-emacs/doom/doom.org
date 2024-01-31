@@ -9,6 +9,7 @@
   - [[#preamble--user-configuration][Preamble + User Configuration]]
   - [[#org-mode-configuration][Org Mode Configuration]]
   - [[#org-roam-configuration][Org Roam Configuration]]
+  - [[#spell-checking][Spell Checking]]
   - [[#latex-config][Latex Config]]
   - [[#org-agenda-configuration][Org Agenda Configuration]]
   - [[#magit-configuration][Magit Configuration]]
@@ -568,9 +569,38 @@ On Wayland, EAF doesn't work.
 
 #+END_SRC
 
-** Latex Config
+
+** Spell Checking
 #+begin_src emacs-lisp :tangle config.el
+
+;;(flyspell-mode 1)
+#+end_src
+
+
+** Latex Config
+#+begin_src emacs-lisp
 (setq +latex-viewers '(zathura))
+(setq TeX-engine-alist '((default
+                          "Tectonic"
+                          "tectonic -X compile -f plain %T"
+                          "tectonic -X watch"
+                          nil)))
+(setq LaTeX-command-style '(("" "%(latex)")))
+(setq TeX-process-asynchronous t
+      TeX-check-TeX nil
+      TeX-engine 'default)
+(let ((tex-list (assoc "TeX" TeX-command-list))
+      (latex-list (assoc "LaTeX" TeX-command-list)))
+  (setf (cadr tex-list) "%(tex)"
+        (cadr latex-list) "%l"))
+(add-hook 'after-change-major-mode-hook
+          (lambda ()
+            (when-let ((project (project-current))
+                       (proot (project-root project)))
+              (when (file-exists-p (expand-file-name "Tectonic.toml" proot))
+                (setq-local TeX-output-dir (expand-file-name "build/index" proot))))))
+
+
 #+end_src
 
 ** Org Agenda Configuration
@@ -1131,7 +1161,7 @@ This section is the [[./init.el][init.el]] section, which controls which Doom mo
 
        :checkers
        syntax              ; tasing you for every semicolon you forget
-       ;;(spell +flyspell) ; tasing you for misspelling mispelling
+       ;;(spell +flyspell +hunspell) ; tasing you for misspelling mispelling
        ;;grammar           ; tasing grammar mistake every you make
 
        :tools
@@ -1295,7 +1325,7 @@ Any git package can be configured for a particular commit or branch:
   :recipe (:host github
            :repo "ichernyshovvv/org-timeblock"))
 (package! vulpea)
-
+(package! flyspell-lazy)
 
 
 ;; These packages attempt to build native C code at runtime. Prefer copies

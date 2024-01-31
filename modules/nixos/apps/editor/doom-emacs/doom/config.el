@@ -467,7 +467,7 @@ tasks."
   (kill-buffer "*httpd*")
 )
 
-(setq +latex-viewers '(zathura))
+;;(flyspell-mode 1)
 
 ;;;------ Org agenda configuration ------;;;
 ;; Set span for agenda to be just daily
