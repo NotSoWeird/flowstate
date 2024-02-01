@@ -7,6 +7,7 @@ in {
     enable = mkBoolOpt false "Enable gcc";
   };
 
-  config =
-    mkIf cfg.enable { environment.systemPackages = with pkgs; [ gcc_multi ]; };
+  config = mkIf cfg.enable {
+    environment.systemPackages = with pkgs; [ gcc_multi bear ];
+  };
 }
