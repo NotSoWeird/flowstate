@@ -469,6 +469,8 @@ tasks."
 
 ;;(flyspell-mode 1)
 
+(set-formatter! 'alejandra "alejandra --quiet" :modes '(nix-mode))
+
 ;;;------ Org agenda configuration ------;;;
 ;; Set span for agenda to be just daily
 (setq org-agenda-span 1

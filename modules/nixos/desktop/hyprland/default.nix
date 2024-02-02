@@ -130,9 +130,9 @@ in {
                   gaps_out = 20
                   border_size = 4
                   no_cursor_warps = false
-                  col.active_border = 0xff'' + config.lib.stylix.colors.base08
-              + "col.inactive_border = 0x33" + config.lib.stylix.colors.base00
-              + ''
+                  col.active_border = 0xff''
+              + config.lib.stylix.colors.base08 "col.inactive_border = 0x33 "
+              + config.lib.stylix.colors.base00 ''
                   layout = dwindle
                 }
 

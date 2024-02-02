@@ -10,6 +10,7 @@
   - [[#org-mode-configuration][Org Mode Configuration]]
   - [[#org-roam-configuration][Org Roam Configuration]]
   - [[#spell-checking][Spell Checking]]
+  - [[#nix-formater][Nix Formater]]
   - [[#latex-config][Latex Config]]
   - [[#org-agenda-configuration][Org Agenda Configuration]]
   - [[#magit-configuration][Magit Configuration]]
@@ -576,6 +577,11 @@ On Wayland, EAF doesn't work.
 ;;(flyspell-mode 1)
 #+end_src
 
+
+** Nix Formater
+#+begin_src emacs-lisp :tangle config.el
+(set-formatter! 'alejandra "alejandra --quiet" :modes '(nix-mode))
+#+end_src
 
 ** Latex Config
 #+begin_src emacs-lisp
