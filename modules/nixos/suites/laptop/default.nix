@@ -65,6 +65,8 @@ in {
           distrobox = enabled;
           gcc = enabled;
           tangram = enabled;
+          freecad = enabled;
+          blender = enabled;
         };
       };
       stylix = enabled;
