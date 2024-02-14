@@ -19,19 +19,12 @@ in {
         configFile."rofi/theme.rasi".source = ./theme.rasi;
         configFile."rofi/colors.rasi".text = ''
           * {
-               background:     #'' + config.lib.stylix.colors.base00 + ''
-            FF;
-               background-alt: #'' + config.lib.stylix.colors.base01 + ''
-              FF;
-                 foreground:     #'' + config.lib.stylix.colors.base05 + ''
-                FF;
-                   selected:       #'' + config.lib.stylix.colors.base08 + ''
-                  FF;
-                     active:         #'' + config.lib.stylix.colors.base04 + ''
-                    FF;
-                       urgent:         #'' + config.lib.stylix.colors.base05
-          + ''
-            FF;
+               background:     #${config.lib.stylix.colors.base00}FF;
+               background-alt: #${config.lib.stylix.colors.base01}FF;
+               foreground:     #${config.lib.stylix.colors.base05}FF;
+               selected:       #${config.lib.stylix.colors.base08}FF;
+               active:         #${config.lib.stylix.colors.base04}FF;
+               urgent:         #${config.lib.stylix.colors.base05}FF;
             }
           '';
       };
