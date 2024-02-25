@@ -16,7 +16,7 @@ in {
         undocked = {
           outputs = [{
             criteria = "eDP-1";
-            scale = 2;
+            scale = 2.0;
             status = "enable";
           }];
         };
