@@ -82,6 +82,9 @@ in {
             extraConfig = ''
               # Monitor
               monitor=eDP-1,3840x2160@60,0x0,2
+              monitor=DP-3,1920x1080@144,1920x0,1
+              monitor=DP-5,3840x2160@60,0x0,2
+              monitor=,preferred,auto,1 #For random monitors
               #monitor = ,preferred,auto,auto
 
               # Fix slow startup

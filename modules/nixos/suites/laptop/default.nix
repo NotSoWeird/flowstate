@@ -66,7 +66,7 @@ in {
           gcc = enabled;
           tangram = enabled;
           freecad = enabled;
-          blender = enabled;
+          #blender = enabled;
         };
       };
       stylix = enabled;
