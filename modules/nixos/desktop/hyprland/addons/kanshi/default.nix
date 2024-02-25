@@ -14,13 +14,11 @@ in {
 
       profiles = {
         undocked = {
-          outputs = [
-            {
-              criteria = "eDP-1";
-              scale = 1.1;
-              status = "enable";
-            }
-          ];
+          outputs = [{
+            criteria = "eDP-1";
+            scale = 2;
+            status = "enable";
+          }];
         };
 
         docked = {
