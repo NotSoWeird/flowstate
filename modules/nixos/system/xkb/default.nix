@@ -15,7 +15,7 @@ in {
     console.useXkbConfig = true;
     services.xserver.xkb = {
       layout = "se";
-      Variant = "";
+      variant = "";
     };
   };
 }
