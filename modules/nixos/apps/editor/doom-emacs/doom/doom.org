@@ -580,7 +580,7 @@ On Wayland, EAF doesn't work.
 
 ** Nix Formater
 #+begin_src emacs-lisp :tangle config.el
-(set-formatter! 'alejandra "alejandra --quiet" :modes '(nix-mode))
+;;(set-formatter! 'alejandra "alejandra --quiet" :modes '(nix-mode))
 #+end_src
 
 ** Latex Config

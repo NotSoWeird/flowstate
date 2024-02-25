@@ -1,55 +1,47 @@
-{ options, config, lib, pkgs, ... }:
+{ options, config, pkgs, lib, inputs, ... }:
 with lib;
 with lib.flowstate;
 let cfg = config.flowstate.desktop.hyprland.addons.kanshi;
 in {
   options.flowstate.desktop.hyprland.addons.kanshi = with types; {
-    enable = mkBoolOpt false "Enable or disable kanshi.";
+    enable = mkBoolOpt false "Enable or disable SWWW";
   };
 
   config = mkIf cfg.enable {
-    environment.systemPackages = with pkgs; [ 
-      swaylock-effects
-    ];
-    flowstate = {
-      home.services.kanshi = {
-        enable = true;
-        systemdTarget = "hyprland-session.target";
+    flowstate.home.extraOptions.services.kanshi = {
+      enable = true;
+      systemdTarget = "hyprland-session.target";
 
-        profiles = {
-          undocked = {
-            outputs = [
-              {
-                criteria = "eDP-1";
-                mode = "3840x2160@60";
-                scale = 2;
-                status = "enable";
-              }
-            ];
-          };
+      profiles = {
+        undocked = {
+          outputs = [
+            {
+              criteria = "eDP-1";
+              scale = 1.1;
+              status = "enable";
+            }
+          ];
+        };
 
-          home_office = {
-            outputs = [
-              {
+        docked = {
+          outputs = [
+            {
               criteria = "BNQ BenQ XL2420G J3F00752SL0";
               position = "3840,0";
-              mode = "1920x1080@144Hz";
-              }
-              {
-                criteria = "AOC U2777B 0x00000048";
-                position = "0,0";
-                mode = "3840x2160@60Hz";
-              }
-              {
-                criteria = "eDP-1";
-                status = "disable";
-              }
-            ];
-          };
+              mode = "1920x1080@144";
+            }
+            {
+              criteria = "AOC U2777B 0x00000048";
+              position = "0,0";
+              mode = "3840x2160@60";
+            }
+            {
+              criteria = "eDP-1";
+              status = "disable";
+            }
+          ];
+        };
+      };
     };
-  };
-
-    };
-    
   };
 }

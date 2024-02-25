@@ -56,6 +56,7 @@ in {
         #fnott = enabled;
         fuzzel = enabled;
         gdm = enabled;
+        kanshi = enabled;
         pyprland = enabled;
         rofi = enabled;
         swaylock = enabled;
