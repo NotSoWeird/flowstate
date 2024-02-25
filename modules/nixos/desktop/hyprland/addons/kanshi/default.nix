@@ -24,12 +24,12 @@ in {
         docked = {
           outputs = [
             {
-              criteria = "BNQ BenQ XL2420G J3F00752SL0";
+              criteria = "DP-3";
               position = "3840,0";
               mode = "1920x1080@144";
             }
             {
-              criteria = "AOC U2777B 0x00000048";
+              criteria = "DP-5";
               position = "0,0";
               mode = "3840x2160@60";
             }
