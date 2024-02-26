@@ -8,10 +8,8 @@ in {
   };
 
   config = mkIf cfg.enable {
-    environment.systemPackages = with pkgs; [ 
-      swaylock-effects
-    ];
-    flowstate = { 
+    environment.systemPackages = with pkgs; [ swaylock-effects ];
+    flowstate = {
       home = {
         #configFile = { 
         #  "swaylock/config".source = ./config; 
@@ -27,7 +25,7 @@ in {
           color=${config.lib.stylix.colors.base00}
           font="${lib.flowstate.setting.font}"
           indicator
-          indicator-radius=200
+          indicator-radius=150
           indicator-thickness=20
           line-color=${config.lib.stylix.colors.base00}
           ring-color=${config.lib.stylix.colors.base01}
@@ -59,6 +57,6 @@ in {
         '';
       };
     };
-    
+
   };
 }
