@@ -442,8 +442,9 @@ tasks."
   (interactive)
   (if (org-roam-file-p)
       (olivetti-mode))
-  (if (org-roam-file-p)
-      (doom-disable-line-numbers-h)))
+  ;;(if (org-roam-file-p)
+  ;;    (doom-disable-line-numbers-h))
+)
 
 (add-hook 'org-mode-hook 'org-roam-olivetti-mode)
 
