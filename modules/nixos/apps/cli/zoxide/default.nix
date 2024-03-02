@@ -8,5 +8,5 @@ in {
   };
 
   config =
-    mkIf cfg.enable { environment.systemPackages = with pkgs; [ zoxide ]; };
+    mkIf cfg.enable { environment.systemPackages = with pkgs; [ zoxide fzf ]; };
 }

@@ -13,6 +13,7 @@ in {
       krabby = enabled;
       onefetch = enabled;
       starship = enabled;
+      zoxide = enabled;
     };
 
     programs.zsh.ohMyZsh.enable = true;
@@ -23,6 +24,7 @@ in {
         oh-my-zsh = { enable = true; };
 
         shellAliases = {
+          cd = "z";
           l = "eza -l --icons";
           ls = "eza -1 --icons";
           ll = "eza -la --icons";
