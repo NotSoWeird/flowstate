@@ -471,6 +471,8 @@ tasks."
 
 ;;(set-formatter! 'alejandra "alejandra --quiet" :modes '(nix-mode))
 
+(typst-ts-mode-watch-options "--open")
+
 ;;;------ Org agenda configuration ------;;;
 ;; Set span for agenda to be just daily
 (setq org-agenda-span 1

@@ -31,6 +31,10 @@
            :repo "ichernyshovvv/org-timeblock"))
 (package! vulpea)
 (package! flyspell-lazy)
+(package! typst-ts-mode
+  :recipe (:type git
+           :host sourcehut
+           :repo "meow_king/typst-ts-mode"))
 
 
 ;; These packages attempt to build native C code at runtime. Prefer copies

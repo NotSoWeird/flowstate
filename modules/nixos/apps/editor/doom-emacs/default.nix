@@ -14,7 +14,10 @@ in {
   };
 
   config = mkIf cfg.enable {
-    flowstate.apps.tools.python3 = enabled;
+    flowstate.apps = {
+      tools.python3 = enabled;
+      cli.treesitter = enabled;
+    };
 
     flowstate.home.programs = {
       emacs = {

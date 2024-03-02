@@ -12,6 +12,7 @@
   - [[#spell-checking][Spell Checking]]
   - [[#nix-formater][Nix Formater]]
   - [[#latex-config][Latex Config]]
+  - [[#typst-config][Typst config]]
   - [[#org-agenda-configuration][Org Agenda Configuration]]
   - [[#magit-configuration][Magit Configuration]]
   - [[#ibuffer-configuration][Ibuffer Configuration]]
@@ -607,6 +608,11 @@ On Wayland, EAF doesn't work.
                 (setq-local TeX-output-dir (expand-file-name "build/index" proot))))))
 
 
+#+end_src
+
+** Typst config
+#+begin_src emacs-lisp :tangle config.el
+(typst-ts-mode-watch-options "--open")
 #+end_src
 
 ** Org Agenda Configuration
@@ -1341,6 +1347,10 @@ Any git package can be configured for a particular commit or branch:
            :repo "ichernyshovvv/org-timeblock"))
 (package! vulpea)
 (package! flyspell-lazy)
+(package! typst-ts-mode
+  :recipe (:type git
+           :host sourcehut
+           :repo "meow_king/typst-ts-mode"))
 
 
 ;; These packages attempt to build native C code at runtime. Prefer copies
