@@ -32,6 +32,13 @@ in {
           firefox = enabled;
           qutebrowser = enabled;
         };
+        cli = {
+          fastfetch = enabled;
+          krabby = enabled;
+          onefetch = enabled;
+          starship = enabled;
+          zoxide = enabled;
+        };
         editor = {
           vscode = enabled;
           doom-emacs = enabled;
@@ -53,7 +60,7 @@ in {
           discord = enabled;
         };
         school = {
-          #cpp = enabled;
+          typst = enabled;
           latex = enabled;
         };
         tools = {
