@@ -612,7 +612,8 @@ On Wayland, EAF doesn't work.
 
 ** Typst config
 #+begin_src emacs-lisp :tangle config.el
-(typst-ts-mode-watch-options "--open")
+
+;;(typst-ts-mode-watch-options "--open")
 #+end_src
 
 ** Org Agenda Configuration
