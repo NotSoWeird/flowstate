@@ -43,7 +43,10 @@ in {
           vscode = enabled;
           doom-emacs = enabled;
         };
-        gaming = { lutris = enabled; };
+        gaming = {
+          lutris = enabled;
+          gamemode = enabled;
+        };
         shell.zsh = enabled;
         terminal = {
           kitty = enabled;
