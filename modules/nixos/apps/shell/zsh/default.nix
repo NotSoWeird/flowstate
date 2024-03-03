@@ -58,6 +58,7 @@ in {
 
       krabby random
 
+      eval "$(zoxide init zsh)"
       eval "$(direnv hook zsh)"
     '';
   };
