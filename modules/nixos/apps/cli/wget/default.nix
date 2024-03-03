@@ -10,6 +10,6 @@ in {
   config = mkIf cfg.enable {
     environment.systemPackages = with pkgs; [ wget ];
 
-    flowstate.home.file.".wgetrc".text = "";
+    flowstate.home.configFile."wgetrc".text = "";
   };
 }
