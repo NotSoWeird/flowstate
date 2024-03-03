@@ -13,6 +13,7 @@
   - [[#nix-formater][Nix Formater]]
   - [[#latex-config][Latex Config]]
   - [[#typst-config][Typst config]]
+  - [[#everywhere-config][Everywhere config]]
   - [[#org-agenda-configuration][Org Agenda Configuration]]
   - [[#magit-configuration][Magit Configuration]]
   - [[#ibuffer-configuration][Ibuffer Configuration]]
@@ -614,6 +615,12 @@ On Wayland, EAF doesn't work.
 #+begin_src emacs-lisp :tangle config.el
 
 ;;(typst-ts-mode-watch-options "--open")
+#+end_src
+
+** Everywhere config
+#+begin_src emacs-lisp :tangle config.el
+(setq emacs-everywhere-frame-name-format "emacs-everywhere")
+(atomic-chrome-start-server)
 #+end_src
 
 ** Org Agenda Configuration
@@ -1287,7 +1294,7 @@ This section is the [[./init.el][init.el]] section, which controls which Doom mo
        :app
        ;;calendar
        ;;emms
-       ;;everywhere        ; *leave* Emacs!? You must be joking
+       everywhere        ; *leave* Emacs!? You must be joking
        ;;irc               ; how neckbeards socialize
        (rss +org)        ; emacs as an RSS reader
        ;;twitter           ; twitter client https://twitter.com/vnought
@@ -1352,7 +1359,7 @@ Any git package can be configured for a particular commit or branch:
   :recipe (:type git
            :host sourcehut
            :repo "meow_king/typst-ts-mode"))
-
+(package! atomic-chrome)
 
 ;; These packages attempt to build native C code at runtime. Prefer copies
 ;; installed by Nix if they exist to avoid having to make GCC globally

@@ -35,7 +35,7 @@
   :recipe (:type git
            :host sourcehut
            :repo "meow_king/typst-ts-mode"))
-
+(package! atomic-chrome)
 
 ;; These packages attempt to build native C code at runtime. Prefer copies
 ;; installed by Nix if they exist to avoid having to make GCC globally

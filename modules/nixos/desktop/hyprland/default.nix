@@ -199,7 +199,7 @@ in {
               #bind = $mainMod, RETURN, exec, cool-retro-term-zsh
               bind = $mainMod, RETURN, exec, kitty
               bind = $mainMod, F, exec, firefox
-              bind = $mainMod, E, exec, emacsclient -r
+              bind = $mainMod, E, exec, emacsclient --eval "(emacs-everywhere)"
               bind = $mainMod, O, exec, wallpaper_random
               bind = $mainMod, Q, killactive,
               bind = $mainMod, M, exit,

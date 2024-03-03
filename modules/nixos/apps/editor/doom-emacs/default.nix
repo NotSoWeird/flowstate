@@ -68,6 +68,7 @@ in {
       languagetool
       ccls
       zathura
+      pandoc
     ];
 
     flowstate.home.configFile."doom/" = {

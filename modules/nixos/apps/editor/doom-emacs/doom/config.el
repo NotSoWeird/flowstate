@@ -473,6 +473,9 @@ tasks."
 
 ;;(typst-ts-mode-watch-options "--open")
 
+(setq emacs-everywhere-frame-name-format "emacs-everywhere")
+(atomic-chrome-start-server)
+
 ;;;------ Org agenda configuration ------;;;
 ;; Set span for agenda to be just daily
 (setq org-agenda-span 1
