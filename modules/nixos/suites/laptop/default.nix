@@ -37,6 +37,7 @@ in {
           krabby = enabled;
           onefetch = enabled;
           starship = enabled;
+          wget = enabled;
           zoxide = enabled;
         };
         editor = {
