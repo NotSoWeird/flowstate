@@ -10,6 +10,7 @@ in {
   config = mkIf cfg.enable {
     environment.systemPackages = with pkgs; [
       lutris
+      wineWow64Packages.waylandFull
       # Needed for some installers like League of Legends
       openssl
       gnome.zenity
