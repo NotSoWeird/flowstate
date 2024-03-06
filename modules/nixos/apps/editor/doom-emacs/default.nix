@@ -30,7 +30,7 @@ in {
             emacsql-sqlite
             pdf-tools
             vterm
-            treesit-grammars.with-all-grammarr
+            treesit-grammars.with-all-grammars
           ];
       };
     };
