@@ -43,6 +43,9 @@ in {
             direnv allow'';
           #wallpaper_random = "swww img $(find ~/Pictures/wallpapers/. -regex '.*\(.png\|.jpg\)$'  | shuf -n1) --transition-type random";
           doom = "~/.config/emacs/bin/doom";
+          enable_monitor =
+            ''hyprctl keyword monitor "eDP-1, 3840x2160@60, 0x0, 2"'';
+          disable_monitor = ''hyprctl keyword monitor "eDP-1, disable"'';
         };
 
         enableAutosuggestions = true;

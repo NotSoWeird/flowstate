@@ -89,9 +89,9 @@ in {
               #monitor = ,preferred,auto,auto
 
               # trigger when the switch is turning on
-              bindl=,switch:on:Lid Switch,exec,hyprctl keyword monitor "eDP-1, 3840x2160@60, 0x0, 2"
+              # bindl=,switch:on:Lid Switch,exec,hyprctl keyword monitor "eDP-1, 3840x2160@60, 0x0, 2"
               # trigger when the switch is turning off
-              bindl=,switch:off:Lid Switch,exec,hyprctl keyword monitor "eDP-1, disable"
+              # bindl=,switch:off:Lid Switch,exec,hyprctl keyword monitor "eDP-1, disable"
 
 
               # Fix slow startup
