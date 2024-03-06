@@ -213,7 +213,7 @@ in {
               bind = $mainMod, V, togglefloating,
               bind = $mainMod, w, exec, rofi -show drun
               bind = $mainMod, P, pseudo, # dwindle
-              bind = $mainMod, J, togglesplit, # dwindle
+              #bind = $mainMod, J, togglesplit, # dwindle
 
 
               bind = , Print, exec, grim -g "$(slurp)" - | wl-copy
@@ -239,7 +239,7 @@ in {
               bind = $mainMod, k, movefocus, u
               bind = $mainMod, j, movefocus, d
 
-              # Move window in workspace with mainMod + CTRL + hjkl
+              # Move window in workspace with mainMod + arrowkeys
               bind = $mainMod, left, swapwindow, l
               bind = $mainMod, right, swapwindow, r
               bind = $mainMod, up, swapwindow, u
