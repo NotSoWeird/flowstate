@@ -65,6 +65,7 @@ in {
           discord = enabled;
         };
         school = {
+          anki = enabled;
           typst = enabled;
           latex = enabled;
         };

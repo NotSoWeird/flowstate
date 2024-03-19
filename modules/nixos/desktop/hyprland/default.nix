@@ -116,7 +116,7 @@ in {
               exec-once = wallpaper_random
               exec = pkill waybar & sleep 0.5 && waybar
 
-              exec-once = swayidle -w timeout 90 'swaylock' timeout 210 'suspend-unless-render' resume '$hyprctl dispatch dpms on' before-sleep "swaylock"
+              exec-once = swayidle -w timeout 300 'swaylock' timeout 420 'suspend-unless-render' resume '$hyprctl dispatch dpms on' before-sleep "swaylock"
 
               # Input config
               input {
